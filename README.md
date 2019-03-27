@@ -1,32 +1,36 @@
-OpenSoku
-========
+# OpenSoku
+An -open source- implementation of the fighting game Touhou Hisoutensoku 12.3, developed by Twilight Frontier.
 
-Not stable api
+## Getting started
 
+Follow the instructions below to get a --working-- copy of this project up and running.
+(Note: I'm only working on the linux build for the moment.)
 
-OpenSoku
+### Prerequisites
 
-First steps: http://www.youtube.com/watch?v=GgN6UvbIjVc (old)
+1. You will need all the .dat files from both Touhou 10.5 (Scarlet Weather Rhapsody) and Touhou 12.3 (Hisoutensoku).
+2. You will need SFML 2.0 (or above).
 
-(2012-08-30): http://www.youtube.com/watch?v=CmOfrrXzNVI
+### Compiling
 
-2012-12-06: http://www.youtube.com/watch?v=gTxDvd64Ktg
+## Linux
 
-2012-12-12: http://www.youtube.com/watch?v=TESh097e_ms
+1. In order to compile the project, you first cd in the src directory,
+```
+cd src
+```
+2. Afterwards, you simply run make.
+```
+make
+```
+This will build opensoku for linux.
 
-2012-12-31: http://www.youtube.com/watch?v=9ZnOTxD1FHI
+## Windows
+(coming soon?)
 
-utsuho shader: http://www.youtube.com/watch?v=uj0uL9JWvT8
+# License
 
+This project is licensed under GPLv2.
 
-
-License: GPLv2
-
-
-For build you need sfml-2.0 or above
-
- cd src
- 
- make         //for linux
- 
- make win32   //for windows building by mingw crosscompile
+# Authors
+The initial work for this project was done by [Marisa-Chan](https://github.com/Marisa-Chan) .
