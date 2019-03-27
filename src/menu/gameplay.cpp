@@ -10,6 +10,7 @@ screen_gameplay::screen_gameplay()
 id_screen screen_gameplay::update()
 {
     int32_t t = scene->update();
+    //"VS player" Menu that appears when you press START
     switch (t)
     {
     case 1:

@@ -7,7 +7,9 @@
 #include "../file_read.h"
 #include "../archive.h"
 #include "utsuho.h"
+/* ============================================= */
 
+//Utsuho's cape shader
 const char *utsuho_ps = "\
 uniform sampler2D base;\
 uniform sampler2D tex;\
@@ -36,6 +38,17 @@ char_utsuho::char_utsuho(inp_ab *func, uint8_t pal):
     char_id = CHAR_ID_UTSUHO;
     pgp->load_dat("utsuho",pal);
     char_loadsfx("utsuho");
+
+    /*
+     * Experimental!
+     */
+    cards_load_cards(&chr_cards,"utsuho");
+    load_face("utsuho");
+    load_spells("utsuho");
+    stand_gfx->init(this,"utsuho");
+
+ /* ============================================= */
+
     filehandle *f = arc_get_file("data/character/utsuho/backA000.cv2");
 
     if (f)
@@ -88,8 +101,9 @@ void char_utsuho::func10()
     x_delta = 0;
     y_delta = 106;
 
+   // if(LOBYTE(controlling_type) == 2)
 
-    if ( hit_stop != 0 /*|| enemy->time_stop != 0 */)
+    if ( hit_stop != 0 || enemy->time_stop != 0 )
         return;
 
     int32_t sq = get_seq();
@@ -543,6 +557,7 @@ void char_utsuho::func20()
         }
         if ( field_84C == 0 && cc )
         {
+            
         }
     }
 }

@@ -14,7 +14,8 @@ static gr_events poller;
 
 void gr_init(uint32_t width, uint32_t height, const char *caption, gr_events pollers)
 {
-    window = new sf::RenderWindow(sf::VideoMode(width,height), caption);
+    //Disabled manual window resizing
+    window = new sf::RenderWindow(sf::VideoMode(width,height), caption, sf::Style::Titlebar | sf::Style::Close);
 
     window->setFramerateLimit(60);
 

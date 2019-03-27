@@ -5,6 +5,7 @@
 #include "../scene.h"
 #include "../bullets.h"
 #include "alice.h"
+#include <math.h>
 
 char_alice::char_alice(inp_ab *func, uint8_t pal):
     char_c::char_c(func)

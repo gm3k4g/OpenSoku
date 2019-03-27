@@ -5,6 +5,7 @@
 #include "meta.h"
 #include "character_def.h"
 #include "scene.h"
+#include <math.h>
 
 
 c_meta::c_meta(Char_SeqData *_pgp)

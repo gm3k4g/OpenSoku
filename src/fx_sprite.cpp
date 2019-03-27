@@ -5,7 +5,7 @@
 #include "scene_fx.h"
 
 
-sc_fx_sprite::sc_fx_sprite()
+sc_fx_sprite::sc_fx_sprite(){}
 {
     sprite  = gr_create_sprite();
     pframe  = NULL;

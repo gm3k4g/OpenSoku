@@ -3,6 +3,7 @@
 #include "../input.h"
 #include "../gui.h"
 #include "menus.h"
+#include <cmath>
 
 
 screen_title::screen_title()
@@ -131,6 +132,7 @@ screen_main::~screen_main()
 
 }
 
+//Update (every tick?)
 id_screen screen_main::update()
 {
 
@@ -147,13 +149,49 @@ id_screen screen_main::update()
             title_stage++;
         else
         {
+            //Title menu submenus
             switch (title_punkt)
             {
+                /*
+            //Story mode
+            case 0:
+                return SCREEN_STORY_MODE;
+            //Arcade mode
+            case 1:
+                return SCREEN_ARCADE_MODE;
+            //VS Com
+            case 2:
+                return SCREEN_VS_COM;
+                */
+            //VS Player
             case 3:
-                return SCREEN_GAMEPLAY;
-
+                return SCREEN_GAMEPLAY; //return SCREEN_VS_PLAYER;
+            /*
+            //VS Network
+            case 4:
+                return SCREEN_VS_NETWORK;
+            //Practice
+            case 5:
+                return SCREEN_PRACTICE;
+            //Replay
+            case 6:
+                return SCREEN_REPLAY;
+            //Musicroom
+            case 7:
+                return SCREEN_MUSICROOM;
+            //Result
+            case 8:
+                return SCREEN_RESULT;
+            //Profile
+            case 9:
+                return SCREEN_PROFILE;
+            //Config (Settigs)
+            case 10:
+                return SCREEN_CONFIG
+            */
+            //Exit
             case 11:
-                return SCREEN_UNK;
+                return SCREEN_UNK; //return SCREEN_EXIT;
 
             default:
                 break;

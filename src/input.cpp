@@ -818,8 +818,21 @@ void inp_kb::load_profile(s_profile * prof)
     map[INP_ST]    = prof->kbd.START;
 }
 
+//Default controls
 void inp_kb::load_def_profile()
 {
+    map[INP_UP]    = kC_Up;
+    map[INP_DOWN]  = kC_Down;
+    map[INP_LEFT]  = kC_Left;
+    map[INP_RIGHT] = kC_Right;
+    map[INP_A]     = kC_D;
+    map[INP_B]     = kC_F;
+    map[INP_C]     = kC_G;
+    map[INP_D]     = kC_C;
+    map[INP_AB]    = kC_V;
+    map[INP_BC]    = kC_X;
+    map[INP_ST]    = kC_Return;
+    /* Preserved!
     map[INP_UP]    = kC_Up;
     map[INP_DOWN]  = kC_Down;
     map[INP_LEFT]  = kC_Left;
@@ -831,6 +844,7 @@ void inp_kb::load_def_profile()
     map[INP_AB]    = kC_S;
     map[INP_BC]    = kC_D;
     map[INP_ST]    = kC_Q;
+    */
 }
 
 

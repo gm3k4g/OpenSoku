@@ -23,6 +23,6 @@ enum RENDER_PLANE
     PLANE_BKG = 2
 };
 
-#include "settings.h"
+#include "menu/settings.h"
 
 #endif // GLOBAL_TYPES_H_INCLUDED

@@ -59,7 +59,7 @@ pause_menu::pause_menu(c_scene *scn)
 
 pause_menu::~pause_menu()
 {
-
+    this->scene = NULL;
 }
 
 

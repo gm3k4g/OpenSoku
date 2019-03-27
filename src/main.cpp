@@ -67,13 +67,18 @@ int main(int argc, char *argv[])
 
 
     // Start the game loop
-    //arc_add_dat("th105a.dat");
-    //arc_add_dat("th105b.dat");
-    //arc_add_dat("th105c.dat");
-    //arc_add_dat("th123a.dat");
-    //arc_add_dat("th123b.dat");
-    //arc_add_dat("th123c.dat");
+    /*
+    arc_add_dat("th105a.dat");
+    arc_add_dat("th105b.dat");
+    arc_add_dat("th105c.dat");
+    arc_add_dat("th123a.dat");
+    arc_add_dat("th123b.dat");
+    arc_add_dat("th123c.dat");
+    
 
+    /*
+     * All the necessary initializations
+     */
     key_matrix_init();
 
     gr_events pollers;
@@ -83,42 +88,48 @@ int main(int argc, char *argv[])
     sfx_init();
     scene_load_sounds();
 
-     //playmusic();
+    /*
+     * Play music
+     */
+    //playmusic();
 
     bullets_init_common();
 
-    char_c *marisa = new char_cirno(inp_createinput(INP_TYPE_BOTH));
+    /* Player 1 */
+    char_c *player1 = new char_suika(inp_createinput(INP_TYPE_BOTH));
 
+
+    /* Set profiles here */
     sprintf(buf,"%s/profile/profile1p.pf",path);
     s_profile *prof = profile_load_from_file(buf);
     sprintf(buf,"%s/profile/profile2p.pf",path);
     s_profile *prof2 = profile_load_from_file(buf);
     if (prof)
     {
-        marisa->set_input_profile(prof);
-        marisa->set_cards_deck(prof,0);
+        player1->set_input_profile(prof);
+        player1->set_cards_deck(prof,0);
     }
 
-
-    char_c *alice = new char_alice(inp_createinput(INP_TYPE_KB),7);
+    /* Player2 */
+    char_c *player2 = new char_alice(inp_createinput(INP_TYPE_KB),7);
 
     if (prof2)
     {
-        alice->set_cards_deck(prof2,0);
-        alice->set_input_profile(prof2);
+        player2->set_cards_deck(prof2,0);
+        player2->set_input_profile(prof2);
     }
 
-//    uint32_t i = 0;
+    uint32_t i = 0;
 //
 
     inp_both *inp = get_global_input();
 
-    marisa->set_seq(0);
-    alice->set_seq(0);
+    player1->set_seq(0);
+    player2->set_seq(0);
     srand(time(NULL));
     background  *bkg = bkg_create(17);
 
-    scene_new_scene(bkg,marisa,alice);
+    scene_new_scene(bkg,player1,player2);
 
 //    int32_t ii = 0;
     int32_t aa = 0;
@@ -127,17 +138,24 @@ int main(int argc, char *argv[])
     weather_change(WEATHER_CLEAR,1);
     weather_time_set(0);
 
-    marisa->add_card(107);
-    marisa->add_card(108);
-    marisa->add_card(111);
-    marisa->add_card(105);
-    marisa->add_card(106);
+    /* Give player 1 some cards */
+    player1->add_card(107);
+    player1->add_card(108);
+    player1->add_card(111);
+    player1->add_card(105);
+    player1->add_card(106);
 
-    alice->add_card();
-    alice->add_card();
+    player2->add_card();
+    player2->add_card();
 
 
+    //The screen initialization
     screen *scr = NULL;
+
+    /*  Experimental ! */
+
+    //id_screen scr_id_menu = SCREEN_MENU
+    //id_screen scr_id_title = SCREEN_TITLE
     id_screen scr_id = SCREEN_UNK;
     id_screen scr_next_id = SCREEN_GAMEPLAY;
 
@@ -153,6 +171,9 @@ int main(int argc, char *argv[])
 
         inp->update(true);
 
+        /*
+         * Press F1 to close the game
+         */
         if (inp->rawPressed(kC_F1))
             game_run = false;
 
@@ -160,7 +181,7 @@ int main(int argc, char *argv[])
         if (aa > 10 && inp->rawPressed(kC_Q))
         {
             aa = 0;
-            marisa->add_card(bb+100);
+            player1->add_card(bb+100);
             //weather_time_set(999);
             //weather_change((WEATHER_ID)bb,true);
 

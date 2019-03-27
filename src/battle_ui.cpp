@@ -1,5 +1,6 @@
 #include "global_types.h"
 #include "battle_ui.h"
+#include <cmath>
 
 btl_ui * battle_ui = NULL;
 

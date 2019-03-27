@@ -406,7 +406,10 @@ void menu_fader::draw_context()
 
         menuProfile.setColor(context_alpha, 255,255,255);
         menuProfile.draw_all(PLANE_GUI);
-        /*if ( get_huge_var() && byte_887435 ) //HACK DRAW NAMES
+
+        /*
+        //:(
+        if ( get_huge_var() && byte_887435 ) //HACK DRAW NAMES
         {
           v12 = (graph_2dui **)get_huge_var()->imgs;
           v4 = (char *)&get_huge_var()->imgs[1];
@@ -430,7 +433,10 @@ void menu_fader::draw_context()
           ((void (__thiscall *)(graph_2dui **, signed int))(*v6)->tex_id)(v6, -1);
           ++v5;
         }
-        while ( v5 < 2 );*/
+        while ( v5 < 2 );
+
+        //:(
+        */
         if ( !menu_stack.empty() )
             menu_stack.back()->draw();
     }
