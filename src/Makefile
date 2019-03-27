@@ -46,6 +46,12 @@ OBJS = 	archive.o\
 		mt.o\
 		music.o\
 		scene.o\
+	 		chars/suwako.o\
+	 		chars/reisen.o\
+	 		chars/aya.o\
+	 		chars/komachi.o\
+	 		chars/iku.o\
+			chars/tenshi.o\
 			chars/alice.o\
 			chars/marisa.o\
 			chars/marisa_bullets.o\
@@ -54,6 +60,15 @@ OBJS = 	archive.o\
 			chars/cirno_bullets.o\
 			chars/utsuho.o\
 			chars/suika.o\
+			chars/yukari.o\
+			chars/yuyuko.o\
+			chars/remilia.o\
+			chars/youmu.o\
+			chars/patchouli.o\
+			chars/sakuya.o\
+			chars/reimu.o\
+			chars/sanae.o\
+			chars/meiling.o\
 		\
 			menu/settings.o\
 			menu/menus.o\
@@ -90,42 +105,24 @@ MKDIR = mkdir "build" -p
 
 
 # === Character list in order ===
-# chars/suika.o\
 # chars/suika_bullets.o\
-# chars/yukari.o\
+# chars/utsuho_bullets.o\
 # chars/yukari_bullets.o\
-# chars/yuyuko.o\
 # chars/yuyuko_bullets.o\
-# chars/remilia.o\
 # chars/remilia_bullets.o\
-# chars/youmu.o\
 # chars/youmu_bullets.o\
-# chars/patchouli.o\
 # chars/patchouli_bullets.o\
-# ..alice
-# chars/sakuya.o\
 # chars/sakuya_bullets.o\
-# ..marisa
-# chars/reimu.o\
 # chars/reimu_bullets.o\
-# chars/sanae.o\
 # chars/sanae_bullets.o\
-# ..cirno
-# chars/meiling.o\
 # chars/meiling_bullets.o\
-# ..utsuho
-# chars/suwako.o\
 # chars/suwako_bullets.o\
-# chars/reisen.o\
 # chars/reisen_bullets.o\
-# chars/aya.o\
 # chars/aya_bullets.o\
-# chars/komachi.o\
 # chars/komachi_bullets.o\
-# chars/iku.o\
 # chars/iku_bullets.o\
-# chars/tenshi.o\
 # chars/tenshi_bullets.o\
+
 
 
 #==================================================
