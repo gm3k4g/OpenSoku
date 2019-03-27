@@ -30,7 +30,7 @@ This will build opensoku for linux.
 
 # License
 
-This project is licensed under GPLv2.
+This project is licensed under GPLv2. For more details, check the file [LICENSE.md](LICENSE.md)
 
 # Authors
 The initial work for this project was done by [Marisa-Chan](https://github.com/Marisa-Chan) .
