@@ -4,7 +4,10 @@
 class char_suika: public char_c
 {
 public:
-
+	float field_138;
+	int16_t field_890;
+	int16_t field_892;
+	int16_t field_894;
 
 	char_suika(inp_ab *func,uint8_t pal = 0);
 
@@ -12,7 +15,7 @@ public:
 	//void func20();
 	//void func24();
 	void init_vars();
-	//void set_seq_params();
+	void set_seq_params();
 	//c_bullet *new_bullet();
 };
 
