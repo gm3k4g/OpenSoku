@@ -34,7 +34,17 @@ c_bullet *char_suika::new_bullet()
 */
 void char_suika::func10()
 {
+	x_delta = 0;
+	y_delta = 80;
 
+	/*
+	if ( v2 > 0) {
+		field_890 = v2 - 1;
+		if (health <= 0 || field_890 = 0) {
+			char_c::spell_energy_spend(enemy,2,30);
+		}
+	}
+	*/
 }
 /*
 void char_suika::func20()
