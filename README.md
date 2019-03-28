@@ -8,8 +8,34 @@ Follow the instructions below to get a --working-- copy of this project up and r
 
 ### Prerequisites
 
-1. You will need all the .dat files from both Touhou 10.5 (Scarlet Weather Rhapsody) and Touhou 12.3 (Hisoutensoku).
-2. You will need SFML 2.0 (or above).
+* You will need all the .dat files from both Touhou 10.5 (Scarlet Weather Rhapsody) and Touhou 12.3 (Hisoutensoku)
+###       1. In order to make this work, you will need to take all the .dat files.
+```
+  th105a.dat
+  th105b.dat
+  th105c.dat
+  th123a.dat
+  th123b.dat
+  th123c.dat
+```
+Once you get them, just put them inside **src/build**. They will have to be in there since the executable is created inside the **src/build** folder.
+          
+###         2.You'll need to have a **src/build/profile** directory in order to be able to control the characters.
+Just take these from your own Hisoutensoku **profile** folder, and rename them accordingly to
+```
+profile1.pf
+profile2.pf
+```
+Then, put them inside the **src/build/profile** folder, and you're set.
+(This may most likely change later on.)
+
+* You will need SFML 2.0 (or above).
+###     1. Installing SFML 2.0 (or above)
+* On debian systems, simply open up a terminal and type the following
+```
+sudo apt-get install libsfml-dev
+```
+This will install the required files for SFML.
 
 ### Compiling
 
