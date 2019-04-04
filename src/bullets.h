@@ -16,6 +16,10 @@ class c_bullet : public c_meta
     friend class marisa_bullets;
     friend class alice_bullets;
 
+    //Unknown from here onwards
+    //friend class namazu_bullets;
+
+
 protected:
 
 
@@ -91,5 +95,8 @@ Char_SeqData *bullets_get_common();
 #include "chars/marisa_bullets.h"
 #include "chars/alice_bullets.h"
 #include "chars/cirno_bullets.h"
+#include "chars/meiling_bullets.h"
+/* Unknown from here onwards */
+#include "chars/namazu_bullets.h"
 
 #endif // BULLETS_H_INCLUDED

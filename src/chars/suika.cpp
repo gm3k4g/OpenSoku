@@ -43,76 +43,6 @@ void char_suika::func10()
 	x_delta = 0;
 	y_delta = 80;
 
-	//signed int v3 = 2;
-/*
-	if (field_890 > 0) {
-		field_890 -= 1;
-		if( health <=0 || enemy->health <= 0)
-			field_890 = 0;
-		spell_energy_spend(2, 30); //(enemy, 2, 30);
-	}
-
-	if( field_892 > 0 ) {
-		field_890 = field_892 - 1;
-		if(health <= 0 || enemy->health <= 0)
-			field_892 = 0;
-		field_534 *= 0.5;
-	}
-
-	/*
-	  if ( v1->field_894 )
-  {
-    v5 = v1->char_c.meta.cEffectSprite.y;
-    if ( c_meta::getlvl_height(&v1->char_c) >= v5 && !(v1->char_c.meta.current_frame_params->fflags & 4) )
-      v1->field_894 = 0;
-  }
-	*/
-/*
-	if ( get_seq() == 501 ) {
-		get_subseq();
-		if( get_subseq() <= 1 || get_subseq() == 2 && get_frame() <= 4) {
-			//Skills
-			float tmp[3];
-			skills_1[0];
-
-			tmp[0] = 0.0;
-			if( skills_1[0] >= 1 )
-				tmp[1] = 250.0;
-			if (skills_1[0] >= 3 )
-				tmp[2] = 500.0;
-			if (skills_1[0] >= 4 )
-				tmp[3] = 750.0;
-			if (tmp[3] > field_188)
-				field_538 = 0.0;
-		}
-	}
-
-	if (hit_stop && enemy->time_stop == 0) {
-		if(get_seq() <= 300) {
-			if( get_seq() == 300 ) {
-				sub10func();
-					if( get_frame() == 0) {
-						h_inerc -= 0.5;
-					}
-				if (h_inerc < 0.0) {
-					h_inerc = 0.0;
-					field_49A = 0;
-				}
-				if (process())
-					set_seq_params();
-				if (get_frame_time() == 0) {
-					if (get_frame() == 3)
-						h_inerc = 4.0;
-				if (get_frame_time() && get_frame() == 4) {
-					scene_play_sfx(28);
-					field_49A = 0;
-					}
-				}
-			}
-		}
-	}
-	else { */
-		//signed int v9;
 		int32_t sq = get_seq();
 
 		//Some things to do with the character's main stuff
@@ -223,7 +153,7 @@ void char_suika::func10()
 						get_frame() 		== 0 &&
 						get_elaps_frames()	== 0) {
 					v_inerc = 16.0;
-					v_force = 0.7;
+					v_force = 0.1;
 					//field_49A = 0;
 				}
 				break;
@@ -246,7 +176,6 @@ void char_suika::func10()
 						break;
 					}
 				}
-
 				process();
 
 				if (get_subseq()		== 1 &&

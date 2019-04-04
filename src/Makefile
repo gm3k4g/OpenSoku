@@ -68,7 +68,10 @@ OBJS = 	archive.o\
 			chars/sakuya.o\
 			chars/reimu.o\
 			chars/sanae.o\
+			chars/namazu.o\
+			chars/namazu_bullets.o\
 			chars/meiling.o\
+			chars/meiling_bullets.o\
 		\
 			menu/settings.o\
 			menu/menus.o\
@@ -122,6 +125,10 @@ MKDIR = mkdir "build" -p
 # chars/komachi_bullets.o\
 # chars/iku_bullets.o\
 # chars/tenshi_bullets.o\
+# !!!!!!!!!!!!!!!!!
+# WE DO NOT KNOW IF THE CHARACTER BELOW IS POSSIBLE
+# chars/namazu.o\
+# chars/namazu_bullets.o\
 
 
 
@@ -146,6 +153,12 @@ MKDIR = mkdir "build" -p
 #-o 		---: Generate object file.
 #==================================================
 #Linux build v0.01
+# Changelog: Initial creation of the linux makefile code!
+#=================
+#Linux build v0.02
+# Changelog:
+#	-Now creating "src/build" to avoid makefile errors
+#------------
 #Experimental!
 #Build everything
 linux: $(OBJS)
@@ -232,6 +245,22 @@ chars/utsuho.o: chars/utsuho.cpp
 #Build "chars/suika.cpp"
 chars/suika.o: chars/suika.cpp
 	$(CXX) -c "chars/suika.cpp" -o chars/suika.o
+
+#Build "chars/namazu.cpp"
+chars/namazu.o: chars/namazu.cpp
+	$(CXX) -c "chars/namazu.cpp" -o chars/namazu.o
+
+#Build "chars/namazu_bullets.cpp"
+chars/namazu_bullets.o: chars/namazu_bullets.cpp
+	$(CXX) -c "chars/namazu_bullets.cpp" -o chars/namazu_bullets.o
+
+#Build "chars/meiling.cpp"
+chars/meiling.o: chars/meiling.cpp
+	$(CXX) -c "chars/meiling.cpp" -o chars/meiling.o
+
+#Build "chars/meiling_bullets.cpp"
+chars/meiling_bullets.o: chars/meiling_bullets.cpp
+	$(CXX) -c "chars/meiling_bullets.cpp" -o chars/meiling_bullets.o
 
 #Build "menu/menus.cpp"
 menu/menus.o: menu/menus.cpp

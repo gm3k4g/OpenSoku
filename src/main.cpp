@@ -96,8 +96,7 @@ int main(int argc, char *argv[])
     bullets_init_common();
 
     /* Player 1 */
-    char_c *player1 = new char_suika(inp_createinput(INP_TYPE_BOTH));
-
+    char_c *player1 = new char_namazu(inp_createinput(INP_TYPE_BOTH),1);
 
     /* Set profiles here */
     sprintf(buf,"%s/profile/profile1p.pf",path);
@@ -111,7 +110,7 @@ int main(int argc, char *argv[])
     }
 
     /* Player2 */
-    char_c *player2 = new char_alice(inp_createinput(INP_TYPE_KB),7);
+    char_c *player2 = new char_cirno(inp_createinput(INP_TYPE_KB));
 
     if (prof2)
     {
