@@ -745,7 +745,9 @@ void char_namazu::func20()
 	if ( check_AB_pressed() )
 		return;
 
-	if ( cc || cu )
+	if ( cc || cu ) {
+		
+	}
 }
 
 
