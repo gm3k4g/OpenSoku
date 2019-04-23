@@ -14,7 +14,7 @@ public:
 
 	char_namazu(inp_ab *func,uint8_t pal = 0);
 
-	void sub_5586E0();
+	//void sub_5586E0();
 	void func10();
 	void func20();
 	//void func24();
