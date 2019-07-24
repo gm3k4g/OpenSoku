@@ -1,0 +1,1148 @@
+void __thiscall char_namazu::func20(char_namazu *this)
+{
+  char_namazu *v1; // esi
+  __int32 v2; // ebx
+  __int32 v3; // edi
+  unsigned int v4; // eax
+  signed int v5; // ebp
+  _BOOL1 v6; // zf
+  unsigned int v7; // eax
+  __int16 v8; // bp
+  __int16 v9; // cx
+  int v10; // eax
+  __int16 v11; // cx
+  int v12; // eax
+  __int16 v13; // ax
+  __int16 v14; // ax
+  __int16 v15; // ax
+  __int16 v16; // ax
+  __int16 v17; // ax
+  __int16 v18; // ax
+  __int16 v19; // ax
+  __int16 v20; // ax
+  __int16 v21; // ax
+  __int16 v22; // ax
+  __int16 v23; // ax
+  __int16 v24; // ax
+  __int16 v25; // ax
+  __int16 v26; // ax
+  __int16 v27; // ax
+  __int16 v28; // ax
+  __int16 v29; // ax
+  __int16 v30; // ax
+  __int16 v31; // cx
+  int v32; // eax
+  __int16 v33; // cx
+  int v34; // eax
+  int v35; // eax
+  __int16 v36; // ax
+  __int16 v37; // ax
+  __int16 v38; // ax
+  __int16 v39; // ax
+  __int16 v40; // ax
+  __int16 v41; // ax
+  __int16 v42; // ax
+  __int16 v43; // ax
+  unsigned int v44; // eax
+  unsigned int v45; // eax
+  char v46; // al
+  __int16 v47; // cx
+  int v48; // eax
+  void (__thiscall *v49)(c_meta *, int); // edx
+  int v50; // eax
+  char_c_vtbl *v51; // edx
+  __int16 v52; // cx
+  int v53; // eax
+  int v54; // eax
+  char_c_vtbl *v55; // eax
+  char_c_vtbl *v56; // eax
+  int v57; // eax
+  char_c_vtbl *v58; // eax
+  __int16 v59; // cx
+  int v60; // eax
+  int v61; // eax
+  char_c_vtbl *v62; // eax
+  int v63; // eax
+  __int16 v64; // ax
+  char_c_vtbl *v65; // eax
+  char_c_vtbl *v66; // eax
+  float v67; // ST24_4
+  float v68; // ST24_4
+  __int16 v69; // cx
+  int v70; // eax
+  char_c_vtbl *v71; // edx
+  __int16 v72; // cx
+  int v73; // eax
+  char_c_vtbl *v74; // edx
+  __int16 v75; // cx
+  int v76; // eax
+  char_c_vtbl *v77; // edx
+  char_c_vtbl *v78; // edx
+  int v79; // eax
+  void (__thiscall *v80)(c_meta *, int); // edx
+  __int16 v81; // cx
+  int v82; // eax
+  void (__thiscall *v83)(c_meta *, int); // edx
+  int v84; // eax
+  int v85; // eax
+  void (__thiscall *v86)(c_meta *, int); // edx
+  int v87; // eax
+  __int16 v88; // cx
+  int v89; // eax
+  void (__thiscall *v90)(c_meta *, int); // edx
+  int v91; // eax
+  void (__thiscall *v92)(c_meta *, int); // edx
+  __int16 v93; // cx
+  int v94; // eax
+  void (__thiscall *v95)(c_meta *, int); // edx
+  unsigned int v96; // eax
+  char v97; // al
+  __int16 v98; // cx
+  int v99; // eax
+  void (__thiscall *v100)(c_meta *, int); // edx
+  int v101; // eax
+  int v102; // eax
+  void (__thiscall *v103)(c_meta *, int); // edx
+  int v104; // eax
+  void (__thiscall *v105)(c_meta *, int); // edx
+  __int16 v106; // cx
+  int v107; // eax
+  void (__thiscall *v108)(c_meta *, int); // edx
+  int v109; // eax
+  int v110; // eax
+  void (__thiscall *v111)(c_meta *, int); // edx
+  void (__thiscall *v112)(c_meta *, int); // edx
+  __int16 v113; // cx
+  int v114; // eax
+  void (__thiscall *v115)(c_meta *, int); // edx
+  __int16 v116; // [esp+Ch] [ebp-8h]
+  __int32 v117; // [esp+10h] [ebp-4h]
+
+  v1 = this;
+  v116 = this->char_c.meta.current_seq_frames_vector->cprior;
+  v2 = this->char_c.meta.current_frame_params->fflags & 0x20;
+  v117 = this->char_c.meta.current_frame_params->fflags & 0x20;
+  v3 = this->char_c.meta.current_frame_params->fflags & 0x200000;
+  if ( char_c::check_AB_pressed(&this->char_c) )
+    return;
+  if ( v2 || v3 )
+  {
+    v4 = v1->char_c.pres_comb;
+    if ( v4 >= 0x2BC && v4 < 0x320 )
+    {
+      v1->char_c.meta.vtbl->set_seq_func2(&v1->char_c.meta, LOWORD(v1->char_c.pres_comb));
+      input_push_pressed_to_buf((Character *)v1);
+      return;
+    }
+    if ( v2 || v3 )
+    {
+      if ( c_meta::char_on_ground(&v1->char_c) && v1->char_c.field_4C4 == 0 )
+      {
+        if ( v3 && v116 >= 10 && char_c::hi_jump_after_move(&v1->char_c) || char_c::border_escape_ground(&v1->char_c) || char_c::hi_jump(&v1->char_c, v116, v3) || char_c::fw_bk_dash_ground(&v1->char_c, v116, v3) )
+          return;
+      }
+      else
+      {
+        if ( char_c::border_escape_air(&v1->char_c) )
+          return;
+        v5 = (v1->char_c.weather_id == 10) + 2;
+        if ( char_c::fwd_dash_air(&v1->char_c, v116, v3, v5, 2) || char_c::bkg_dash_air(&v1->char_c, v116, v3, v5, 1) || char_c::flying_air(&v1->char_c, v116, v3, v5) )
+          return;
+        v2 = v117;
+      }
+    }
+  }
+  if ( v1->char_c.field_84C || !v2 )
+    return;
+  if ( v1->char_c.field_524 )
+  {
+    v8 = v116;
+  }
+  else
+  {
+    v6 = (unsigned __int8)char_c::char_on_ground_flag(&v1->char_c) == 0;
+    v7 = v1->char_c.down_BC;
+    if ( v6 )
+    {
+      if ( (v7 && v7 < 3 || v1->char_c.keyhit_BC) && char_c::sub_468660(&v1->char_c, 0) && !v1->char_c.field_836 )
+      {
+        if ( get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id < 100 || get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id > 199 )
+        {
+          v8 = v116;
+        }
+        else
+        {
+          v8 = v116;
+          if ( v116 <= 50 )
+          {
+            if ( (v31 = v1->char_c.meta.playing_seq, v31 > 299) && (v32 = v1->char_c.meta.field_190, v32 != 3) && v32 || v31 < 300 )
+            {
+              switch ( get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id )
+              {
+                case 100:
+                  if ( !v1->char_c.field_800 )
+                  {
+                    ++v1->char_c.field_4C8;
+                    v1->char_c.field_800 = 1;
+                  }
+                  char_c::sub_4834F0(&v1->char_c);
+                  char_c::sub_488E70(&v1->char_c);
+                  char_c::sub_4873B0(&v1->char_c, 502, v116);
+                  break;
+                case 101:
+                  if ( !v1->char_c.field_801 )
+                  {
+                    ++v1->char_c.field_4C8;
+                    v1->char_c.field_801 = 1;
+                  }
+                  char_c::sub_4834F0(&v1->char_c);
+                  char_c::sub_488E70(&v1->char_c);
+                  char_c::sub_4873B0(&v1->char_c, 522, v116);
+                  break;
+                case 104:
+                  if ( !v1->char_c.field_800 )
+                  {
+                    ++v1->char_c.field_4C8;
+                    v1->char_c.field_800 = 1;
+                  }
+                  char_c::sub_4834F0(&v1->char_c);
+                  char_c::sub_488E70(&v1->char_c);
+                  char_c::sub_4873B0(&v1->char_c, 507, v116);
+                  break;
+                case 108:
+                  if ( !v1->char_c.field_800 )
+                  {
+                    ++v1->char_c.field_4C8;
+                    v1->char_c.field_800 = 1;
+                  }
+                  char_c::sub_4834F0(&v1->char_c);
+                  char_c::sub_488E70(&v1->char_c);
+                  char_c::sub_4873B0(&v1->char_c, 512, v116);
+                  break;
+                default:
+                  goto LABEL_262;
+              }
+              return;
+            }
+          }
+        }
+LABEL_262:
+        if ( v8 <= 100 && get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id >= 200 && get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id <= 299 && !v1->char_c.down_X )
+        {
+          if ( (v33 = v1->char_c.meta.playing_seq, v33 > 299) && (v34 = v1->char_c.meta.field_190) != 0 && v34 != 3 || v33 < 300 )
+          {
+            v35 = get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id - 201;
+            if ( !v35 )
+            {
+              char_c::sub_487370(&v1->char_c, 651, v8);
+              return;
+            }
+            if ( v35 == 6 )
+            {
+              char_c::sub_487370(&v1->char_c, 657, v8);
+              return;
+            }
+          }
+        }
+      }
+      else
+      {
+        v8 = v116;
+      }
+      if ( char_c::spell200_seq299_300_field190_0_3(&v1->char_c) )
+      {
+        if ( v1->char_c.pres_comb & 0x40 )
+        {
+          if ( v1->char_c.skills_1[8] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 513) || (v36 = v1->char_c.meta.playing_seq, v36 >= 500) && v36 <= 599 && !v1->char_c.field_800 )
+            {
+              if ( !v1->char_c.field_800 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_800 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 513, v8);
+              return;
+            }
+          }
+          if ( v1->char_c.skills_1[4] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 508) || (v37 = v1->char_c.meta.playing_seq, v37 >= 500) && v37 <= 599 && !v1->char_c.field_800 )
+            {
+              if ( !v1->char_c.field_800 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_800 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 508, v8);
+              return;
+            }
+          }
+          if ( v8 <= get_prior(&v1->char_c, 503) || (v38 = v1->char_c.meta.playing_seq, v38 >= 500) && v38 <= 599 && !v1->char_c.field_800 )
+          {
+            if ( !v1->char_c.field_800 )
+            {
+              ++v1->char_c.field_4C8;
+              v1->char_c.field_800 = 1;
+            }
+            char_c::sub_4834F0(&v1->char_c);
+            char_c::sub_4873B0(&v1->char_c, 503, v8);
+            return;
+          }
+        }
+        if ( v1->char_c.pres_comb & 0x20 )
+        {
+          if ( v1->char_c.skills_1[8] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 512) || (v39 = v1->char_c.meta.playing_seq, v39 >= 500) && v39 <= 599 && !v1->char_c.field_800 )
+            {
+              if ( !v1->char_c.field_800 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_800 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 512, v8);
+              return;
+            }
+          }
+          if ( v1->char_c.skills_1[4] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 507) || (v40 = v1->char_c.meta.playing_seq, v40 >= 500) && v40 <= 599 && !v1->char_c.field_800 )
+            {
+              if ( !v1->char_c.field_800 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_800 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 507, v8);
+              return;
+            }
+          }
+          if ( v8 <= get_prior(&v1->char_c, 502) || (v41 = v1->char_c.meta.playing_seq, v41 >= 500) && v41 <= 599 && !v1->char_c.field_800 )
+          {
+            if ( !v1->char_c.field_800 )
+            {
+              ++v1->char_c.field_4C8;
+              v1->char_c.field_800 = 1;
+            }
+            char_c::sub_4834F0(&v1->char_c);
+            char_c::sub_4873B0(&v1->char_c, 502, v8);
+            return;
+          }
+        }
+        if ( v1->char_c.pres_comb & 4 )
+        {
+          if ( !v1->char_c.skills_1[5] && !v1->char_c.skills_1[9] )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 523) || (v42 = v1->char_c.meta.playing_seq, v42 >= 500) && v42 <= 599 && !v1->char_c.field_801 )
+            {
+              if ( !v1->char_c.field_801 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_801 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 523, v8);
+              return;
+            }
+          }
+        }
+        if ( v1->char_c.pres_comb & 2 )
+        {
+          if ( !v1->char_c.skills_1[5] && !v1->char_c.skills_1[9] )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 522) || (v43 = v1->char_c.meta.playing_seq, v43 >= 500) && v43 <= 599 && !v1->char_c.field_801 )
+            {
+              if ( !v1->char_c.field_801 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_801 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 522, v8);
+              return;
+            }
+          }
+        }
+      }
+    }
+    else
+    {
+      if ( (v7 && v7 < 3 || v1->char_c.keyhit_BC) && char_c::sub_468660(&v1->char_c, 0) && !v1->char_c.field_836 )
+      {
+        v8 = v116;
+        if ( char_c::sub_489F10(&v1->char_c, v116) )
+          return;
+        if ( get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id >= 100 && get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id <= 199 && v116 <= 50 )
+        {
+          if ( (v9 = v1->char_c.meta.playing_seq, v9 > 299) && (v10 = v1->char_c.meta.field_190, v10 != 3) && v10 || v9 < 300 )
+          {
+            switch ( get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id )
+            {
+              case 100:
+                if ( !v1->char_c.field_800 )
+                {
+                  ++v1->char_c.field_4C8;
+                  v1->char_c.field_800 = 1;
+                }
+                char_c::sub_4834F0(&v1->char_c);
+                char_c::sub_488E70(&v1->char_c);
+                char_c::sub_4873B0(&v1->char_c, 500, v116);
+                break;
+              case 101:
+                if ( !v1->char_c.field_801 )
+                {
+                  ++v1->char_c.field_4C8;
+                  v1->char_c.field_801 = 1;
+                }
+                char_c::sub_4834F0(&v1->char_c);
+                char_c::sub_488E70(&v1->char_c);
+                char_c::sub_4873B0(&v1->char_c, 520, v116);
+                break;
+              case 102:
+                if ( !v1->char_c.field_802 )
+                {
+                  ++v1->char_c.field_4C8;
+                  v1->char_c.field_802 = 1;
+                }
+                char_c::sub_4834F0(&v1->char_c);
+                char_c::sub_488E70(&v1->char_c);
+                char_c::sub_4873B0(&v1->char_c, 540, v116);
+                break;
+              case 103:
+                if ( !v1->char_c.field_803 )
+                {
+                  ++v1->char_c.field_4C8;
+                  v1->char_c.field_803 = 1;
+                }
+                char_c::sub_4834F0(&v1->char_c);
+                char_c::sub_488E70(&v1->char_c);
+                char_c::sub_4873B0(&v1->char_c, 560, v116);
+                break;
+              case 104:
+                if ( !v1->char_c.field_800 )
+                {
+                  ++v1->char_c.field_4C8;
+                  v1->char_c.field_800 = 1;
+                }
+                char_c::sub_4834F0(&v1->char_c);
+                char_c::sub_488E70(&v1->char_c);
+                char_c::sub_4873B0(&v1->char_c, 505, v116);
+                break;
+              case 105:
+                if ( !v1->char_c.field_801 )
+                {
+                  ++v1->char_c.field_4C8;
+                  v1->char_c.field_801 = 1;
+                }
+                char_c::sub_4834F0(&v1->char_c);
+                char_c::sub_488E70(&v1->char_c);
+                char_c::sub_4873B0(&v1->char_c, 525, v116);
+                break;
+              case 106:
+                if ( !v1->char_c.field_802 )
+                {
+                  ++v1->char_c.field_4C8;
+                  v1->char_c.field_802 = 1;
+                }
+                char_c::sub_4834F0(&v1->char_c);
+                char_c::sub_488E70(&v1->char_c);
+                char_c::sub_4873B0(&v1->char_c, 545, v116);
+                break;
+              case 107:
+                if ( !v1->char_c.field_803 )
+                {
+                  ++v1->char_c.field_4C8;
+                  v1->char_c.field_803 = 1;
+                }
+                char_c::sub_4834F0(&v1->char_c);
+                char_c::sub_488E70(&v1->char_c);
+                char_c::sub_4873B0(&v1->char_c, 565, v116);
+                break;
+              case 108:
+                if ( !v1->char_c.field_800 )
+                {
+                  ++v1->char_c.field_4C8;
+                  v1->char_c.field_800 = 1;
+                }
+                char_c::sub_4834F0(&v1->char_c);
+                char_c::sub_488E70(&v1->char_c);
+                char_c::sub_4873B0(&v1->char_c, 510, v116);
+                break;
+              default:
+                goto LABEL_68;
+            }
+            return;
+          }
+        }
+LABEL_68:
+        if ( v116 <= 100 && get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id >= 200 && get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id <= 299 && !v1->char_c.down_X )
+        {
+          if ( (v11 = v1->char_c.meta.playing_seq, v11 > 299) && (v12 = v1->char_c.meta.field_190) != 0 && v12 != 3 || v11 < 300 )
+          {
+            switch ( get_added_card_by_id((def_deque *)&v1->char_c.cards_active, 0)->id )
+            {
+              case 200:
+                char_c::sub_487370(&v1->char_c, 600, v116);
+                break;
+              case 201:
+                char_c::sub_487370(&v1->char_c, 601, v116);
+                break;
+              case 202:
+                char_c::sub_487370(&v1->char_c, 602, v116);
+                break;
+              case 203:
+                char_c::sub_487370(&v1->char_c, 603, v116);
+                break;
+              case 204:
+                char_c::sub_487370(&v1->char_c, 604, v116);
+                break;
+              case 205:
+                char_c::sub_487370(&v1->char_c, 605, v116);
+                break;
+              case 206:
+                char_c::sub_487370(&v1->char_c, 606, v116);
+                break;
+              case 207:
+                char_c::sub_487370(&v1->char_c, 607, v116);
+                break;
+              case 208:
+                char_c::sub_487370(&v1->char_c, 608, v116);
+                break;
+              default:
+                goto LABEL_87;
+            }
+            return;
+          }
+        }
+      }
+      else
+      {
+        v8 = v116;
+      }
+LABEL_87:
+      if ( char_c::spell200_seq299_300_field190_0_3(&v1->char_c) )
+      {
+        if ( v1->char_c.pres_comb & 0x400 )
+        {
+          if ( v1->char_c.skills_1[7] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 566) || (v13 = v1->char_c.meta.playing_seq, v13 >= 500) && v13 <= 599 && !v1->char_c.field_803 )
+            {
+              if ( !v1->char_c.field_803 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_803 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 566, v8);
+              return;
+            }
+          }
+          if ( v8 <= get_prior(&v1->char_c, 561) || (v14 = v1->char_c.meta.playing_seq, v14 >= 500) && v14 <= 599 && !v1->char_c.field_803 )
+          {
+            if ( !v1->char_c.field_803 )
+            {
+              ++v1->char_c.field_4C8;
+              v1->char_c.field_803 = 1;
+            }
+            char_c::sub_4834F0(&v1->char_c);
+            char_c::sub_4873B0(&v1->char_c, 561, v8);
+            return;
+          }
+        }
+        if ( v1->char_c.pres_comb & 0x200 )
+        {
+          if ( v1->char_c.skills_1[7] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 565) || (v15 = v1->char_c.meta.playing_seq, v15 >= 500) && v15 <= 599 && !v1->char_c.field_803 )
+            {
+              if ( !v1->char_c.field_803 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_803 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 565, v8);
+              return;
+            }
+          }
+          if ( v8 <= get_prior(&v1->char_c, 560) || (v16 = v1->char_c.meta.playing_seq, v16 >= 500) && v16 <= 599 && !v1->char_c.field_803 )
+          {
+            if ( !v1->char_c.field_803 )
+            {
+              ++v1->char_c.field_4C8;
+              v1->char_c.field_803 = 1;
+            }
+            char_c::sub_4834F0(&v1->char_c);
+            char_c::sub_4873B0(&v1->char_c, 560, v8);
+            return;
+          }
+        }
+        if ( v1->char_c.pres_comb & 0x4000 )
+        {
+          if ( v1->char_c.skills_1[6] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 546) || (v17 = v1->char_c.meta.playing_seq, v17 >= 500) && v17 <= 599 && !v1->char_c.field_802 )
+            {
+              if ( !v1->char_c.field_802 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_802 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 546, v8);
+              return;
+            }
+          }
+          if ( v8 <= get_prior(&v1->char_c, 541) || (v18 = v1->char_c.meta.playing_seq, v18 >= 500) && v18 <= 599 && !v1->char_c.field_802 )
+          {
+            if ( !v1->char_c.field_802 )
+            {
+              ++v1->char_c.field_4C8;
+              v1->char_c.field_802 = 1;
+            }
+            char_c::sub_4834F0(&v1->char_c);
+            char_c::sub_4873B0(&v1->char_c, 541, v8);
+            return;
+          }
+        }
+        if ( v1->char_c.pres_comb & 0x2000 )
+        {
+          if ( v1->char_c.skills_1[6] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 545) || (v19 = v1->char_c.meta.playing_seq, v19 >= 500) && v19 <= 599 && !v1->char_c.field_802 )
+            {
+              if ( !v1->char_c.field_802 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_802 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 545, v8);
+              return;
+            }
+          }
+          if ( v8 <= get_prior(&v1->char_c, 540) || (v20 = v1->char_c.meta.playing_seq, v20 >= 500) && v20 <= 599 && !v1->char_c.field_802 )
+          {
+            if ( !v1->char_c.field_802 )
+            {
+              ++v1->char_c.field_4C8;
+              v1->char_c.field_802 = 1;
+            }
+            char_c::sub_4834F0(&v1->char_c);
+            char_c::sub_4873B0(&v1->char_c, 540, v8);
+            return;
+          }
+        }
+        if ( v1->char_c.pres_comb & 0x40 )
+        {
+          if ( v1->char_c.skills_1[8] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 511) || (v21 = v1->char_c.meta.playing_seq, v21 >= 500) && v21 <= 599 && !v1->char_c.field_800 )
+            {
+              if ( !v1->char_c.field_800 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_800 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 511, v8);
+              return;
+            }
+          }
+          if ( v1->char_c.skills_1[4] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 506) || (v22 = v1->char_c.meta.playing_seq, v22 >= 500) && v22 <= 599 && !v1->char_c.field_800 )
+            {
+              if ( !v1->char_c.field_800 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_800 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 506, v8);
+              return;
+            }
+          }
+          if ( v8 <= get_prior(&v1->char_c, 501) || (v23 = v1->char_c.meta.playing_seq, v23 >= 500) && v23 <= 599 && !v1->char_c.field_800 )
+          {
+            if ( !v1->char_c.field_800 )
+            {
+              ++v1->char_c.field_4C8;
+              v1->char_c.field_800 = 1;
+            }
+            char_c::sub_4834F0(&v1->char_c);
+            char_c::sub_4873B0(&v1->char_c, 501, v8);
+            return;
+          }
+        }
+        if ( v1->char_c.pres_comb & 0x20 )
+        {
+          if ( v1->char_c.skills_1[8] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 510) || (v24 = v1->char_c.meta.playing_seq, v24 >= 500) && v24 <= 599 && !v1->char_c.field_800 )
+            {
+              if ( !v1->char_c.field_800 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_800 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 510, v8);
+              return;
+            }
+          }
+          if ( v1->char_c.skills_1[4] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 505) || (v25 = v1->char_c.meta.playing_seq, v25 >= 500) && v25 <= 599 && !v1->char_c.field_800 )
+            {
+              if ( !v1->char_c.field_800 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_800 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 505, v8);
+              return;
+            }
+          }
+          if ( v8 <= get_prior(&v1->char_c, 500) || (v26 = v1->char_c.meta.playing_seq, v26 >= 500) && v26 <= 599 && !v1->char_c.field_800 )
+          {
+            if ( !v1->char_c.field_800 )
+            {
+              ++v1->char_c.field_4C8;
+              v1->char_c.field_800 = 1;
+            }
+            char_c::sub_4834F0(&v1->char_c);
+            char_c::sub_4873B0(&v1->char_c, 500, v8);
+            return;
+          }
+        }
+        if ( v1->char_c.pres_comb & 4 )
+        {
+          if ( v1->char_c.skills_1[5] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 525) || (v27 = v1->char_c.meta.playing_seq, v27 >= 500) && v27 <= 599 && !v1->char_c.field_801 )
+            {
+              if ( !v1->char_c.field_801 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_801 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 525, v8);
+              return;
+            }
+          }
+          if ( !v1->char_c.skills_1[5] && !v1->char_c.skills_1[9] )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 521) || (v28 = v1->char_c.meta.playing_seq, v28 >= 500) && v28 <= 599 && !v1->char_c.field_801 )
+            {
+              if ( !v1->char_c.field_801 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_801 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 521, v8);
+              return;
+            }
+          }
+        }
+        if ( v1->char_c.pres_comb & 2 )
+        {
+          if ( v1->char_c.skills_1[5] >= 1 )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 525) || (v29 = v1->char_c.meta.playing_seq, v29 >= 500) && v29 <= 599 && !v1->char_c.field_801 )
+            {
+              if ( !v1->char_c.field_801 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_801 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 525, v8);
+              return;
+            }
+          }
+          if ( !v1->char_c.skills_1[5] && !v1->char_c.skills_1[9] )
+          {
+            if ( v8 <= get_prior(&v1->char_c, 520) || (v30 = v1->char_c.meta.playing_seq, v30 >= 500) && v30 <= 599 && !v1->char_c.field_801 )
+            {
+              if ( !v1->char_c.field_801 )
+              {
+                ++v1->char_c.field_4C8;
+                v1->char_c.field_801 = 1;
+              }
+              char_c::sub_4834F0(&v1->char_c);
+              char_c::sub_4873B0(&v1->char_c, 520, v8);
+              return;
+            }
+          }
+        }
+      }
+    }
+  }
+  v44 = v1->char_c.up_A;
+  if ( v44 && v44 < 3 || v1->char_c.down_A == 2 || v1->char_c.keyhit_A )
+  {
+    if ( (unsigned __int8)char_c::char_on_ground_flag(&v1->char_c) )
+    {
+      if ( v1->char_c.meta.playing_seq == 200 && !v1->char_c.down_Y )
+      {
+        v50 = v1->char_c.meta.cEffectSprite.dir;
+        if ( (v50 * v1->char_c.down_X > 0 || v50 * v1->char_c.keyhit_X > 0) && v8 <= get_prior(&v1->char_c, 305) )
+        {
+          v51 = v1->char_c.meta.vtbl;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v51->set_seq_func2(&v1->char_c.meta, 305);
+          goto LABEL_366;
+        }
+      }
+      v52 = v1->char_c.meta.playing_seq;
+      if ( v52 > 299 && (v53 = v1->char_c.meta.field_190) != 0 && v53 != 3 || v52 < 300 )
+      {
+        if ( v1->char_c.down_Y > 0 || v1->char_c.keyhit_Y > 0 )
+        {
+          v54 = v1->char_c.meta.cEffectSprite.dir;
+          if ( (v54 * v1->char_c.down_X > 0 || v54 * v1->char_c.keyhit_X > 0) && v8 <= get_prior(&v1->char_c, 304) )
+          {
+            v55 = v1->char_c.meta.vtbl;
+            v1->char_c.meta.cEffectSprite.angZ = 0.0;
+            v55->set_seq_func2(&v1->char_c.meta, 304);
+LABEL_377:
+            zero_keyhit((Character *)v1);
+            return;
+          }
+        }
+        if ( (v1->char_c.down_Y > 0 || v1->char_c.keyhit_Y > 0) && v8 <= get_prior(&v1->char_c, 303) )
+        {
+          v56 = v1->char_c.meta.vtbl;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v56->set_seq_func2(&v1->char_c.meta, 303);
+          goto LABEL_377;
+        }
+        if ( !v1->char_c.down_Y )
+        {
+          v57 = v1->char_c.meta.cEffectSprite.dir;
+          if ( (v57 * v1->char_c.down_X > 0 || v57 * v1->char_c.keyhit_X > 0) && v8 <= get_prior(&v1->char_c, 302) )
+          {
+            v58 = v1->char_c.meta.vtbl;
+            v1->char_c.meta.cEffectSprite.angZ = 0.0;
+            v58->set_seq_func2(&v1->char_c.meta, 302);
+            goto LABEL_377;
+          }
+        }
+      }
+      v59 = v1->char_c.meta.playing_seq;
+      if ( v59 > 299 && (v60 = v1->char_c.meta.field_190) != 0 && v60 != 3 || v59 < 300 )
+      {
+        if ( v1->char_c.down_Y >= 0 )
+        {
+          v61 = v1->char_c.meta.cEffectSprite.dir;
+          if ( (v61 * v1->char_c.down_X < 0 || v61 * v1->char_c.keyhit_X < 0) && v8 <= get_prior(&v1->char_c, 330) )
+          {
+            v62 = v1->char_c.meta.vtbl;
+            v1->char_c.meta.cEffectSprite.angZ = 0.0;
+            v62->set_seq_func2(&v1->char_c.meta, 330);
+            goto LABEL_377;
+          }
+        }
+      }
+      v63 = v1->char_c.meta.field_190;
+      if ( v63 && v63 != 3 )
+      {
+        v64 = v1->char_c.meta.playing_seq;
+        if ( v64 == 320 )
+        {
+          v65 = v1->char_c.meta.vtbl;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v65->set_seq_func2(&v1->char_c.meta, 321);
+          goto LABEL_377;
+        }
+        if ( v64 == 300 )
+        {
+          v66 = v1->char_c.meta.vtbl;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v66->set_seq_func2(&v1->char_c.meta, 320);
+          goto LABEL_377;
+        }
+      }
+      v67 = v1->char_c.meta.cEffectSprite.x - v1->char_c.meta.enemy->meta.cEffectSprite.x;
+      v68 = fabs(v67);
+      if ( v68 > 180.0 && v8 <= get_prior(&v1->char_c, 301) && ((v69 = v1->char_c.meta.playing_seq, v69 > 299) && (v70 = v1->char_c.meta.field_190) != 0 && v70 != 3 || v69 < 300) )
+      {
+        v71 = v1->char_c.meta.vtbl;
+        v1->char_c.meta.cEffectSprite.angZ = 0.0;
+        v71->set_seq_func2(&v1->char_c.meta, 301);
+      }
+      else
+      {
+        if ( v8 > get_prior(&v1->char_c, 300) )
+          goto LABEL_349;
+        v72 = v1->char_c.meta.playing_seq;
+        if ( v72 <= 299 || (v73 = v1->char_c.meta.field_190) == 0 || v73 == 3 )
+        {
+          if ( v72 >= 300 )
+            goto LABEL_349;
+        }
+        v74 = v1->char_c.meta.vtbl;
+        v1->char_c.meta.cEffectSprite.angZ = 0.0;
+        v74->set_seq_func2(&v1->char_c.meta, 300);
+      }
+    }
+    else
+    {
+      v75 = v1->char_c.meta.playing_seq;
+      if ( v75 <= 299 || (v76 = v1->char_c.meta.field_190) == 0 || v76 == 3 )
+      {
+        if ( v75 >= 300 )
+          goto LABEL_349;
+      }
+      if ( v1->char_c.down_Y >= 0 && v1->char_c.keyhit_Y >= 0 || v1->char_c.down_X || v8 > get_prior(&v1->char_c, 309) )
+      {
+        if ( v1->char_c.down_Y <= 0 && v1->char_c.keyhit_Y <= 0 || v8 > get_prior(&v1->char_c, 308) )
+        {
+          if ( !v1->char_c.down_Y )
+          {
+            v79 = v1->char_c.meta.cEffectSprite.dir;
+            if ( (v79 * v1->char_c.down_X > 0 || v79 * v1->char_c.keyhit_X > 0) && v8 <= get_prior(&v1->char_c, 307) )
+            {
+              v80 = v1->char_c.meta.vtbl->set_seq_func2;
+              v1->char_c.meta.cEffectSprite.angZ = 0.0;
+              v80(&v1->char_c.meta, 307);
+              zero_keyhit((Character *)v1);
+              return;
+            }
+          }
+          if ( v8 <= get_prior(&v1->char_c, 306) )
+          {
+            if ( (v81 = v1->char_c.meta.playing_seq, v81 > 299) && (v82 = v1->char_c.meta.field_190) != 0 && v82 != 3 || v81 < 300 )
+            {
+              v83 = v1->char_c.meta.vtbl->set_seq_func2;
+              v1->char_c.meta.cEffectSprite.angZ = 0.0;
+              v83(&v1->char_c.meta, 306);
+              zero_keyhit((Character *)v1);
+              return;
+            }
+          }
+          goto LABEL_349;
+        }
+        v78 = v1->char_c.meta.vtbl;
+        v1->char_c.meta.cEffectSprite.angZ = 0.0;
+        v78->set_seq_func2(&v1->char_c.meta, 308);
+      }
+      else
+      {
+        v77 = v1->char_c.meta.vtbl;
+        v1->char_c.meta.cEffectSprite.angZ = 0.0;
+        v77->set_seq_func2(&v1->char_c.meta, 309);
+      }
+    }
+LABEL_366:
+    zero_keyhit((Character *)v1);
+    return;
+  }
+LABEL_349:
+  v45 = v1->char_c.up_B;
+  if ( v45 && v45 < 3 || v1->char_c.down_B == 2 || v1->char_c.keyhit_B )
+  {
+    v46 = char_c::char_on_ground_flag(&v1->char_c);
+    v47 = v1->char_c.meta.playing_seq;
+    if ( v46 )
+    {
+      if ( v47 == 200 && !v1->char_c.down_Y )
+      {
+        v48 = v1->char_c.meta.cEffectSprite.dir;
+        if ( v48 * v1->char_c.down_X > 0 || v48 * v1->char_c.keyhit_X > 0 )
+        {
+          v49 = v1->char_c.meta.vtbl->set_seq_func2;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v49(&v1->char_c.meta, 408);
+          zero_keyhit((Character *)v1);
+          return;
+        }
+      }
+      if ( v47 > 299 && (v84 = v1->char_c.meta.field_190) != 0 && v84 != 3 || v47 < 300 )
+      {
+        if ( (v1->char_c.down_Y > 0 || v1->char_c.keyhit_Y > 0) && ((v85 = v1->char_c.meta.cEffectSprite.dir, v85 * v1->char_c.down_X > 0) || v85 * v1->char_c.keyhit_X > 0) && v1->char_c.spell_energy >= 200 && v8 <= get_prior(&v1->char_c, 402) || (v1->char_c.down_Y > 0 || v1->char_c.keyhit_Y > 0) && v1->char_c.spell_energy >= 200 && v8 <= get_prior(&v1->char_c, 402) )
+        {
+          v86 = v1->char_c.meta.vtbl->set_seq_func2;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v86(&v1->char_c.meta, 402);
+          zero_keyhit((Character *)v1);
+          return;
+        }
+        if ( v1->char_c.down_Y || (v87 = v1->char_c.meta.cEffectSprite.dir, v87 * v1->char_c.down_X <= 0) && v87 * v1->char_c.keyhit_X <= 0 )
+        {
+LABEL_459:
+          if ( v1->char_c.spell_energy >= 200 && v8 <= get_prior(&v1->char_c, 400) )
+          {
+            v88 = v1->char_c.meta.playing_seq;
+            if ( v88 > 299 )
+            {
+              v89 = v1->char_c.meta.field_190;
+              if ( v89 )
+              {
+                if ( v89 != 3 )
+                  goto LABEL_465;
+              }
+            }
+            if ( v88 < 300 )
+              goto LABEL_465;
+          }
+          goto LABEL_482;
+        }
+        if ( v1->char_c.spell_energy >= 200 )
+        {
+          if ( v8 <= get_prior(&v1->char_c, 400) )
+          {
+LABEL_465:
+            v90 = v1->char_c.meta.vtbl->set_seq_func2;
+            v1->char_c.meta.cEffectSprite.angZ = 0.0;
+            v90(&v1->char_c.meta, 400);
+            zero_keyhit((Character *)v1);
+            return;
+          }
+          goto LABEL_459;
+        }
+      }
+    }
+    else if ( v47 > 299 && (v91 = v1->char_c.meta.field_190) != 0 && v91 != 3 || v47 < 300 )
+    {
+      if ( v1->char_c.down_Y > 0 || v1->char_c.keyhit_Y > 0 )
+      {
+        if ( v1->char_c.spell_energy < 200 )
+          goto LABEL_482;
+        if ( v8 <= get_prior(&v1->char_c, 406) )
+        {
+          v92 = v1->char_c.meta.vtbl->set_seq_func2;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v92(&v1->char_c.meta, 406);
+          zero_keyhit((Character *)v1);
+          return;
+        }
+      }
+      if ( v1->char_c.spell_energy >= 200 && v8 <= get_prior(&v1->char_c, 404) )
+      {
+        if ( (v93 = v1->char_c.meta.playing_seq, v93 > 299) && (v94 = v1->char_c.meta.field_190) != 0 && v94 != 3 || v93 < 300 )
+        {
+          v95 = v1->char_c.meta.vtbl->set_seq_func2;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v95(&v1->char_c.meta, 404);
+          zero_keyhit((Character *)v1);
+          return;
+        }
+      }
+    }
+  }
+LABEL_482:
+  v96 = v1->char_c.up_C;
+  if ( v96 && v96 < 3 || v1->char_c.down_C == 2 || v1->char_c.keyhit_C )
+  {
+    v97 = char_c::char_on_ground_flag(&v1->char_c);
+    v98 = v1->char_c.meta.playing_seq;
+    if ( v97 )
+    {
+      if ( v98 == 200 && !v1->char_c.down_Y )
+      {
+        v99 = v1->char_c.meta.cEffectSprite.dir;
+        if ( v99 * v1->char_c.down_X > 0 || v99 * v1->char_c.keyhit_X > 0 )
+        {
+          v100 = v1->char_c.meta.vtbl->set_seq_func2;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v100(&v1->char_c.meta, 418);
+          zero_keyhit((Character *)v1);
+          return;
+        }
+      }
+      if ( v98 > 299 && (v101 = v1->char_c.meta.field_190) != 0 && v101 != 3 || v98 < 300 )
+      {
+        if ( (v1->char_c.down_Y > 0 || v1->char_c.keyhit_Y > 0) && ((v102 = v1->char_c.meta.cEffectSprite.dir, v102 * v1->char_c.down_X > 0) || v102 * v1->char_c.keyhit_X > 0) && v1->char_c.spell_energy >= 200 && v8 <= get_prior(&v1->char_c, 412) || (v1->char_c.down_Y > 0 || v1->char_c.keyhit_Y > 0) && v1->char_c.spell_energy >= 200 && v8 <= get_prior(&v1->char_c, 412) )
+        {
+          v103 = v1->char_c.meta.vtbl->set_seq_func2;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v103(&v1->char_c.meta, 412);
+          zero_keyhit((Character *)v1);
+          return;
+        }
+        if ( !v1->char_c.down_Y )
+        {
+          v104 = v1->char_c.meta.cEffectSprite.dir;
+          if ( v104 * v1->char_c.down_X > 0 || v104 * v1->char_c.keyhit_X > 0 )
+          {
+            if ( v1->char_c.spell_energy < 200 )
+              return;
+            if ( v8 <= get_prior(&v1->char_c, 411) )
+            {
+              v105 = v1->char_c.meta.vtbl->set_seq_func2;
+              v1->char_c.meta.cEffectSprite.angZ = 0.0;
+              v105(&v1->char_c.meta, 411);
+              zero_keyhit((Character *)v1);
+              return;
+            }
+          }
+        }
+        if ( v1->char_c.spell_energy >= 200 && v8 <= get_prior(&v1->char_c, 410) )
+        {
+          v106 = v1->char_c.meta.playing_seq;
+          if ( v106 > 299 && (v107 = v1->char_c.meta.field_190) != 0 && v107 != 3 || v106 < 300 )
+          {
+            v108 = v1->char_c.meta.vtbl->set_seq_func2;
+            v1->char_c.meta.cEffectSprite.angZ = 0.0;
+            v108(&v1->char_c.meta, 410);
+            zero_keyhit((Character *)v1);
+          }
+        }
+      }
+    }
+    else
+    {
+      if ( v98 > 299 && (v109 = v1->char_c.meta.field_190) != 0 && v109 != 3 || v98 < 300 )
+      {
+        if ( v1->char_c.down_Y > 0 )
+          goto LABEL_543;
+        v110 = v1->char_c.meta.cEffectSprite.dir;
+        if ( (v110 * v1->char_c.down_X > 0 || v110 * v1->char_c.keyhit_X > 0) && v1->char_c.spell_energy >= 200 && v8 <= get_prior(&v1->char_c, 415) )
+        {
+          v111 = v1->char_c.meta.vtbl->set_seq_func2;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v111(&v1->char_c.meta, 415);
+          zero_keyhit((Character *)v1);
+          return;
+        }
+        if ( v1->char_c.down_Y > 0 )
+        {
+LABEL_543:
+          if ( v1->char_c.spell_energy < 200 )
+            return;
+          if ( v8 <= get_prior(&v1->char_c, 416) )
+          {
+            v112 = v1->char_c.meta.vtbl->set_seq_func2;
+            v1->char_c.meta.cEffectSprite.angZ = 0.0;
+            v112(&v1->char_c.meta, 416);
+            zero_keyhit((Character *)v1);
+            return;
+          }
+        }
+      }
+      if ( v1->char_c.spell_energy >= 200 && v8 <= get_prior(&v1->char_c, 414) )
+      {
+        v113 = v1->char_c.meta.playing_seq;
+        if ( v113 > 299 && (v114 = v1->char_c.meta.field_190) != 0 && v114 != 3 || v113 < 300 )
+        {
+          v115 = v1->char_c.meta.vtbl->set_seq_func2;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v115(&v1->char_c.meta, 414);
+          zero_keyhit((Character *)v1);
+        }
+      }
+    }
+  }
+}
