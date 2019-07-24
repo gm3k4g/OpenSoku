@@ -2,4 +2,4 @@
 *.o
 
 #Ignore build folder
-build/*
+build
