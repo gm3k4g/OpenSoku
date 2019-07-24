@@ -23,13 +23,13 @@
 
 int main(int argc, char *argv[])
 {
-    // Create the main window
 
-    //Nyan Shinki, nyan
+    //Creating the main window and initializing everything
     FILE *dats = NULL;
     const char *path = ".";
     char buf[256];
 
+    /* Doing some checks to see if stuff is present */
     if (argc == 2)
     {
         path = argv[1];
@@ -95,6 +95,8 @@ int main(int argc, char *argv[])
 
     bullets_init_common();
 
+    /* Setting the characters */
+
     /* Player 1 */
     char_c *player1 = new char_suika(inp_createinput(INP_TYPE_BOTH),1);
 
@@ -152,20 +154,24 @@ int main(int argc, char *argv[])
     screen *scr = NULL;
 
     /*  Experimental ! */
+    //Menus here
 
-    //id_screen scr_id_menu = SCREEN_MENU
-    //id_screen scr_id_title = SCREEN_TITLE
     id_screen scr_id = SCREEN_UNK;
     id_screen scr_next_id = SCREEN_GAMEPLAY;
+    //id_screen scr_next_id = SCREEN_TITLE; //starting the game with title
+    
 
     fader       glob_fader;
     menu_fader  *loc_fader = menu_get_fader();
 
     bool game_run = true;
 
+/* =================================================== */
+// Main loop
     while(game_run)
     {
 
+        //Poll stuff
         gr_poll_events();
 
         inp->update(true);
@@ -231,6 +237,7 @@ int main(int argc, char *argv[])
 
         gr_flip();
     }
+/* =================================================== */
 
     delete bkg;
 
