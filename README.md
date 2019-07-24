@@ -18,15 +18,15 @@ Follow the instructions below to get a --working-- copy of this project up and r
   th123b.dat
   th123c.dat
 ```
-Once you get them, just put them inside **src/build**. They will have to be in there since the executable is created inside the **src/build** folder.
+Once you get them, just put them inside **build**. They will have to be in there since the executable is created inside the **build** folder.
           
-###         2.You'll need to have a **src/build/profile** directory in order to be able to control the characters.
+###         2.You'll need to have a **build/profile** directory in order to be able to control the characters.
 Just take these from your own Hisoutensoku **profile** folder, and rename them accordingly to
 ```
 profile1.pf
 profile2.pf
 ```
-Then, put them inside the **src/build/profile** folder, and you're set.
+Then, put them inside the **build/profile** folder, and you're set.
 (This may most likely change later on.)
 
 * You will need SFML 2.0 (or above).
@@ -41,11 +41,7 @@ This will install the required files for SFML.
 
 ## Linux
 
-1. In order to compile the project, you first cd in the src directory,
-```
-cd src
-```
-2. Afterwards, you simply run make.
+1. In order to compile the project, you first cd in the root directory, and you just run **make**.
 ```
 make
 ```
