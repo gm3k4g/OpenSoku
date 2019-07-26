@@ -61,10 +61,8 @@ OBJS = 	src/archive.o\
 			src/chars/utsuho.o\
 			src/chars/suika.o\
 			src/chars/yukari.o\
-			src/chars/yuyuko.o\
 			src/chars/remilia.o\
 			src/chars/youmu.o\
-			src/chars/patchouli.o\
 			src/chars/sakuya.o\
 			src/chars/reimu.o\
 			src/chars/sanae.o\
@@ -245,6 +243,14 @@ src/chars/utsuho.o: src/chars/utsuho.cpp
 #Build "chars/suika.cpp"
 src/chars/suika.o: src/chars/suika.cpp
 	$(CXX) -c "src/chars/suika.cpp" -o src/chars/suika.o
+
+#Build "chars/patchouli.cpp"
+src/chars/patchouli.o: src/chars/patchouli.cpp
+	$(CXX) -c "src/chars/patchouli.cpp" -o src/chars/patchouli.o
+
+#Build "chars/patchouli_bullets.cpp"
+src/chars/patchouli_bullets.o: src/chars/patchouli_bullets.cpp
+	$(CXX) -c "src/chars/patchouli_bullets.cpp" -o src/chars/patchouli_bullets.o
 
 #Build "chars/namazu.cpp"
 src/chars/namazu.o: src/chars/namazu.cpp
