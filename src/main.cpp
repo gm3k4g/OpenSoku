@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
     /* Setting the characters */
 
     /* Player 1 */
-    char_c *player1 = new char_suika(inp_createinput(INP_TYPE_BOTH),1);
+    char_c *player1 = new char_utsuho(inp_createinput(INP_TYPE_BOTH));
 
     /* Set profiles here */
     sprintf(buf,"%s/profile/profile1p.pf",path);
@@ -158,7 +158,7 @@ int main(int argc, char *argv[])
 
     id_screen scr_id = SCREEN_UNK;
     id_screen scr_next_id = SCREEN_GAMEPLAY;
-    //id_screen scr_next_id = SCREEN_TITLE; //starting the game with title
+    //id_screen scr_next_id = SCREEN_TITLE; //starting the game with title instead here
     
 
     fader       glob_fader;
