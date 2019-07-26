@@ -98,5 +98,7 @@ Char_SeqData *bullets_get_common();
 #include "chars/meiling_bullets.h"
 /* Unknown from here onwards */
 #include "chars/namazu_bullets.h"
+#include "chars/yuyuko_bullets.h"
+#include "chars/patchouli_bullets.h"
 
 #endif // BULLETS_H_INCLUDED
