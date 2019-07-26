@@ -26,4 +26,4 @@ public:
     void init_vars();
 };
 
-#endif // MARISA_CPP_INCLUDED
+#endif // ALICE_CPP_INCLUDED
