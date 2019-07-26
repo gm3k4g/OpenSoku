@@ -1,5 +1,6 @@
 #Ignore all machine (object) generated files
 *.o
 
-#Ignore build folder
-build
+#Ignore build's executable and profile folders
+build/openSoku
+build/profile
