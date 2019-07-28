@@ -255,7 +255,7 @@ void char_namazu::func10() {
   {
     if ( get_seq() <= 500 )
     {
-      if ( get_seq() == 500 ) //LEFT OFF HERE
+      if ( get_seq() == 500 )
       {
         sub10func();
         field_18C = 0;
