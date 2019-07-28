@@ -1,0 +1,454 @@
+void __thiscall char_remilia::set_seq_params_func15(char_remilia *this)
+{
+  char_remilia *v1; // esi
+  signed int v2; // eax
+  int v3; // eax
+  double v4; // st7
+  double v5; // st6
+  double v6; // st7
+  double v7; // st7
+  _BOOL1 v8; // sf
+  unsigned __int8 v9; // of
+
+  v1 = this;
+  v2 = this->char_c.meta.playing_seq;
+  if ( v2 > 501 )
+  {
+    if ( v2 > 797 )
+    {
+      if ( v2 != 798 )
+      {
+LABEL_81:
+        char_c::set_seq_params_func15(&this->char_c);
+        return;
+      }
+    }
+    else if ( v2 != 797 )
+    {
+      switch ( v2 )
+      {
+        case 505:
+        case 506:
+          this->char_c.meta.field_18C = 4;
+          char_c::reset_forces(&this->char_c);
+LABEL_15:
+          v1->char_c.meta.field_190 = 0;
+          v1->char_c.field_49A = 0;
+          v1->char_c.meta.field_194 = 1;
+          v1->char_c.not_charge_attack = 1;
+          return;
+        case 510:
+        case 511:
+          this->char_c.meta.field_18C = 8;
+          char_c::reset_forces(&this->char_c);
+          v9 = __OFSUB__(v1->char_c.skills_1[8], 2);
+          v8 = (char)(v1->char_c.skills_1[8] - 2) < 0;
+          v1->char_c.meta.field_194 = 1;
+          v1->char_c.meta.field_190 = 0;
+          v1->char_c.field_49A = 0;
+          if ( !((unsigned __int8)v8 ^ v9) )
+            v1->char_c.meta.vtbl->set_subseq_func3(&v1->char_c.meta, 3);
+          if ( v1->char_c.skills_1[8] >= 4 )
+            v1->char_c.meta.vtbl->set_subseq_func3(&v1->char_c.meta, 4);
+          return;
+        case 520:
+        case 521:
+          this->char_c.meta.field_18C = 1;
+          this->char_c.not_charge_attack = 1;
+          char_c::reset_forces(&this->char_c);
+          v1->char_c.meta.field_190 = 1;
+          v1->char_c.field_49A = 0;
+          return;
+        case 525:
+        case 526:
+        case 527:
+        case 528:
+          this->char_c.meta.field_18C = 5;
+          this->char_c.field_7D0 = 0;
+          this->char_c.not_charge_attack = 1;
+          char_c::reset_forces(&this->char_c);
+          v1->char_c.field_49A = 0;
+          v1->char_c.meta.field_190 = 1;
+          return;
+        case 530:
+        case 531:
+          this->char_c.meta.field_18C = 9;
+          char_c::reset_forces(&this->char_c);
+          v1->char_c.meta.field_194 = 0;
+          v1->char_c.field_49A = 0;
+          v1->char_c.meta.field_190 = 1;
+          v1->char_c.not_charge_attack = 1;
+          return;
+        case 540:
+        case 541:
+          this->char_c.field_7D0 = 0;
+          this->char_c.meta.field_194 = 4;
+          this->char_c.meta.field_18C = 2;
+          this->char_c.meta.field_190 = 0;
+          char_c::reset_forces(&this->char_c);
+          v9 = __OFSUB__(v1->char_c.skills_1[2], 1);
+          v8 = (char)(v1->char_c.skills_1[2] - 1) < 0;
+          v1->char_c.not_charge_attack = 1;
+          if ( !((unsigned __int8)v8 ^ v9) )
+            v1->char_c.field_51C = 2;
+          return;
+        case 542:
+        case 547:
+          this->char_c.meta.field_190 = 0;
+          this->char_c.not_charge_attack = 0;
+          this->char_c.meta.field_18C = 2;
+          this->char_c.meta.field_194 = 1;
+          return;
+        case 545:
+        case 546:
+          this->char_c.meta.field_18C = 6;
+          this->char_c.meta.field_190 = 0;
+          char_c::reset_forces(&this->char_c);
+          v1->char_c.field_7D0 = 0;
+          v1->char_c.field_7D2 = 0;
+          v1->char_c.field_7D6 = 0;
+          v1->char_c.field_7D8 = 0;
+          v1->char_c.not_charge_attack = 0;
+          return;
+        case 550:
+        case 551:
+          this->char_c.meta.field_18C = 10;
+          this->char_c.meta.field_194 = 0;
+          this->char_c.meta.field_190 = 0;
+          goto LABEL_58;
+        case 560:
+        case 561:
+          this->char_c.meta.field_18C = 3;
+          this->char_c.meta.field_194 = 1;
+          this->char_c.meta.field_190 = 0;
+          char_c::reset_forces(&this->char_c);
+          v1->char_c.field_7D0 = 0;
+          v1->char_c.field_7D2 = 0;
+          v1->char_c.field_7D6 = 0;
+          v1->char_c.not_charge_attack = 1;
+          return;
+        case 565:
+        case 566:
+          this->char_c.meta.field_18C = 7;
+          this->char_c.meta.field_190 = 0;
+          char_c::reset_forces(&this->char_c);
+          v1->char_c.meta.field_194 = 1;
+          v1->char_c.not_charge_attack = 1;
+          return;
+        case 567:
+          this->char_c.meta.field_18C = 7;
+          this->char_c.meta.field_190 = 0;
+          this->char_c.field_7D0 = 0;
+          this->char_c.field_7D2 = 0;
+          this->char_c.field_7D6 = 0;
+LABEL_28:
+          this->char_c.not_charge_attack = 1;
+          this->char_c.meta.cEffectSprite.v_force = 0.0;
+          this->char_c.meta.cEffectSprite.h_inerc = this->char_c.meta.cEffectSprite.h_inerc * 0.2000000029802322;
+          this->char_c.meta.cEffectSprite.v_inerc = 0.2000000029802322 * this->char_c.meta.cEffectSprite.v_inerc;
+          return;
+        case 570:
+        case 571:
+          this->char_c.meta.field_18C = 11;
+          this->char_c.meta.field_190 = 0;
+          char_c::reset_forces(&this->char_c);
+          v1->char_c.not_charge_attack = 1;
+          return;
+        case 599:
+          this->char_c.meta.field_190 = 1;
+          char_c::reset_forces(&this->char_c);
+LABEL_32:
+          v1->char_c.field_7D0 = 0;
+          v1->char_c.field_7D2 = 0;
+          v1->char_c.field_7D6 = 0;
+          v1->char_c.field_7D8 = 0;
+          return;
+        case 600:
+          this->char_c.field_7DC = 240.0;
+          goto LABEL_65;
+        case 601:
+        case 604:
+LABEL_65:
+          this->char_c.meta.field_190 = 1;
+          char_c::reset_forces(&this->char_c);
+          return;
+        case 602:
+        case 605:
+          this->char_c.field_7D0 = 0;
+          this->char_c.field_7D2 = 0;
+          this->char_c.meta.field_190 = 0;
+          this->char_c.meta.field_194 = 20;
+          char_c::reset_forces(&this->char_c);
+          return;
+        case 603:
+          this->char_c.meta.field_190 = 1;
+          this->char_c.field_7DC = 320.0;
+          char_c::reset_forces(&this->char_c);
+          return;
+        case 606:
+          this->char_c.field_7D0 = 0;
+          this->char_c.field_7D2 = 0;
+          goto LABEL_69;
+        case 607:
+        case 710:
+        case 711:
+          this->char_c.meta.field_190 = 1;
+          char_c::reset_forces(&this->char_c);
+          v1->char_c.field_7DC = 0.0;
+          v1->char_c.field_7E4 = 0.0;
+          return;
+        case 608:
+          this->char_c.field_7D0 = 0;
+          this->char_c.field_7D2 = 0;
+          this->char_c.meta.field_190 = 1;
+          char_c::reset_forces(&this->char_c);
+          return;
+        case 609:
+          this->char_c.field_7D0 = 0;
+LABEL_69:
+          this->char_c.meta.field_190 = 0;
+          this->char_c.meta.field_194 = 1;
+          char_c::reset_forces(&this->char_c);
+          return;
+        case 610:
+          this->char_c.field_7D0 = 0;
+          this->char_c.field_7D2 = 0;
+          this->char_c.meta.field_190 = 1;
+          char_c::reset_forces(&this->char_c);
+          return;
+        case 612:
+        case 615:
+          this->char_c.meta.field_190 = 1;
+          char_c::reset_forces(&this->char_c);
+          v1->char_c.field_7D0 = 0;
+          v1->char_c.field_7D2 = 0;
+          v1->char_c.field_7D6 = 0;
+          v1->char_c.field_7D8 = 0;
+          v1->char_c.not_charge_attack = 1;
+          return;
+        case 613:
+          this->char_c.meta.field_190 = 0;
+          this->char_c.not_charge_attack = 1;
+          return;
+        case 707:
+LABEL_58:
+          char_c::reset_forces(&this->char_c);
+          return;
+        case 708:
+          this->char_c.meta.cEffectSprite.h_inerc = 0.0;
+          goto LABEL_77;
+        case 709:
+LABEL_77:
+          this->char_c.field_7D0 = 0;
+          break;
+        case 720:
+        case 721:
+          this->char_c.meta.field_190 = 0;
+          this->char_c.meta.field_194 = 1;
+          char_c::reset_forces(&this->char_c);
+          v1->char_c.field_7D0 = 0;
+          break;
+        case 730:
+        case 731:
+        case 740:
+          this->char_c.meta.field_190 = 0;
+          this->char_c.meta.field_194 = 0;
+          char_c::reset_forces(&this->char_c);
+          v1->char_c.field_7D0 = 0;
+          v1->char_c.field_7D2 = 0;
+          break;
+        default:
+          goto LABEL_81;
+      }
+      return;
+    }
+    char_c::reset_forces(&this->char_c);
+    v1->char_c.meta.cEffectSprite.h_inerc = 12.0;
+    v1->char_c.field_7D0 = 0;
+    v6 = 0.0;
+LABEL_83:
+    v1->char_c.meta.cEffectSprite.v_inerc = v6;
+    v1->char_c.meta.cEffectSprite.v_force = 0.5;
+    return;
+  }
+  if ( v2 >= 500 )
+  {
+    this->char_c.field_7D0 = 0;
+    this->char_c.meta.field_18C = 0;
+    char_c::reset_forces(&this->char_c);
+    v1->char_c.meta.field_190 = 0;
+    v1->char_c.field_49A = 0;
+    v1->char_c.meta.field_194 = 1;
+    return;
+  }
+  if ( v2 > 214 )
+  {
+    switch ( v2 )
+    {
+      case 217:
+        CEffectSprite::init(&this->char_c.meta.cEffectSprite);
+        v4 = 0.0;
+        v1->char_c.meta.cEffectSprite.h_inerc = 0.0;
+        v1->char_c.meta.cEffectSprite.v_inerc = 0.0;
+        v1->char_c.meta.cEffectSprite.v_force = 0.60000002;
+        v1->char_c.meta.cEffectSprite.x_off = 0.0;
+        v1->char_c.meta.cEffectSprite.y_off = 95.0;
+        v5 = 17.5;
+        goto LABEL_10;
+      case 300:
+      case 301:
+      case 303:
+      case 322:
+      case 330:
+        goto LABEL_38;
+      case 302:
+        if ( !this->char_c.field_49A )
+          char_c::reset_forces(&this->char_c);
+        goto LABEL_15;
+      case 304:
+        this->char_c.field_49A = 0;
+        this->char_c.meta.field_194 = 1;
+        this->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&this->char_c);
+        v1->char_c.not_charge_attack = 1;
+        return;
+      case 305:
+        this->char_c.meta.cEffectSprite.v_inerc = 0.0;
+        this->char_c.field_49A = 0;
+        this->char_c.meta.field_190 = 0;
+        this->char_c.meta.cEffectSprite.h_inerc = 17.5;
+        this->char_c.meta.field_194 = 1;
+        this->char_c.meta.cEffectSprite.v_force = 0.0;
+        return;
+      case 306:
+      case 325:
+        this->char_c.field_7D0 = 0;
+        this->char_c.meta.field_190 = 0;
+        this->char_c.meta.field_194 = 1;
+        return;
+      case 307:
+        char_c::reset_forces(&this->char_c);
+        goto LABEL_20;
+      case 308:
+      case 309:
+LABEL_20:
+        v1->char_c.meta.field_194 = 1;
+        v1->char_c.meta.field_190 = 0;
+        v1->char_c.not_charge_attack = 1;
+        return;
+      case 310:
+        v6 = 0.0;
+        this->char_c.meta.cEffectSprite.h_inerc = 0.0;
+        this->char_c.field_7D0 = 0;
+        this->char_c.meta.field_194 = 99;
+        this->char_c.meta.field_190 = 0;
+        goto LABEL_83;
+      case 320:
+        this->char_c.field_49A = 0;
+        this->char_c.meta.field_190 = 0;
+        this->char_c.meta.field_194 = 1;
+        return;
+      case 321:
+        if ( !this->char_c.field_49A )
+          char_c::reset_forces(&this->char_c);
+        v1->char_c.meta.field_190 = 0;
+        v1->char_c.meta.field_194 = 2;
+        return;
+      case 400:
+      case 401:
+      case 402:
+      case 410:
+      case 411:
+        this->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&this->char_c);
+        v1->char_c.not_charge_attack = 1;
+        return;
+      case 404:
+      case 406:
+        this->char_c.meta.field_190 = 0;
+        goto LABEL_28;
+      case 408:
+        this->char_c.meta.cEffectSprite.h_inerc = 17.5;
+        this->char_c.field_49A = 0;
+        this->char_c.field_7D0 = 0;
+        this->char_c.meta.field_190 = 0;
+        this->char_c.meta.cEffectSprite.v_inerc = 0.0;
+        this->char_c.meta.field_194 = 1;
+        return;
+      case 409:
+        this->char_c.field_49A = 0;
+        this->char_c.meta.cEffectSprite.v_force = 0.34999999;
+        this->char_c.field_7D0 = 0;
+        this->char_c.meta.field_190 = 0;
+        this->char_c.meta.field_194 = 1;
+        return;
+      case 412:
+        this->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&this->char_c);
+        goto LABEL_32;
+      case 414:
+        this->char_c.meta.cEffectSprite.v_force = 0.025;
+        this->char_c.meta.field_190 = 0;
+        v7 = this->char_c.meta.cEffectSprite.h_inerc;
+        this->char_c.field_7D0 = 0;
+        this->char_c.field_7D2 = 0;
+        this->char_c.field_7D6 = 0;
+        this->char_c.field_7D8 = 0;
+        this->char_c.not_charge_attack = 1;
+        this->char_c.meta.cEffectSprite.h_inerc = v7 * 0.2000000029802322;
+        this->char_c.meta.cEffectSprite.v_inerc = 0.2000000029802322 * this->char_c.meta.cEffectSprite.v_inerc;
+        return;
+      case 415:
+        this->char_c.meta.field_190 = 0;
+        this->char_c.field_7D0 = 0;
+        this->char_c.field_7D2 = 0;
+        this->char_c.field_7D6 = 0;
+        goto LABEL_35;
+      case 416:
+        this->char_c.meta.field_190 = 0;
+LABEL_35:
+        this->char_c.not_charge_attack = 1;
+        this->char_c.meta.cEffectSprite.v_force = 0.025;
+        this->char_c.meta.cEffectSprite.h_inerc = this->char_c.meta.cEffectSprite.h_inerc * 0.2000000029802322;
+        this->char_c.meta.cEffectSprite.v_inerc = 0.2000000029802322 * this->char_c.meta.cEffectSprite.v_inerc;
+        return;
+      case 418:
+        this->char_c.meta.cEffectSprite.h_inerc = 17.5;
+LABEL_38:
+        if ( !this->char_c.field_49A )
+          char_c::reset_forces(&this->char_c);
+        v1->char_c.meta.field_190 = 0;
+        v1->char_c.meta.field_194 = 1;
+        return;
+      default:
+        goto LABEL_81;
+    }
+    goto LABEL_81;
+  }
+  if ( v2 != 214 )
+  {
+    v3 = v2 - 4;
+    if ( !v3 )
+    {
+      this->char_c.meta.cEffectSprite.h_inerc = 6.5;
+      return;
+    }
+    if ( v3 == 1 )
+    {
+      this->char_c.meta.cEffectSprite.h_inerc = -6.5;
+      return;
+    }
+    goto LABEL_81;
+  }
+  v4 = 0.0;
+  this->char_c.meta.cEffectSprite.h_inerc = 0.0;
+  this->char_c.meta.cEffectSprite.v_inerc = 0.0;
+  this->char_c.meta.cEffectSprite.v_force = 0.60000002;
+  this->char_c.meta.cEffectSprite.x_off = 0.0;
+  this->char_c.meta.cEffectSprite.y_off = 75.0;
+  v5 = 25.0;
+LABEL_10:
+  v1->char_c.field_7DC = v5;
+  v1->char_c.field_7D6 = 0;
+  v1->char_c.field_7EC = v4;
+}

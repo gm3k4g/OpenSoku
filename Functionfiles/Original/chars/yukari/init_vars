@@ -1,0 +1,30 @@
+void __thiscall char_yukari::init_vars_func17(char_yukari *this)
+{
+  char_yukari *v1; // esi
+
+  v1 = this;
+  char_c::init_vars_func17(&this->char_c);
+  v1->char_c.meta.field_138 = -6.0;
+  v1->field_898 = 0.0;
+  v1->field_8A0 = 0.0;
+  v1->field_89C = 0.0;
+  v1->field_8A4 = 0.0;
+  v1->field_8A8 = 0;
+  v1->field_8AA = 0;
+  v1->field_8AC = 0;
+  v1->field_8B2 = 0;
+  v1->field_8AE = 0;
+  v1->field_8B0 = 0;
+  v1->field_8D0 = 0;
+  v1->field_890 = 0;
+  v1->field_892 = 0;
+  v1->field_894 = 0;
+  v1->field_895 = 0;
+  v1->field_8B4 = 0;
+  v1->field_8B8 = 0.0;
+  v1->field_8C4 = 0.0;
+  v1->field_8BC = 0.0;
+  v1->field_8C8 = 0.0;
+  v1->field_8C0 = 0.0;
+  v1->field_8CC = 0.0;
+}

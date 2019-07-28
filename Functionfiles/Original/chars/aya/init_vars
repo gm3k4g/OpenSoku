@@ -1,0 +1,12 @@
+void __thiscall char_aya::init_vars_func17(char_aya *this)
+{
+  char_aya *v1; // esi
+
+  v1 = this;
+  this->char_c.meta.field_138 = -6.0;
+  this->field_890 = 0;
+  this->field_892 = 0;
+  char_c::init_vars_func17(&this->char_c);
+  v1->field_894 = 0;
+  v1->field_896 = 0;
+}

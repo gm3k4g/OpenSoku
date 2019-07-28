@@ -1,0 +1,375 @@
+void __thiscall char_youmu::set_seq_params_func15(char_youmu *this)
+{
+  double v1; // st7
+  char_youmu *v2; // esi
+  int v3; // eax
+  float v4; // ST24_4
+  float a4; // ST08_4
+  float a3; // ST24_4
+  signed int v7; // eax
+  int v8; // eax
+  double v9; // st7
+  double v10; // st6
+  double v11; // st7
+  _BOOL1 v12; // sf
+  unsigned __int8 v13; // of
+  int v14; // eax
+  char v15; // al
+  int a7; // [esp+24h] [ebp-Ch]
+  float v17; // [esp+28h] [ebp-8h]
+  float v18; // [esp+2Ch] [ebp-4h]
+
+  v1 = 0.0;
+  v2 = this;
+  if ( !this->field_8D0 )
+  {
+    v3 = (unsigned __int8)this->char_c.meta.cEffectSprite.dir;
+    *(float *)&a7 = 0.0;
+    v17 = 0.0;
+    v18 = 0.0;
+    v4 = this->char_c.meta.cEffectSprite.y + 100.0;
+    a4 = v4;
+    a3 = this->char_c.meta.cEffectSprite.x - (double)(600 * (char)v3);
+    addbullet(&this->char_c, 899, a3, a4, v3, -1, (int)&a7, 3);
+    v1 = 0.0;
+    v2->field_8D0 = 1;
+  }
+  v7 = v2->char_c.meta.playing_seq;
+  if ( v7 <= 501 )
+  {
+    if ( v7 >= 500 )
+    {
+LABEL_34:
+      v2->char_c.meta.field_190 = 0;
+      char_c::reset_forces(&v2->char_c);
+      v2->char_c.not_charge_attack = 1;
+      return;
+    }
+    if ( v7 > 214 )
+    {
+      switch ( v7 )
+      {
+        case 217:
+          CEffectSprite::init(&v2->char_c.meta.cEffectSprite);
+          v1 = 0.0;
+          goto LABEL_13;
+        case 300:
+        case 301:
+        case 303:
+        case 311:
+        case 321:
+        case 322:
+        case 323:
+        case 330:
+          if ( !v2->char_c.field_49A )
+            char_c::reset_forces(&v2->char_c);
+          v2->char_c.meta.field_190 = 0;
+          v2->char_c.meta.field_194 = 1;
+          v2->field_8B9 = 1;
+          return;
+        case 302:
+          if ( !v2->char_c.field_49A )
+            char_c::reset_forces(&v2->char_c);
+          v2->char_c.meta.field_190 = 0;
+          v2->char_c.field_7D8 = 0;
+          v2->char_c.not_charge_attack = 1;
+          v2->char_c.meta.field_194 = 1;
+          v2->field_8B9 = 1;
+          return;
+        case 304:
+          goto LABEL_20;
+        case 305:
+          v2->char_c.meta.field_190 = 0;
+          v2->char_c.meta.field_194 = 1;
+          v2->field_8B9 = 1;
+          return;
+        case 306:
+        case 309:
+          v2->char_c.meta.field_190 = 0;
+          v2->char_c.field_7D0 = 0;
+          v2->char_c.meta.field_194 = 1;
+          v2->field_8B9 = 1;
+          return;
+        case 307:
+          char_c::reset_forces(&v2->char_c);
+          v2->char_c.meta.field_190 = 0;
+          v2->char_c.field_7DC = 0.0;
+          v2->char_c.field_7D0 = 0;
+          v2->char_c.meta.field_194 = 1;
+          v2->field_8B9 = 1;
+          return;
+        case 308:
+          char_c::reset_forces(&v2->char_c);
+          v2->char_c.meta.field_190 = 0;
+          v2->char_c.meta.field_194 = 1;
+          v2->field_8B9 = 1;
+          return;
+        case 310:
+          v2->char_c.meta.cEffectSprite.h_inerc = v1;
+          v2->char_c.meta.field_190 = 0;
+          v2->char_c.meta.cEffectSprite.v_inerc = v1;
+          v2->char_c.field_7D0 = 0;
+          v2->char_c.meta.field_194 = 99;
+          v2->char_c.meta.cEffectSprite.v_force = 0.5;
+          return;
+        case 320:
+          v2->char_c.field_49A = 0;
+          v2->char_c.meta.field_190 = 0;
+          v2->char_c.meta.field_194 = 1;
+          v2->field_8B9 = 1;
+          return;
+        case 400:
+        case 401:
+        case 402:
+        case 410:
+        case 411:
+        case 412:
+          v2->char_c.meta.field_190 = 1;
+          char_c::reset_forces(&v2->char_c);
+          goto LABEL_28;
+        case 404:
+        case 406:
+          v2->char_c.meta.field_190 = 1;
+LABEL_28:
+          v2->char_c.field_7D2 = 0;
+          v2->char_c.field_7D4 = 0;
+          v2->char_c.field_7D6 = 0;
+          v2->char_c.field_7D8 = 0;
+          v2->char_c.field_7D0 = 0;
+          v2->char_c.not_charge_attack = 1;
+          return;
+        case 408:
+          v2->char_c.field_49A = 0;
+          v2->char_c.meta.cEffectSprite.h_inerc = 14.0;
+          v2->char_c.meta.field_190 = 0;
+          v2->char_c.field_7D0 = 0;
+          v2->char_c.meta.cEffectSprite.v_inerc = v1;
+          v2->char_c.meta.field_194 = 1;
+          v2->char_c.meta.cEffectSprite.v_force = v1;
+          v2->field_8B9 = 1;
+          return;
+        case 414:
+        case 415:
+        case 416:
+          v2->char_c.meta.cEffectSprite.v_force = v1;
+          v2->char_c.meta.field_190 = 1;
+          v9 = v2->char_c.meta.cEffectSprite.h_inerc;
+          v2->char_c.field_7D2 = 0;
+          v10 = 0.2000000029802322;
+          v2->char_c.field_7D4 = 0;
+          v2->char_c.field_7D6 = 0;
+          v2->char_c.field_7D8 = 0;
+          goto LABEL_32;
+        case 418:
+          v2->char_c.field_49A = 0;
+          v2->char_c.meta.cEffectSprite.h_inerc = 14.0;
+          v2->char_c.meta.field_190 = 0;
+          v2->char_c.field_7D0 = 0;
+          v2->char_c.meta.cEffectSprite.v_inerc = v1;
+          v2->char_c.meta.field_194 = 1;
+          v2->field_8B9 = 1;
+          return;
+        default:
+          goto LABEL_59;
+      }
+    }
+    else
+    {
+      if ( v7 == 214 )
+      {
+LABEL_13:
+        v2->char_c.meta.cEffectSprite.h_inerc = v1;
+        v2->char_c.field_7D6 = 0;
+        v2->char_c.meta.cEffectSprite.v_inerc = v1;
+        v2->char_c.meta.cEffectSprite.v_force = 0.60000002;
+        v2->char_c.meta.cEffectSprite.x_off = v1;
+        v2->char_c.meta.cEffectSprite.y_off = 95.0;
+        v2->char_c.field_7DC = 14.5;
+        v2->char_c.field_7EC = v1;
+        return;
+      }
+      v8 = v7 - 4;
+      if ( !v8 )
+      {
+        v2->char_c.meta.cEffectSprite.h_inerc = 4.0;
+        return;
+      }
+      if ( v8 == 1 )
+      {
+        v2->char_c.meta.cEffectSprite.h_inerc = -4.0;
+        return;
+      }
+    }
+    goto LABEL_59;
+  }
+  if ( v7 > 797 )
+  {
+    if ( v7 != 798 )
+    {
+      char_c::set_seq_params_func15(&v2->char_c);
+      return;
+    }
+  }
+  else if ( v7 != 797 )
+  {
+    switch ( v7 )
+    {
+      case 505:
+      case 506:
+      case 560:
+      case 561:
+      case 565:
+      case 566:
+      case 570:
+      case 571:
+        v2->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&v2->char_c);
+        v2->char_c.field_7D0 = 0;
+        v2->char_c.not_charge_attack = 1;
+        return;
+      case 507:
+      case 508:
+        v2->char_c.meta.field_190 = 0;
+        v11 = v2->char_c.meta.cEffectSprite.h_inerc;
+        v2->char_c.field_7D0 = 0;
+        v2->char_c.not_charge_attack = 1;
+        v2->char_c.meta.cEffectSprite.h_inerc = v11 * 0.1000000014901161;
+        v2->char_c.meta.cEffectSprite.v_inerc = 0.1000000014901161 * v2->char_c.meta.cEffectSprite.v_inerc;
+        v2->char_c.meta.cEffectSprite.v_force = 0.050000001;
+        return;
+      case 510:
+      case 511:
+        goto LABEL_34;
+      case 520:
+      case 521:
+        v2->char_c.meta.field_190 = 0;
+        v2->char_c.meta.field_194 = 1;
+        v2->field_8B9 = 1;
+        char_c::reset_forces(&v2->char_c);
+        v13 = __OFSUB__(v2->char_c.skills_1[1], 1);
+        v12 = (char)(v2->char_c.skills_1[1] - 1) < 0;
+        v2->char_c.not_charge_attack = 1;
+        if ( !((unsigned __int8)v12 ^ v13) )
+          v2->char_c.field_51C = 2;
+        return;
+      case 525:
+      case 526:
+        v2->char_c.meta.field_190 = 0;
+        v2->char_c.meta.field_194 = 1;
+        v2->field_8B9 = 1;
+        char_c::reset_forces(&v2->char_c);
+        LOBYTE(v14) = v2->char_c.skills_1[5];
+        v2->char_c.not_charge_attack = 1;
+        if ( (char)v14 >= 2 )
+        {
+          LOWORD(v14) = (char)v14;
+          v2->char_c.meta.vtbl->set_subseq_func3(&v2->char_c.meta, v14);
+        }
+        return;
+      case 529:
+LABEL_20:
+        v2->char_c.field_49A = 0;
+        v2->char_c.meta.field_190 = 0;
+        v2->char_c.not_charge_attack = 1;
+        v2->char_c.meta.field_194 = 1;
+        v2->field_8B9 = 1;
+        char_c::reset_forces(&v2->char_c);
+        return;
+      case 530:
+      case 531:
+        v2->char_c.meta.field_190 = 0;
+        v2->char_c.meta.field_194 = 0;
+        char_c::reset_forces(&v2->char_c);
+        v2->char_c.not_charge_attack = 1;
+        return;
+      case 540:
+      case 541:
+      case 545:
+      case 550:
+      case 551:
+      case 552:
+      case 553:
+        v2->char_c.meta.field_190 = 0;
+        v2->char_c.meta.field_194 = 1;
+        v2->field_8B9 = 1;
+        char_c::reset_forces(&v2->char_c);
+        v2->char_c.not_charge_attack = 1;
+        return;
+      case 546:
+        v2->char_c.meta.field_190 = 0;
+        v2->char_c.meta.field_194 = 3;
+        v2->field_8B9 = 3;
+        char_c::reset_forces(&v2->char_c);
+        v2->char_c.field_7D0 = 0;
+        v2->char_c.not_charge_attack = 1;
+        return;
+      case 572:
+      case 573:
+        v2->char_c.meta.cEffectSprite.v_force = v1;
+        v2->char_c.meta.field_190 = 0;
+        v9 = v2->char_c.meta.cEffectSprite.h_inerc;
+        v10 = 0.1000000014901161;
+LABEL_32:
+        v2->char_c.field_7D0 = 0;
+        v2->char_c.not_charge_attack = 1;
+        v2->char_c.meta.cEffectSprite.h_inerc = v9 * v10;
+        v2->char_c.meta.cEffectSprite.v_inerc = v10 * v2->char_c.meta.cEffectSprite.v_inerc;
+        return;
+      case 600:
+      case 603:
+      case 612:
+        v2->char_c.meta.field_190 = 0;
+        v2->char_c.meta.field_194 = 1;
+        v2->field_8B9 = 1;
+        char_c::reset_forces(&v2->char_c);
+        v2->char_c.field_7D0 = 0;
+        return;
+      case 601:
+        v15 = 5;
+        goto LABEL_50;
+      case 602:
+      case 605:
+      case 606:
+      case 607:
+      case 710:
+        goto LABEL_51;
+      case 604:
+        v15 = 6;
+LABEL_50:
+        v2->char_c.meta.field_194 = v15;
+        v2->field_8B9 = v15;
+LABEL_51:
+        v2->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&v2->char_c);
+        v2->char_c.field_7D0 = 0;
+        return;
+      case 608:
+        v2->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&v2->char_c);
+        v2->char_c.field_7D0 = 0;
+        char_c::sub_469450(&v2->char_c, 0, 0, 60);
+        char_c::sub_483570(&v2->char_c);
+        weather_forecast_next();
+        return;
+      case 720:
+      case 730:
+        v2->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&v2->char_c);
+        v2->char_c.field_7D2 = 0;
+        v2->char_c.field_7D4 = 0;
+        v2->char_c.field_7D0 = 0;
+        return;
+      default:
+        break;
+    }
+LABEL_59:
+    char_c::set_seq_params_func15(&v2->char_c);
+    return;
+  }
+  char_c::reset_forces(&v2->char_c);
+  scene_play_sfx(31);
+  v2->char_c.meta.cEffectSprite.h_inerc = 17.5;
+  v2->char_c.field_7D0 = 0;
+  v2->char_c.meta.cEffectSprite.v_inerc = 0.0;
+  v2->char_c.meta.cEffectSprite.v_force = 1.2;
+}

@@ -1,0 +1,30 @@
+void __thiscall char_utsuho::init_vars_func17(char_utsuho *this)
+{
+  char_utsuho *v1; // esi
+  int v2; // eax
+  frame_head *v3; // ecx
+  double v4; // st7
+  float v5; // ST24_4
+  float a4; // ST08_4
+  float a3; // ST24_4
+  float a7[3]; // [esp+24h] [ebp-Ch]
+
+  v1 = this;
+  this->char_c.meta.field_138 = -6.0;
+  this->field_8A0 = 0;
+  this->field_8A4 = 0;
+  char_c::init_vars_func17(&this->char_c);
+  v2 = (unsigned __int8)v1->char_c.meta.cEffectSprite.dir;
+  a7[0] = 0.0;
+  v3 = v1->char_c.meta.current_frame_params;
+  a7[1] = 0.0;
+  a7[2] = 0.0;
+  v4 = v1->char_c.meta.cEffectSprite.y;
+  v1->field_89C = 0;
+  v1->field_89D = 0;
+  v5 = v4 - (double)v3->extra_24byte[1];
+  a4 = v5;
+  a3 = (double)(v3->extra_24byte[0] * (char)v2) + v1->char_c.meta.cEffectSprite.x;
+  addbullet(&v1->char_c, 990, a3, a4, v2, 1, (int)a7, 3);
+  v1->field_898 = 0.0;
+}

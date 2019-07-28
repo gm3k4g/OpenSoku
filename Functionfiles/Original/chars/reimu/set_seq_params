@@ -1,0 +1,701 @@
+void __thiscall char_reimu::set_seq_params_func15(char_reimu *this)
+{
+  char_reimu *v1; // esi
+  __int16 v2; // cx
+  double v3; // st7
+  double v4; // st7
+  double v5; // st7
+  double v6; // st7
+  signed int v7; // edi
+  float v8; // ST28_4
+  int v9; // eax
+  double v10; // st7
+  float v11; // ST28_4
+  float y; // ST10_4
+  double v13; // st7
+  float v14; // ST28_4
+  int v15; // eax
+  float v16; // ST28_4
+  float v17; // ST10_4
+  float v18; // ST28_4
+  signed int v19; // ST28_4
+  double v20; // st7
+  double v21; // st7
+  signed int v22; // edi
+  float v23; // ST28_4
+  int v24; // eax
+  float v25; // ST28_4
+  float v26; // ST10_4
+  float v27; // ST28_4
+  int v28; // eax
+  float v29; // ST28_4
+  float v30; // ST10_4
+  float v31; // ST28_4
+  signed int v32; // edi
+  float v33; // ST28_4
+  double v34; // st7
+  int x; // ST0C_4
+  float a4; // ST08_4
+  signed int v37; // ecx
+  signed int v38; // ST28_4
+  double v39; // st7
+  double v40; // st6
+  double v41; // st7
+  double v42; // st7
+  double v43; // st7
+  int v44; // ecx
+  double v45; // st6
+  _BOOL1 v46; // sf
+  unsigned __int8 v47; // of
+  int v48; // eax
+  float v49; // ST28_4
+  float v50; // ST10_4
+  float v51; // ST28_4
+  int v52; // eax
+  float v53; // ST28_4
+  float v54; // ST10_4
+  float v55; // ST28_4
+  float v56; // [esp+24h] [ebp-10h]
+  int a7; // [esp+28h] [ebp-Ch]
+  float v58; // [esp+2Ch] [ebp-8h]
+  float v59; // [esp+30h] [ebp-4h]
+
+  v1 = this;
+  v2 = this->char_c.meta.playing_seq;
+  if ( v2 <= 300 )
+  {
+    if ( v2 == 300 )
+    {
+LABEL_37:
+      if ( !v1->char_c.field_49A )
+        char_c::reset_forces(&v1->char_c);
+      v1->char_c.meta.field_190 = 0;
+      v1->field_8B8 = 0;
+      v1->char_c.meta.field_194 = 1;
+    }
+    else
+    {
+      switch ( v2 )
+      {
+        case 4:
+          v1->char_c.meta.cEffectSprite.h_inerc = 4.5;
+          return;
+        case 5:
+          v1->char_c.meta.cEffectSprite.h_inerc = -4.5;
+          return;
+        case 70:
+          v3 = v1->char_c.meta.field_1A4;
+          v1->char_c.field_571 = 1;
+          v1->char_c.field_572 = 1;
+          v56 = -v3;
+          v1->char_c.field_7D0 = 0;
+          v1->char_c.meta.cEffectSprite.h_inerc = v56;
+          v1->char_c.meta.cEffectSprite.v_inerc = v1->char_c.meta.field_1A8;
+          v1->char_c.meta.cEffectSprite.v_force = 0.80000001;
+          if ( v56 > 0.0 )
+            v1->char_c.field_7D0 = 1;
+          if ( v56 < 0.0 )
+            v1->char_c.field_7D0 = -1;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          return;
+        case 71:
+          v1->char_c.meta.cEffectSprite.h_inerc = -v1->char_c.meta.field_1A4;
+          v4 = v1->char_c.meta.field_1A8;
+          goto LABEL_12;
+        case 72:
+          v6 = -v1->char_c.meta.field_1A4;
+          v1->char_c.field_571 = 1;
+          v1->char_c.meta.cEffectSprite.h_inerc = v6;
+          v1->char_c.field_572 = 1;
+          v1->char_c.meta.cEffectSprite.v_inerc = v1->char_c.meta.field_1A8;
+          v1->char_c.meta.cEffectSprite.v_force = 1.3;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          return;
+        case 73:
+        case 88:
+          v1->char_c.meta.cEffectSprite.h_inerc = -v1->char_c.meta.field_1A4;
+          v1->char_c.meta.cEffectSprite.v_inerc = v1->char_c.meta.field_1A8;
+          v5 = 0.80000001;
+          goto LABEL_13;
+        case 74:
+        case 75:
+          v1->char_c.meta.cEffectSprite.h_inerc = -v1->char_c.meta.field_1A4;
+          v1->char_c.meta.cEffectSprite.v_inerc = v1->char_c.meta.field_1A8;
+          v5 = 0.80000001;
+          goto LABEL_14;
+        case 76:
+          v1->char_c.field_571 = 1;
+          v1->char_c.field_572 = 1;
+          weather_forecast_next();
+          v7 = 5;
+          do
+          {
+            v8 = v1->char_c.meta.cEffectSprite.y + 100.0;
+            scene_add_effect(&v1->char_c, 201, v1->char_c.meta.cEffectSprite.x, v8, (unsigned __int8)v1->char_c.meta.cEffectSprite.dir, 1);
+            --v7;
+          }
+          while ( v7 );
+          v9 = (unsigned __int8)v1->char_c.meta.cEffectSprite.dir;
+          v10 = v1->char_c.meta.cEffectSprite.y + 100.0;
+          ++v1->char_c.field_7D0;
+          v11 = v10;
+          y = v11;
+          v1->char_c.meta.hit_stop = 5;
+          v13 = v1->char_c.meta.cEffectSprite.x;
+          v1->char_c.x_delta = 0;
+          v1->char_c.y_delta = 85;
+          v14 = v13 - (double)(50 * (char)v9);
+          scene_add_effect(&v1->char_c, 38, v14, y, v9, 1);
+          v15 = (unsigned __int8)v1->char_c.meta.cEffectSprite.dir;
+          v16 = v1->char_c.meta.cEffectSprite.y + 100.0;
+          v17 = v16;
+          v18 = v1->char_c.meta.cEffectSprite.x - (double)(50 * (char)v15);
+          scene_add_effect(&v1->char_c, 59, v18, v17, v15, 1);
+          v19 = v1->char_c.y_delta;
+          v1->char_c.meta.cEffectSprite.x_off = (double)v1->char_c.x_delta;
+          v1->char_c.meta.cEffectSprite.y_off = (double)v19;
+          v1->char_c.meta.cEffectSprite.h_inerc = 0.0;
+          v1->char_c.meta.cEffectSprite.v_inerc = 0.0;
+          v1->char_c.meta.cEffectSprite.v_force = 0.0;
+          shake_camera(6.0);
+          scene_play_sfx(22);
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          return;
+        case 77:
+          v20 = -v1->char_c.meta.field_1A4;
+          v1->char_c.field_571 = 1;
+          v1->char_c.meta.cEffectSprite.h_inerc = v20;
+          v1->char_c.field_572 = 1;
+          v21 = v1->char_c.meta.field_1A8;
+          v1->char_c.x_delta = 0;
+          v1->char_c.meta.cEffectSprite.v_inerc = v21;
+          v1->char_c.y_delta = 85;
+          v1->char_c.meta.cEffectSprite.v_force = 0.80000001;
+          v1->char_c.meta.cEffectSprite.x_off = 0.0;
+          v1->char_c.meta.cEffectSprite.y_off = 85.0;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          return;
+        case 78:
+          v1->char_c.field_571 = 1;
+          v1->char_c.field_572 = 1;
+          weather_forecast_next();
+          v22 = 5;
+          do
+          {
+            v23 = v1->char_c.meta.cEffectSprite.y + 100.0;
+            scene_add_effect(&v1->char_c, 201, v1->char_c.meta.cEffectSprite.x, v23, (unsigned __int8)v1->char_c.meta.cEffectSprite.dir, 1);
+            --v22;
+          }
+          while ( v22 );
+          ++v1->char_c.field_7D0;
+          v1->char_c.meta.cEffectSprite.h_inerc = 0.0;
+          v1->char_c.meta.cEffectSprite.v_inerc = 0.0;
+          v1->char_c.meta.cEffectSprite.v_force = 0.0;
+          shake_camera(4.0);
+          scene_play_sfx(22);
+          v24 = (unsigned __int8)v1->char_c.meta.cEffectSprite.dir;
+          v25 = v1->char_c.meta.cEffectSprite.y + 100.0;
+          v26 = v25;
+          v27 = v1->char_c.meta.cEffectSprite.x - (double)(50 * (char)v24);
+          scene_add_effect(&v1->char_c, 38, v27, v26, v24, 1);
+          v28 = (unsigned __int8)v1->char_c.meta.cEffectSprite.dir;
+          v29 = v1->char_c.meta.cEffectSprite.y + 100.0;
+          v30 = v29;
+          v31 = v1->char_c.meta.cEffectSprite.x - (double)(50 * (char)v28);
+          scene_add_effect(&v1->char_c, 59, v31, v30, v28, 1);
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          return;
+        case 89:
+          v1->char_c.field_571 = 1;
+          v1->char_c.field_572 = 1;
+          weather_forecast_next();
+          v32 = 5;
+          do
+          {
+            v33 = v1->char_c.meta.cEffectSprite.y + 100.0;
+            scene_add_effect(&v1->char_c, 201, v1->char_c.meta.cEffectSprite.x, v33, (unsigned __int8)v1->char_c.meta.cEffectSprite.dir, 1);
+            --v32;
+          }
+          while ( v32 );
+          if ( !v1->field_890 )
+          {
+            v34 = v1->char_c.meta.cEffectSprite.y;
+            x = (unsigned __int8)v1->char_c.meta.cEffectSprite.dir;
+            v1->field_890 = 1;
+            a4 = v34;
+            addbullet(&v1->char_c, 951, v1->char_c.meta.cEffectSprite.x, a4, x, 1, 0, 0);
+          }
+          scene_add_effect(&v1->char_c, 58, v1->char_c.meta.cEffectSprite.x, 0.0, (unsigned __int8)v1->char_c.meta.cEffectSprite.dir, -1);
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          return;
+        case 145:
+          v1->char_c.meta.cEffectSprite.h_inerc = -10.0;
+          v4 = 14.0;
+LABEL_12:
+          v1->char_c.meta.cEffectSprite.v_inerc = v4;
+          v5 = 0.5;
+LABEL_13:
+          v1->char_c.field_7D0 = 7;
+LABEL_14:
+          v1->char_c.meta.cEffectSprite.v_force = v5;
+          v1->char_c.field_572 = 1;
+          v1->char_c.meta.cEffectSprite.angZ = 0.0;
+          v1->char_c.field_571 = 1;
+          return;
+        case 149:
+          v37 = v1->char_c.y_delta;
+          v38 = v1->char_c.x_delta;
+          v1->char_c.field_571 = 1;
+          v1->char_c.field_572 = 1;
+          v1->char_c.meta.cEffectSprite.x_off = (double)v38;
+          v1->char_c.meta.cEffectSprite.y_off = (double)v37;
+          v1->char_c.meta.cEffectSprite.h_inerc = -3.0;
+          v1->char_c.meta.cEffectSprite.v_inerc = 17.5;
+          v1->char_c.meta.cEffectSprite.v_force = 0.5;
+          return;
+        case 214:
+          break;
+        case 217:
+          CEffectSprite::init(&v1->char_c.meta.cEffectSprite);
+          break;
+        default:
+          goto LABEL_100;
+      }
+      v1->char_c.meta.cEffectSprite.h_inerc = 0.0;
+      v1->char_c.field_7D6 = 0;
+      v1->char_c.meta.cEffectSprite.v_inerc = 0.0;
+      v1->char_c.meta.cEffectSprite.v_force = 0.60000002;
+      v1->char_c.meta.cEffectSprite.x_off = 0.0;
+      v1->char_c.meta.cEffectSprite.y_off = 95.0;
+      v1->char_c.field_7DC = 10.0;
+      v1->char_c.field_7EC = 0.0;
+    }
+    return;
+  }
+  if ( v2 > 561 )
+  {
+    switch ( v2 )
+    {
+      case 565:
+      case 566:
+        v1->char_c.meta.cEffectSprite.h_inerc = 0.0;
+        v1->char_c.meta.cEffectSprite.v_inerc = 0.0;
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.field_7D2 = 0;
+        v1->char_c.meta.cEffectSprite.v_force = 0.0;
+        v1->char_c.field_7D4 = 0;
+        v1->char_c.field_49A = 0;
+        v1->char_c.meta.field_190 = 0;
+        v1->field_8B8 = 0;
+        v1->char_c.meta.field_18C = 7;
+        v1->char_c.meta.field_194 = 1;
+        v1->char_c.not_charge_attack = 1;
+        return;
+      case 570:
+      case 571:
+      case 572:
+      case 573:
+        v1->char_c.meta.field_18C = 11;
+        char_c::reset_forces(&v1->char_c);
+        v1->char_c.meta.field_190 = 0;
+        v1->field_8B8 = 1;
+        v1->char_c.not_charge_attack = 1;
+        return;
+      case 600:
+      case 601:
+      case 602:
+      case 605:
+      case 606:
+        goto LABEL_87;
+      case 604:
+        goto LABEL_88;
+      case 607:
+      case 657:
+        v1->char_c.field_7DC = 0.0;
+LABEL_72:
+        v1->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&v1->char_c);
+        v1->field_8B8 = 1;
+        return;
+      case 608:
+      case 658:
+        v1->char_c.field_7D4 = 0;
+        goto LABEL_87;
+      case 609:
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.field_7D2 = 0;
+        v1->char_c.field_7D8 = 0;
+        v1->char_c.meta.field_190 = 1;
+        char_c::reset_forces(&v1->char_c);
+        char_c::sub_469450(&v1->char_c, 0, 0, 60);
+        char_c::sub_483570(&v1->char_c);
+        weather_forecast_next();
+        v1->char_c.field_4A6 = 40;
+        scene_play_sfx(23);
+        v48 = (unsigned __int8)v1->char_c.meta.cEffectSprite.dir;
+        v49 = v1->char_c.meta.cEffectSprite.y + 144.0;
+        v50 = v49;
+        v51 = (double)(24 * (char)v48) + v1->char_c.meta.cEffectSprite.x;
+        scene_add_effect(&v1->char_c, 115, v51, v50, v48, 1);
+        v1->field_8B8 = 1;
+        return;
+      case 610:
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.field_7D2 = 0;
+        v1->char_c.meta.field_190 = 1;
+        char_c::reset_forces(&v1->char_c);
+        char_c::sub_469450(&v1->char_c, 0, 0, 60);
+        char_c::sub_483570(&v1->char_c);
+        weather_forecast_next();
+        v1->char_c.field_4A6 = 40;
+        scene_play_sfx(23);
+        v52 = (unsigned __int8)v1->char_c.meta.cEffectSprite.dir;
+        v53 = v1->char_c.meta.cEffectSprite.y + 144.0;
+        v54 = v53;
+        v55 = (double)(24 * (char)v52) + v1->char_c.meta.cEffectSprite.x;
+        scene_add_effect(&v1->char_c, 115, v55, v54, v52, 1);
+        v1->field_8B8 = 1;
+        return;
+      case 612:
+        char_c::reset_forces(&v1->char_c);
+        v1->char_c.meta.field_190 = 0;
+        v1->char_c.field_49A = 0;
+        v1->char_c.meta.field_194 = 5;
+        v1->field_8B8 = 1;
+        return;
+      case 614:
+        v1->char_c.meta.cEffectSprite.h_inerc = 0.0;
+        v1->char_c.meta.cEffectSprite.v_inerc = 0.0;
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.meta.field_190 = 0;
+        v1->char_c.meta.cEffectSprite.v_force = 0.0;
+        v1->field_8B8 = 0;
+        return;
+      case 616:
+        char_c::reset_forces(&v1->char_c);
+        v1->char_c.field_7DC = 0.0;
+        v1->char_c.meta.field_190 = 0;
+        v1->char_c.field_49A = 0;
+        v1->char_c.meta.field_194 = 5;
+        v1->field_8B8 = 1;
+        return;
+      case 619:
+        char_c::reset_forces(&v1->char_c);
+        v1->char_c.field_7DC = 0.0;
+        v1->field_8B4 = 0;
+        v1->field_8B6 = 0;
+LABEL_44:
+        v1->char_c.field_49A = 0;
+        v1->char_c.meta.field_190 = 0;
+        v1->field_8B8 = 0;
+        return;
+      case 650:
+      case 651:
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.field_7D2 = 0;
+        v1->char_c.meta.field_190 = 1;
+        char_c::reset_forces(&v1->char_c);
+        v1->field_8B8 = 1;
+        v1->char_c.meta.cEffectSprite.v_force = 0.25;
+        return;
+      case 669:
+        v1->char_c.field_7DC = 0.0;
+        v1->char_c.field_7D4 = 0;
+LABEL_87:
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.field_7D2 = 0;
+LABEL_88:
+        v1->char_c.meta.field_190 = 1;
+        char_c::reset_forces(&v1->char_c);
+        v1->field_8B8 = 1;
+        return;
+      case 695:
+      case 696:
+      case 697:
+      case 698:
+        v1->field_8B8 = 0;
+        goto LABEL_100;
+      case 710:
+      case 711:
+      case 730:
+      case 731:
+      case 740:
+        char_c::reset_forces(&v1->char_c);
+        goto LABEL_103;
+      case 720:
+      case 721:
+        char_c::reset_forces(&v1->char_c);
+        return;
+      case 760:
+        char_c::reset_forces(&v1->char_c);
+        v1->char_c.field_7D0 = 0;
+        sub_4685C0(&v1->char_c, -1);
+        v1->char_c.field_6F5 = 1;
+        char_c::sub_46AB50(&v1->char_c, 6, -1);
+        char_c::health_to_max(&v1->char_c);
+        scene_play_sfx(23);
+        return;
+      case 797:
+LABEL_103:
+        v1->char_c.field_7D0 = 0;
+        return;
+      case 798:
+        char_c::reset_forces(&v1->char_c);
+        v1->char_c.meta.cEffectSprite.h_inerc = 12.0;
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.meta.cEffectSprite.v_inerc = 0.0;
+        v1->char_c.meta.cEffectSprite.v_force = 0.5;
+        return;
+      default:
+        goto LABEL_100;
+    }
+    goto LABEL_100;
+  }
+  if ( v2 < 560 )
+  {
+    switch ( v2 )
+    {
+      case 301:
+      case 320:
+      case 330:
+        goto LABEL_37;
+      case 302:
+        if ( !v1->char_c.field_49A )
+          char_c::reset_forces(&v1->char_c);
+        goto LABEL_42;
+      case 303:
+        if ( !v1->char_c.field_49A )
+          char_c::reset_forces(&v1->char_c);
+        v1->char_c.meta.field_190 = 0;
+        v1->field_8B8 = 0;
+        v1->char_c.meta.field_194 = 6;
+        return;
+      case 304:
+        char_c::reset_forces(&v1->char_c);
+LABEL_42:
+        v1->char_c.not_charge_attack = 1;
+        goto LABEL_43;
+      case 305:
+        v1->char_c.meta.cEffectSprite.h_inerc = 15.0;
+        goto LABEL_50;
+      case 306:
+        goto LABEL_52;
+      case 307:
+        char_c::reset_forces(&v1->char_c);
+LABEL_52:
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.meta.field_190 = 0;
+        v1->field_8B8 = 0;
+        v1->char_c.meta.field_194 = 1;
+        return;
+      case 308:
+      case 309:
+        v1->char_c.meta.field_190 = 0;
+        v1->field_8B8 = 0;
+        v1->char_c.meta.field_194 = 1;
+        return;
+      case 310:
+        v1->char_c.meta.cEffectSprite.h_inerc = 15.0;
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.meta.cEffectSprite.v_force = 0.5;
+        v1->char_c.meta.field_190 = 0;
+        v1->field_8B8 = 0;
+        v1->char_c.meta.cEffectSprite.x_off = 0.0;
+        v1->char_c.meta.field_194 = 3;
+        v1->char_c.meta.cEffectSprite.y_off = 105.0;
+        return;
+      case 321:
+        goto LABEL_43;
+      case 322:
+        if ( v1->char_c.field_49A )
+        {
+LABEL_50:
+          v1->char_c.field_7D8 = 0;
+        }
+        else
+        {
+          char_c::reset_forces(&v1->char_c);
+          v1->char_c.field_7D8 = 0;
+        }
+        goto LABEL_43;
+      case 400:
+      case 401:
+      case 410:
+      case 412:
+        v1->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&v1->char_c);
+        goto LABEL_58;
+      case 402:
+        v1->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&v1->char_c);
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.field_7D2 = 0;
+        v1->char_c.field_7D6 = 0;
+        v1->char_c.field_7D8 = 0;
+        v1->field_8B8 = 1;
+        return;
+      case 404:
+      case 406:
+        v1->char_c.meta.cEffectSprite.v_force = 0.0;
+        v1->char_c.field_7D4 = 0;
+        v39 = v1->char_c.meta.cEffectSprite.h_inerc;
+        v40 = 0.2000000029802322;
+        goto LABEL_64;
+      case 408:
+        v1->char_c.meta.cEffectSprite.h_inerc = 14.0;
+        v1->char_c.meta.cEffectSprite.v_inerc = 0.0;
+        v1->char_c.meta.cEffectSprite.v_force = 0.0;
+        goto LABEL_43;
+      case 414:
+      case 416:
+        v39 = v1->char_c.meta.cEffectSprite.h_inerc;
+        v40 = 0.25;
+LABEL_64:
+        v1->char_c.meta.field_190 = 0;
+        v1->char_c.meta.cEffectSprite.h_inerc = v39 * v40;
+        v1->char_c.meta.cEffectSprite.v_inerc = v40 * v1->char_c.meta.cEffectSprite.v_inerc;
+LABEL_58:
+        v1->char_c.field_7D8 = 0;
+        goto LABEL_59;
+      case 418:
+        v1->char_c.meta.cEffectSprite.h_inerc = 8.5;
+        v1->char_c.meta.cEffectSprite.v_inerc = 0.0;
+        v1->char_c.meta.cEffectSprite.v_force = 0.0;
+        goto LABEL_43;
+      case 500:
+      case 501:
+        v1->char_c.meta.field_18C = 0;
+        v1->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&v1->char_c);
+        goto LABEL_59;
+      case 502:
+      case 503:
+      case 512:
+      case 513:
+        v41 = v1->char_c.meta.cEffectSprite.h_inerc;
+        v1->char_c.meta.field_18C = 0;
+        v1->char_c.meta.field_190 = 0;
+        v1->char_c.meta.cEffectSprite.h_inerc = v41 * 0.25;
+        v1->char_c.meta.cEffectSprite.v_inerc = 0.25 * v1->char_c.meta.cEffectSprite.v_inerc;
+        goto LABEL_59;
+      case 505:
+      case 506:
+        v1->char_c.meta.field_18C = 4;
+        v1->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&v1->char_c);
+        goto LABEL_59;
+      case 507:
+      case 508:
+        v42 = v1->char_c.meta.cEffectSprite.h_inerc;
+        v1->char_c.meta.field_18C = 4;
+        v1->char_c.meta.field_190 = 0;
+        v1->char_c.meta.cEffectSprite.h_inerc = v42 * 0.25;
+        v1->char_c.meta.cEffectSprite.v_inerc = 0.25 * v1->char_c.meta.cEffectSprite.v_inerc;
+        goto LABEL_59;
+      case 510:
+      case 511:
+        v1->char_c.meta.field_18C = 8;
+        v1->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&v1->char_c);
+LABEL_59:
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.field_7D2 = 0;
+        v1->char_c.field_7D6 = 0;
+        v1->char_c.not_charge_attack = 1;
+        v1->field_8B8 = 1;
+        return;
+      case 520:
+      case 521:
+        v1->char_c.meta.field_18C = 1;
+        goto LABEL_72;
+      case 522:
+      case 523:
+        v43 = v1->char_c.meta.cEffectSprite.h_inerc;
+        v1->char_c.meta.field_18C = 1;
+        v1->char_c.meta.field_190 = 0;
+        v1->field_8B8 = 1;
+        v1->char_c.meta.cEffectSprite.h_inerc = v43 * 0.25;
+        v1->char_c.meta.cEffectSprite.v_inerc = 0.25 * v1->char_c.meta.cEffectSprite.v_inerc;
+        return;
+      case 525:
+      case 526:
+        v1->char_c.meta.field_18C = 5;
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.field_7D2 = 0;
+        v1->char_c.field_7D8 = 0;
+        v1->char_c.meta.field_190 = 0;
+        char_c::reset_forces(&v1->char_c);
+        v1->field_8B8 = 1;
+        return;
+      case 527:
+      case 528:
+        v44 = (unsigned __int8)v1->char_c.meta.cEffectSprite.dir;
+        v1->char_c.meta.cEffectSprite.v_force = 0.0;
+        v1->char_c.meta.cEffectSprite.h_inerc = v1->char_c.meta.cEffectSprite.h_inerc * 0.1000000014901161;
+        v1->char_c.meta.field_18C = 5;
+        v45 = 0.1000000014901161 * v1->char_c.meta.cEffectSprite.v_inerc;
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.field_7D2 = 0;
+        v1->char_c.field_7D8 = 0;
+        v1->char_c.meta.cEffectSprite.v_inerc = v45;
+        v1->char_c.meta.field_190 = 0;
+        v1->field_8B8 = 1;
+        *(float *)&a7 = 0.0;
+        v58 = 0.0;
+        v59 = 8.0;
+        addbullet(&v1->char_c, 816, v1->char_c.meta.cEffectSprite.x, v1->char_c.meta.cEffectSprite.y, v44, -1, (int)&a7, 3);
+        return;
+      case 530:
+      case 531:
+        v1->char_c.meta.field_18C = 9;
+        goto LABEL_72;
+      case 540:
+        v1->char_c.meta.field_18C = 2;
+        char_c::reset_forces(&v1->char_c);
+LABEL_43:
+        v1->char_c.meta.field_194 = 1;
+        goto LABEL_44;
+      case 541:
+        v1->char_c.meta.field_18C = 2;
+        char_c::reset_forces(&v1->char_c);
+        v1->char_c.meta.field_194 = 99;
+        v1->char_c.field_7D0 = 0;
+        v1->char_c.field_7D4 = 0;
+        goto LABEL_44;
+      case 545:
+      case 546:
+        v1->char_c.meta.field_18C = 6;
+        char_c::reset_forces(&v1->char_c);
+        v1->char_c.meta.field_194 = 1;
+        v1->char_c.meta.field_190 = 1;
+        v1->char_c.field_49A = 0;
+        v1->field_8B8 = 1;
+        return;
+      case 550:
+      case 551:
+        v1->char_c.meta.field_18C = 10;
+        char_c::reset_forces(&v1->char_c);
+        v1->char_c.meta.field_194 = 0;
+        v1->char_c.meta.field_190 = 0;
+        v1->char_c.field_49A = 0;
+        v1->field_8B8 = 1;
+        return;
+      default:
+        break;
+    }
+LABEL_100:
+    char_c::set_seq_params_func15(&v1->char_c);
+    return;
+  }
+  v47 = __OFSUB__(v1->char_c.skills_1[3], 4);
+  v46 = (char)(v1->char_c.skills_1[3] - 4) < 0;
+  v1->char_c.meta.cEffectSprite.h_inerc = 0.0;
+  v1->char_c.meta.cEffectSprite.v_inerc = 0.0;
+  v1->char_c.meta.field_18C = 3;
+  v1->char_c.meta.cEffectSprite.v_force = 0.0;
+  v1->char_c.meta.field_194 = 1;
+  v1->char_c.meta.field_190 = 0;
+  v1->field_8B8 = 0;
+  if ( !((unsigned __int8)v46 ^ v47) && v2 == 560 )
+    v1->char_c.field_51C = 2;
+}
