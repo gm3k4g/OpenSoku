@@ -596,7 +596,7 @@ void char_marisa::func10()
             else if (get_subseq() == 2 && get_frame_time() == 0 && get_frame() == 0 && get_elaps_frames() == 0)
                 flip_with_force();
         }
-        break;
+        break; 
     case 204:
         sub10func();
         h_inerc -= 0.5;
