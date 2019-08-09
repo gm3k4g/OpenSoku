@@ -1,0 +1,2 @@
+workflow:
+using cpp files as reference, using pseudocode as reference. follow pseudocode mostly and base it on the structure of existing cpps.
