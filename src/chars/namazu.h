@@ -12,6 +12,9 @@ public:
 	int16_t field_89C;
 	float field_138;
 
+	int8_t field_8A8;
+	int16_t field_892;
+
 	char_namazu(inp_ab *func,uint8_t pal = 0);
 
 	//void sub_5586E0();
