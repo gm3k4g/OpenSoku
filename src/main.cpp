@@ -20,6 +20,8 @@
 #include "weather.h"
 #include "bullets.h"
 
+#include <iostream>
+
 
 int main(int argc, char *argv[])
 {
@@ -98,7 +100,7 @@ int main(int argc, char *argv[])
     /* Setting the characters */
 
     /* Player 1 */
-    char_c *player1 = new char_aya(inp_createinput(INP_TYPE_BOTH));
+    char_c *player1 = new char_suika(inp_createinput(INP_TYPE_BOTH));
 
     /* Set profiles here */
     sprintf(buf,"%s/profile/profile1p.pf",path);
@@ -170,7 +172,6 @@ int main(int argc, char *argv[])
 // Main loop
     while(game_run)
     {
-
         //Poll stuff
         gr_poll_events();
 
