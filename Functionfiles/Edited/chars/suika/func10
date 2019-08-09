@@ -1,33 +1,6 @@
-/*
-snip from case 0
-
-      if ( field_49A == 0 ) {
-        reset_forces();
-        process();
-        if ( h_inerc > 0.0 ) {
-          h_inerc -= 0.5;
-          if ( (h_inerc - 0.5) < 0.0 ) {
-            reset_forces();
-            field_49A = 0;
-          }
-        }
-        if ( h_inerc >= 0.0 || ( h_inerc + 0.5) <= 0.0 ) {
-          process();
-        }
-        else {
-          reset_forces();
-          field_49A = 0;
-          process();
-        }
-      }
-      else {
-        reset_forces();
-        process();
-      }
-
-*/
-
-
+void __thiscall char_suika::func10(char_suika *this)
+{
+  startpoint
 
   v1 = this;
   this->char_c.x_delta = 0;

@@ -1,0 +1,149 @@
+void __thiscall char_namazu::func24(char_namazu *this, int a2)
+{
+  char_namazu *v2; // esi
+  unsigned __int8 v3; // pf
+  void (__thiscall *v4)(c_meta *, int); // eax
+  void (__thiscall *v5)(c_meta *, int); // eax
+  char_c *v6; // eax
+  char v7; // dl
+  char_c_vtbl *v8; // eax
+  char_c_vtbl *v9; // eax
+  void (__thiscall *v10)(c_meta *, int); // edx
+  _BOOL1 v11; // cf
+  int a7; // [esp+20h] [ebp-Ch]
+  float v13; // [esp+24h] [ebp-8h]
+  float v14; // [esp+28h] [ebp-4h]
+
+  v2 = this;
+  if ( a2 > 400 )
+  {
+    if ( a2 == 401 )
+LABEL_22:
+      v11 = this->char_c.meta.playing_seq < 0x2BCu;
+  }
+  else if ( a2 == 400 )
+  {
+    char_c::play_sfx(&this->char_c, 2);
+    v9 = v2->char_c.meta.vtbl;
+    v2->char_c.meta.cEffectSprite.x = 800.0;
+    v10 = v9->set_seq_func2;
+    v2->char_c.meta.cEffectSprite.y = 960.0;
+    v10(&v2->char_c.meta, 780);
+    v2->char_c.meta.cEffectSprite.v_inerc = -15.0;
+  }
+  else
+  {
+    switch ( a2 )
+    {
+      case 1:
+        this->char_c.field_7D0 = 640;
+        this->char_c.meta.cEffectSprite.x = 100.0;
+        this->char_c.field_7D2 = 0;
+        goto LABEL_5;
+      case 2:
+      case 11:
+LABEL_5:
+        sub_429040(&camera_transform, 1, 640.0);
+        sub_429060(&camera_transform, 1, 0.0);
+        sub_429080(&camera_transform, 1, 1.0);
+        sub_4290A0(&camera_transform);
+        break;
+      case 3:
+        sub_429040(&camera_transform, 0, 640.0);
+        sub_429060(&camera_transform, 0, 0.0);
+        sub_429080(&camera_transform, 0, 1.0);
+        break;
+      case 4:
+        sub_429040(&camera_transform, 1, 640.0);
+        sub_429060(&camera_transform, 1, 0.0);
+        sub_429080(&camera_transform, 1, 1.0);
+        break;
+      case 5:
+        this->char_c.meta.cEffectSprite.x = 0.0;
+        this->char_c.meta.cEffectSprite.y = 0.0;
+        char_c::reset_forces(&this->char_c);
+        v2->char_c.meta.vtbl->set_seq_func2(&v2->char_c.meta, 0);
+        break;
+      case 6:
+        ((void (__stdcall *)(signed int))this->char_c.meta.vtbl->set_seq_func2)(790);
+        v2->char_c.meta.vtbl->set_subseq_func3(&v2->char_c.meta, 2);
+        v2->char_c.meta.cEffectSprite.x = 480.0;
+        v2->char_c.meta.cEffectSprite.y = 800.0;
+        v2->char_c.meta.cEffectSprite.h_inerc = 0.0;
+        v2->char_c.meta.cEffectSprite.v_inerc = 0.0;
+        v2->char_c.meta.cEffectSprite.v_force = 0.25;
+        break;
+      case 7:
+      case 51:
+        v3 = __SETP__(this->char_c.meta.playing_seq, 0);
+        break;
+      case 8:
+        ((void (__stdcall *)(signed int))this->char_c.meta.vtbl->set_seq_func2)(139);
+        *(float *)&a7 = 0.0;
+        v13 = 0.0;
+        v14 = 0.0;
+        addbullet(&v2->char_c, 999, v2->char_c.meta.cEffectSprite.x, v2->char_c.meta.cEffectSprite.y, 1, 1, (int)&a7, 3);
+        break;
+      case 9:
+        ((void (__stdcall *)(signed int))this->char_c.meta.vtbl->set_seq_func2)(795);
+        v2->char_c.meta.cEffectSprite.x = 70.0;
+        v2->char_c.meta.cEffectSprite.y = 240.0;
+        char_c::reset_forces(&v2->char_c);
+        v2->char_c.meta.cEffectSprite.h_inerc = 15.0;
+        v2->char_c.meta.cEffectSprite.v_inerc = 0.0;
+        v2->char_c.meta.cEffectSprite.v_force = 0.5;
+        break;
+      case 50:
+        v4 = this->char_c.meta.vtbl->set_seq_func2;
+        this->char_c.meta.cEffectSprite.x = 480.0;
+        this->char_c.meta.cEffectSprite.y = 960.0;
+        this->char_c.meta.cEffectSprite.v_force = 0.1;
+        ((void (__stdcall *)(signed int))v4)(797);
+        break;
+      case 101:
+        v5 = this->char_c.meta.vtbl->set_seq_func2;
+        this->char_c.meta.cEffectSprite.x = 800.0;
+        this->char_c.meta.cEffectSprite.y = 960.0;
+        this->char_c.meta.cEffectSprite.v_force = 0.1;
+        ((void (__stdcall *)(signed int))v5)(798);
+        break;
+      case 102:
+      case 106:
+      case 111:
+      case 121:
+        goto LABEL_22;
+      case 103:
+        weather_setted_change(7);
+        v2->char_c.field_80D = 1;
+        v2->char_c.field_810 = 0;
+        v2->char_c.field_814 = 180;
+        break;
+      case 105:
+        v6 = this->char_c.meta.enemy;
+        this->char_c.meta.cEffectSprite.y = 960.0;
+        this->char_c.meta.cEffectSprite.x = (double)(250 * v6->meta.cEffectSprite.dir) + v6->meta.cEffectSprite.x;
+        v7 = v6->meta.cEffectSprite.dir;
+        v8 = this->char_c.meta.vtbl;
+        this->char_c.meta.cEffectSprite.dir = -v7;
+        ((void (__stdcall *)(signed int))v8->set_seq_func2)(795);
+        break;
+      case 110:
+        ((void (__stdcall *)(signed int))this->char_c.meta.vtbl->set_seq_func2)(796);
+        break;
+      case 113:
+        weather_setted_change(7);
+        break;
+      case 120:
+        ((void (__stdcall *)(signed int))this->char_c.meta.vtbl->set_seq_func2)(796);
+        v2->char_c.meta.cEffectSprite.x = 100.0;
+        v2->char_c.meta.cEffectSprite.dir = 1;
+        v2->char_c.meta.cEffectSprite.y = 0.0;
+        v2->char_c.meta.cEffectSprite.h_inerc = 7.0;
+        v2->char_c.meta.cEffectSprite.v_inerc = 15.0;
+        v2->char_c.meta.cEffectSprite.v_force = 0.30000001;
+        break;
+      default:
+        return;
+    }
+  }
+}
