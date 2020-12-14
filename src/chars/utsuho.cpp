@@ -101,11 +101,16 @@ void char_utsuho::func10()
     x_delta = 0;
     y_delta = 106;
 
+    if ( time_stop <= 0) 
+        field_898 += 0.25;
+    if ( field_898 > 255.0) 
+        field_898 -= 255.0;
+
    // if(LOBYTE(controlling_type) == 2)
 
     if ( hit_stop != 0 || enemy->time_stop != 0 )
         return;
-
+    
     int32_t sq = get_seq();
 
     switch(sq)
@@ -268,6 +273,24 @@ void char_utsuho::func10()
                 set_seq(0);
         }
         break;
+    case 11:
+          field_4AA = 2;
+          field_534 = 0.25;
+          field_55C = 1.0;
+          //v2 = 0.0;
+          field_538 = 0.0;
+          field_86A = 1;
+          /*if ( current_frame_params->extra_6byte[4] == 1 )
+          {
+            field_86A = 3;
+            field_55C = 3.0;
+          }
+          if (current_frame_params->extra_6byte[4] == 2 )
+          {
+            field_86A = 3;
+            field_55C = 6.0;
+          }*/
+          break;
     case 199:
         sub10func();
         if ( process() )
@@ -472,6 +495,7 @@ void char_utsuho::func10()
             }
         }
         break;
+        //case
 
     default:
         char_c::func10();

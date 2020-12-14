@@ -105,7 +105,7 @@ MKDIR = mkdir "build" -p
 
 
 
-# === Objects to be built soon ===
+# === WIP objects ===
 # chars/suika_bullets.o\
 # chars/utsuho_bullets.o\
 # chars/yukari_bullets.o\
@@ -123,8 +123,8 @@ MKDIR = mkdir "build" -p
 # chars/komachi_bullets.o\
 # chars/iku_bullets.o\
 # chars/tenshi_bullets.o\
-# !!!!!!!!!!!!!!!!!
-# WE DO NOT KNOW IF THE CHARACTER BELOW IS POSSIBLE
+
+# so this exists?
 # chars/namazu.o\
 # chars/namazu_bullets.o\
 

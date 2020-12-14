@@ -1,6 +1,0 @@
-void __thiscall char_remilia::init_vars_func17(char_remilia *this)
-{
-  this->field_890 = 0;
-  this->char_c.meta.field_138 = -6.0;
-  char_c::init_vars_func17(&this->char_c);
-}

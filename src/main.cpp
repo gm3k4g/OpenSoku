@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
     /* Setting the characters */
 
     /* Player 1 */
-    char_c *player1 = new char_suika(inp_createinput(INP_TYPE_BOTH));
+    char_c *player1 = new char_reimu(inp_createinput(INP_TYPE_BOTH));
 
     /* Set profiles here */
     sprintf(buf,"%s/profile/profile1p.pf",path);
@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
     }
 
     /* Player2 */
-    char_c *player2 = new char_cirno(inp_createinput(INP_TYPE_KB));
+    char_c *player2 = new char_marisa(inp_createinput(INP_TYPE_KB));
 
     if (prof2)
     {
@@ -178,9 +178,9 @@ int main(int argc, char *argv[])
         inp->update(true);
 
         /*
-         * Press F1 to close the game
+         * Press End to close the game
          */
-        if (inp->rawPressed(kC_F1))
+        if (inp->rawPressed(kC_End))
             game_run = false;
 
         aa++;

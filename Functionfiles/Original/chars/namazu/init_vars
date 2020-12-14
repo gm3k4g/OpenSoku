@@ -1,9 +1,0 @@
-void __thiscall char_namazu::init_vars_func17(char_namazu *this)
-{
-  this->char_c.meta.field_138 = -6.0;
-  this->field_890 = 0;
-  this->field_894 = 0;
-  this->field_898 = 0;
-  this->field_89C = 0;
-  char_c::init_vars_func17(&this->char_c);
-}
