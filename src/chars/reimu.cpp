@@ -9,7 +9,7 @@
 
 //"Constructor" ?
 char_reimu::char_reimu(inp_ab *func,uint8_t pal):
-	char_c::char_c(func)
+	char_c(func)
 {
 	char_id = CHAR_ID_REIMU;
 	pgp->load_dat("reimu",pal);
@@ -37,7 +37,7 @@ void char_reimu::init_vars()
   field_8A8 = 0.0;
   field_8AC = 0.0;
   field_8B0 = 0.0;
-  char_c::init_vars();
+  init_vars();
 }
 /*
 c_bullet *char_reimu::new_bullet()
@@ -46,16 +46,256 @@ c_bullet *char_reimu::new_bullet()
     return tmp;
 }
 */
+
+//WIP
 void char_reimu::func10()
 {
+  x_delta = 0;
+  y_delta = 85;
+  if ( controlling_type == 2 )
+  {
+    if ( cards_added >= 1 )
+    {
+      switch ( cards_active[0]->id )
+      {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+          field_4AA = 2;
+          field_534 = 0.25;
+          field_55C = 2.0;
+          field_538 = 0.0;
+          field_86A = 1;
+          if ( get_pframe()->extra1[4] == 1 )
+          {
+            field_86A = 3;
+            field_55C = 3.0;
+          }
+          if ( get_pframe()->extra1[4] == 2 )
+          {
+            field_86A = 3;
+            field_55C = 8.0;
+          }
+          break;
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+          field_4AA = 2;
+          field_534 = 0.25;
+          field_55C = 1.0;
+          field_538 = 0.0;
+          field_86A = 1;
+          if ( get_pframe()->extra1[4] != 1 )
+          {
+            if ( get_pframe()->extra1[4] == 2 )
+            {
+              field_86A = 3;
+              field_55C = 6.0;
+              break;
+            }
+          }
+          field_86A = 3;
+          field_55C = 6.0;
+          if ( get_pframe()->extra1[4] == 2 )
+          {
+            field_86A = 3;
+            field_55C = 6.0;
+          }
+          break;
+        case 8:
+        case 9:
+        case 10:
+        case 11:
+          field_4AA = 2;
+          field_534 = 0.25;
+          
+          field_55C = 1.0;
+          field_538 = 0.0;
+          field_86A = 1;
+          if ( get_pframe()->extra1[4] == 1 )
+          {
+            field_86A = 3;
+            field_55C = 3.0;
+          }
+          if ( get_pframe()->extra1[4] == 2 )
+          {
+            field_86A = 3;
+            field_55C = 12.0;
+          }
+          break;
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+          field_4AA = 2;
+          field_534 = 0.25;
+          
+          field_55C = 1.0;
+          field_538 = 0.0;
+          field_86A = 1;
+          if ( get_pframe()->extra1[4] == 1 )
+          {
+            field_86A = 3;
+            field_55C = 3.0;
+          }
 
+          if ( get_pframe()->extra1[4] == 2 )
+          {
+            field_86A = 3;
+            field_55C = 6.0;
+          }
+          break;
+        default:
+          
+          break;
+      }
+    }
+    if ( field_882 == 1 )
+    {
+      if ( field_188 >= max_health && !field_574 )
+      {
+        field_86A = 2;
+        field_882 = 2;
+        flip_with_force();
+        set_seq(149);
+        scene_add_effect(this, 53, x, y + 100.0, dir, 1);
+        if ( cards_added >= 1 )
+        {
+          if ( cards_active[0]->id <= 0xF )
+          {
+            //v6 = byte_4A7068[v5];
+            field_884 = 300;
+            field_886 = 300;
+          }
+        }
+      }
+      if ( health <= 0 )
+        field_882 = 2;
+    }
+    if ( field_884 > 0 )
+    {
+      if ( damage_limit > 0 && damage_limit < 100 )
+        damage_limit = 0;
+      if ( field_884 == 1 || health <= 0 )
+      {
+        field_4AA = 0;
+        field_884 = 0;
+        field_4BA = 0;
+        field_188 = 0;
+        field_81E = 1;
+        field_81A = 0;
+        field_81C = 0;
+        field_818 = 0;
+        field_882 = 1;
+        if ( health > 0 )
+        {
+          /*
+          *(float *)&a7 = 0.0;
+          v2129 = 0.0;
+          v2130 = 0.0;
+          addbullet(this, 1201, 180.0, 130.0, 1, 2, (int)&a7, 3);
+          
+          */
+        }
+      }
+      else
+      {
+        field_86A = 2;
+        field_4AA = 2;
+        field_538 = 1.0;
+        field_534 = 1.0;
+        --field_884;
+        field_4BA = 6000;
+      }
+    }
+    if ( health <= 0 )
+      field_86A = 0;
+  }
+  if ( get_seq() > 149 && get_seq() < 159 && !bbarrier_show )
+  {
+    bbarrier_show = 1;
+    if ( get_seq() > 149 && get_seq() < 154 )
+    {
+      /*
+      v10 = dir;
+      v11 = y + 94.0;
+      v12 = v11;
+      v13 = (double)(57 * (char)v10) + x;
+      addbullet(this, 998, v13, v12, v10, 1, 0, 0);
+      
+      */
+    }
+    if ( get_seq() > 153 && get_seq() < 158 )
+    {
+      /*
+      v15 = dir;
+      v16 = y + 60.0;
+      v17 = v16;
+      v18 = (double)(57 * (char)v15) + x;
+      addbullet(this, 998, v18, v17, v15, 1, 0, 0);
+      
+      */
+    }
+    if ( get_seq() == 158 )
+    {
+      /*
+      v19 = dir;
+      v20 = y + 100.0;
+      v21 = v20;
+      v22 = (double)(57 * (char)v19) + x;
+      addbullet(this, 998, v22, v21, v19, 1, 0, 0);
+      
+      */
+    }
+  }
+  if ( field_8BA )
+  {
+    if ( getlvl_height() >= y && !(get_pframe()->fflags & 4) )
+    {
+      if ( get_seq() <= 544 || get_seq() >= 550 )
+        field_8BA = 0;
+    }
+  }
+  if ( field_8B4 > 0 )
+  {
+    if ( health <= 0 || enemy->health <= 0 )
+      field_8B4 = 0;
+    if ( !field_8B8 )
+    {
+      if ( field_190 == 1 || field_190 == 7 )
+      {
+        if ( field_8B6 == 6 )
+        {
+          /*
+          if ( win_count )
+          {
+            v26 = enemy;
+            if ( v26->win_count )
+            {
+              if ( v26->health > 0 && health > 0 )
+              {
+                play_music_("data/bgm/st99.ogg");
+                
+              }
+            }
+          }*/
+        }
+        ++field_8B6;
+        field_8B8 = 1;
+      }
+    }
+    if ( field_8B6 >= 7 && get_seq() <= 10 )
+    {
+      set_seq(669);
+      return;
+    }
+    --field_8B4;
+  }
+  if ( hit_stop || enemy->time_stop )
+    return;
 }
-/*
-void char_reimu::func20()
-{
-
-}
-*/
 
 void char_reimu::set_seq_params()
 {
@@ -237,7 +477,7 @@ void char_reimu::set_seq_params()
           reset_ofs();
           break;
         default:
-              char_c::set_seq_params();
+              set_seq_params();
     return;
       }
       h_inerc = 0.0;
@@ -399,7 +639,7 @@ void char_reimu::set_seq_params()
       case 697:
       case 698:
         field_8B8 = 0;
-            char_c::set_seq_params();
+            set_seq_params();
     return;
       case 710:
       case 711:
@@ -436,10 +676,10 @@ void char_reimu::set_seq_params()
 		v_force = 0.5;
 		return;
       default:
-            char_c::set_seq_params();
+            set_seq_params();
     return;
     }
-        char_c::set_seq_params();
+        set_seq_params();
     return;
   }
   if ( get_seq() < 560 )
@@ -760,7 +1000,7 @@ void char_reimu::set_seq_params()
       default:
         break;
     }
-    char_c::set_seq_params();
+    set_seq_params();
     return;
   }
   /*

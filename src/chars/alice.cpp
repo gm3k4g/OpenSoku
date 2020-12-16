@@ -1708,7 +1708,7 @@ void char_alice::func10()
             play_sfx(2);
             field_190 = 1;
             spell_energy_spend( 200, 45);
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 4 )
             set_seq(0);
@@ -1735,7 +1735,7 @@ void char_alice::func10()
             play_sfx(2);
             field_190 = 1;
             spell_energy_spend( 200, 45);
-            add_card_energy( 30);
+            add_card_energy(30);
         }
 
         if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 4 )
@@ -1761,7 +1761,7 @@ void char_alice::func10()
             play_sfx( 2);
             spell_energy_spend(200, 45);
             field_190 = 1;
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         break;
 
@@ -1791,7 +1791,7 @@ void char_alice::func10()
             play_sfx( 2);
             spell_energy_spend(200, 45);
             field_190 = 1;
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         if ( get_elaps_frames() == 0 )
         {
@@ -1836,7 +1836,7 @@ void char_alice::func10()
             play_sfx( 2);
             spell_energy_spend(200, 45);
             field_190 = 1;
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 )
         {
@@ -1880,7 +1880,7 @@ void char_alice::func10()
             play_sfx( 2);
             spell_energy_spend(200, 45);
             field_190 = 1;
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 )
         {
@@ -1949,7 +1949,7 @@ void char_alice::func10()
             addbullet(this, NULL, 805, (5 * dir) + x, y + 108.0, dir, 1, tmp, 3);
             play_sfx( 2);
             spell_energy_spend(200, 60);
-            add_card_energy( 30);
+            add_card_energy(30);
             field_190 = 1;
         }
         else if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 1 )
@@ -1976,7 +1976,7 @@ void char_alice::func10()
             addbullet(this, NULL, 805, (5 * dir) + x, y + 108.0, dir, 1, tmp, 3);
             play_sfx( 2);
             spell_energy_spend(200, 60);
-            add_card_energy( 30);
+            add_card_energy(30);
             field_190 = 1;
         }
         else if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 1 )
@@ -2010,7 +2010,7 @@ void char_alice::func10()
                 play_sfx( 2);
                 field_190 = 1;
                 spell_energy_spend(200, 60);
-                add_card_energy( 30);
+                add_card_energy(30);
                 break;
             }
             else if (get_frame() == 10)
@@ -2053,7 +2053,7 @@ void char_alice::func10()
             play_sfx( 2);
             spell_energy_spend(200, 60);
             field_190 = 1;
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         else if ( get_subseq() == 0 && get_frame_time() == 0 && get_frame() == 11 && not_charge_attack == 1 )
         {
@@ -2092,7 +2092,7 @@ void char_alice::func10()
             play_sfx( 2);
             spell_energy_spend(200, 60);
             field_190 = 1;
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         else if ( get_subseq() == 0 && get_frame_time() == 0 && get_frame() == 11 && not_charge_attack == 1 )
         {
@@ -2132,7 +2132,7 @@ void char_alice::func10()
             play_sfx( 2);
             spell_energy_spend(200, 60);
             field_190 = 1;
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         else if ( get_subseq() == 0 && get_frame_time() == 0 && get_frame() == 8 && not_charge_attack == 1 )
         {
@@ -2192,7 +2192,7 @@ void char_alice::func10()
             addbullet(this, NULL, 805, (45 * dir) + x, y + 108.0, dir, 1, tmp, 3);
             play_sfx( 2);
             spell_energy_spend(200, 60);
-            add_card_energy( 30);
+            add_card_energy(30);
             field_190 = 1;
         }
         else if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 1 )
@@ -2213,7 +2213,7 @@ void char_alice::func10()
             addbullet(this, NULL, 810, (8 * dir) + x, y + 100.0, dir, 1, tmp, 3);
             play_sfx( 3);
             spell_energy_spend(200, 120);
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         break;
 
@@ -2231,7 +2231,7 @@ void char_alice::func10()
             addbullet(this, NULL, 810, (8 * dir) + x, y + 100.0, dir, 1, tmp, 3);
             play_sfx( 3);
             spell_energy_spend(200, 120);
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         break;
 
@@ -2249,7 +2249,7 @@ void char_alice::func10()
             addbullet(this, NULL, 811, (8 * dir) + x, y + 100.0, dir, 1, tmp, 3);
             play_sfx( 10);
             spell_energy_spend(200, 120);
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         break;
 
@@ -2267,7 +2267,7 @@ void char_alice::func10()
             addbullet(this, NULL, 811, (8 * dir) + x, y + 100.0, dir, 1, tmp, 3);
             play_sfx( 10);
             spell_energy_spend(200, 120);
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         break;
 
@@ -2304,7 +2304,7 @@ void char_alice::func10()
             addbullet(this, NULL, 811, (17 * dir) + x, y + 104.0, dir, 1, tmp, 3);
             play_sfx( 10);
             spell_energy_spend(200, 120);
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         else if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 3 )
             set_seq( 9);
@@ -2343,7 +2343,7 @@ void char_alice::func10()
             addbullet(this, NULL, 811, (17 * dir) + x, y + 104.0, dir, 1, tmp, 3);
             play_sfx( 10);
             spell_energy_spend(200, 120);
-            add_card_energy( 30);
+            add_card_energy(30);
         }
         else if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 3 )
             set_seq( 9);
@@ -2376,7 +2376,7 @@ void char_alice::func10()
             play_sfx( 3);
             field_190 = 1;
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         break;
 
@@ -2407,7 +2407,7 @@ void char_alice::func10()
             play_sfx( 3);
             field_190 = 1;
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         break;
 
@@ -2450,7 +2450,7 @@ void char_alice::func10()
             play_sfx( 3);
             field_190 = 1;
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 3 )
             v_force = 0.5;
@@ -2497,7 +2497,7 @@ void char_alice::func10()
             play_sfx( 3);
             field_190 = 1;
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         break;
 
@@ -2556,7 +2556,7 @@ void char_alice::func10()
                 break;
             }
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             for ( int32_t i = 0; i < field_7D2; i++ )
             {
                 float tmp[3];
@@ -2588,7 +2588,7 @@ void char_alice::func10()
                 break;
             }
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             for ( int32_t i = 0; i < field_7D2; i++ )
             {
                 float tmp[3];
@@ -2658,7 +2658,7 @@ void char_alice::func10()
                 break;
             }
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             for ( int32_t i = 0; i < field_7D2; i++ )
             {
                 float tmp[3];
@@ -2690,7 +2690,7 @@ void char_alice::func10()
                 break;
             }
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             for ( int32_t i = 0; i < field_7D2; i++ )
             {
                 float tmp[3];
@@ -2760,7 +2760,7 @@ void char_alice::func10()
                 break;
             }
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             for ( int32_t i = 0; i < field_7D2; i++ )
             {
                 float tmp[3];
@@ -2792,7 +2792,7 @@ void char_alice::func10()
                 break;
             }
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             for ( int32_t i = 0; i < field_7D2; i++ )
             {
                 float tmp[3];
@@ -2862,7 +2862,7 @@ void char_alice::func10()
                 break;
             }
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             for ( int32_t i = 0; i < field_7D2; i++ )
             {
                 float tmp[3];
@@ -2894,7 +2894,7 @@ void char_alice::func10()
                 break;
             }
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             for ( int32_t i = 0; i < field_7D2; i++ )
             {
                 float tmp[3];
@@ -2948,7 +2948,7 @@ void char_alice::func10()
                 play_sfx( 3);
                 field_190 = 1;
                 spell_energy_spend(200, 120);
-                add_card_energy( 50);
+                add_card_energy(50);
             }
         }
         if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 1 )
@@ -2977,7 +2977,7 @@ void char_alice::func10()
             play_sfx( 3);
             field_190 = 1;
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         break;
 
@@ -3021,7 +3021,7 @@ void char_alice::func10()
                 play_sfx( 3);
                 field_190 = 1;
                 spell_energy_spend(200, 120);
-                add_card_energy( 50);
+                add_card_energy(50);
             }
         }
         if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 1 )
@@ -3050,7 +3050,7 @@ void char_alice::func10()
             play_sfx( 3);
             field_190 = 1;
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         break;
 
@@ -3070,7 +3070,7 @@ void char_alice::func10()
             play_sfx( 40);
             field_190 = 1;
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         break;
 
@@ -3090,7 +3090,7 @@ void char_alice::func10()
             play_sfx( 40);
             field_190 = 1;
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         break;
 
@@ -3108,7 +3108,7 @@ void char_alice::func10()
             play_sfx( 3);
             spell_energy_spend(200, 120);
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             float tmp[4];
             tmp[0] = 4.0;
             tmp[1] = 15.0;
@@ -3149,7 +3149,7 @@ void char_alice::func10()
             play_sfx( 3);
             spell_energy_spend(200, 120);
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             float tmp[4];
             tmp[0] = 5.0;
             tmp[1] = 17.0;
@@ -3203,7 +3203,7 @@ void char_alice::func10()
             play_sfx( 3);
             spell_energy_spend(200, 120);
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             float tmp[4];
             tmp[0] = 4.0;
             tmp[1] = 15.0;
@@ -3257,7 +3257,7 @@ void char_alice::func10()
             play_sfx( 3);
             spell_energy_spend(200, 120);
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             float tmp[4];
             tmp[0] = 5.0;
             tmp[1] = 17.0;
@@ -3315,7 +3315,7 @@ void char_alice::func10()
             if (get_subseq() == 1)
             {
                 spell_energy_spend(200, 120);
-                add_card_energy( 50);
+                add_card_energy(50);
             }
             if (get_subseq() == 4)
             {
@@ -3357,7 +3357,7 @@ void char_alice::func10()
         {
             h_inerc = 5.0;
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         break;
 
@@ -3405,7 +3405,7 @@ void char_alice::func10()
         if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 1 )
         {
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 4 )
             set_seq( 9);
@@ -3455,7 +3455,7 @@ void char_alice::func10()
         if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 1 )
         {
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 4 )
             set_seq( 9);
@@ -3470,7 +3470,7 @@ void char_alice::func10()
             play_sfx( 3);
             spell_energy_spend(200, 120);
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             float t1, t2;
             t1 = 6.0;
             t2 = 15.0;
@@ -3511,7 +3511,7 @@ void char_alice::func10()
             play_sfx( 3);
             spell_energy_spend(200, 120);
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             float t1, t2;
             t1 = 6.0;
             t2 = 15.0;
@@ -3559,7 +3559,7 @@ void char_alice::func10()
         {
             play_sfx( 3);
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         break;
 
@@ -3576,7 +3576,7 @@ void char_alice::func10()
             play_sfx( 3);
             field_190 = 1;
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         break;
 
@@ -3596,7 +3596,7 @@ void char_alice::func10()
             play_sfx( 3);
             field_190 = 1;
             spell_energy_spend(200, 120);
-            add_card_energy( 50);
+            add_card_energy(50);
         }
         break;
 
@@ -3635,7 +3635,7 @@ void char_alice::func10()
                 play_sfx( 3);
                 field_190 = 1;
                 spell_energy_spend(200, 120);
-                add_card_energy( 50);
+                add_card_energy(50);
             }
         }
         if ( get_subseq() == 3 && get_frame_time() == 0 && get_frame() == 2 )
@@ -3651,7 +3651,7 @@ void char_alice::func10()
             play_sfx( 3);
             spell_energy_spend(200, 45);
             field_190 = 1;
-            add_card_energy( 50);
+            add_card_energy(50);
             field_890[0]++;
             if ( field_890[0] >= 3 )
                 field_890[0] = 3;
@@ -3702,7 +3702,7 @@ void char_alice::func10()
                 play_sfx( 3);
                 field_190 = 1;
                 spell_energy_spend(200, 120);
-                add_card_energy( 50);
+                add_card_energy(50);
             }
         }
         if ( get_subseq() == 3 && get_frame_time() == 0 && get_frame() == 2 )
@@ -3726,7 +3726,7 @@ void char_alice::func10()
                 play_sfx( 13);
                 spell_energy_spend(200, 120);
                 field_190 = 1;
-                add_card_energy( 50);
+                add_card_energy(50);
                 float tmp[4];
                 if ( field_892 <= 0 )
                 {
@@ -3772,7 +3772,7 @@ void char_alice::func10()
                 play_sfx( 13);
                 spell_energy_spend(200, 120);
                 field_190 = 1;
-                add_card_energy( 50);
+                add_card_energy(50);
                 float tmp[4];
                 if ( field_892 <= 0 )
                 {
@@ -5492,8 +5492,6 @@ void char_alice::set_seq_params()
 
 void char_alice::func20()
 {
-
-
     /*v1 = a1;
       v2 = a1->current_frame_params;
       v3 = v2->fflags;
