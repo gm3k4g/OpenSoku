@@ -46,7 +46,8 @@ c_bullet *char_reimu::new_bullet()
 */
 
 //WIP
-//TODO: When reimu gets hit the game sigsegvs. Why?
+//TODO: Some hiccups (try hi-jumping with reimu from the ground straight up). Look for more of those.
+//TODO: why no shadow?
 void char_reimu::func10()
 {
     int32_t sq = get_seq();

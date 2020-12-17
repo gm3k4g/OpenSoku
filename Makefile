@@ -1,9 +1,6 @@
-#Made on -- 03:29 AM - 24th Jan.
-#Makefile for OpenSokuREDO
-
-#Arguments specified below \
+#Arguments specified below
 #==================================================
-#Required for the project to compile
+#Required for SFML
 LIBS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 #==================================================
@@ -18,6 +15,7 @@ CXX = g++
 #gcc compiler
 CC = gcc
 
+#==================================================
 # Flags
 CFLAGS = -Wall -Wextra
 
@@ -171,11 +169,11 @@ linux: $(OBJS)
 	@echo "Creating directories.."
 	$(MKDIR)
 	@echo "Compiling everything.."
-	# Release version
-	# $(CXX)  -O3 -0s --std=c++11 -pedantic -o $(TARGET) $(OBJS) $(LIBS) -I -g
 	# Debug version
 	$(CXX) -g $(OBJS) --std=c++11 -pedantic -o $(TARGET) $(CFLAGS) $(LIBS) -I /usr/include/
 	#$(CXX) -o $(TARGET) archive.o $(LIBS)
+# Release version
+# $(CXX)  -O3 -0s --std=c++11 -pedantic -o $(TARGET) $(OBJS) $(LIBS) -I -g
 
 #	---The Objects ---
 #Build "archive.cpp"
