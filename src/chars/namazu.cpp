@@ -34,11 +34,12 @@ void char_namazu::init_vars()
 }
 
 //Associated with bullets
+/*
 c_bullet *char_namazu::new_bullet()
 {
     c_bullet *tmp = new namazu_bullets();
     return tmp;
-}
+}*/
 
 //sub_5586E0()
 /* void sub_5586E0() {
@@ -54,1475 +55,8 @@ c_bullet *char_namazu::new_bullet()
 }
  */
 
-//Edited..
-void char_namazu::func10() 
-{
-  /* pre-switch statement */
-  int32_t sq = get_seq();
-
-  x_delta = 0;
-  y_delta = 90;
-
-  if ( controlling_type == 2)
-  {
-    field_4AA = 2;
-    field_534 = 0.25;
-    field_55C = 2.0;
-    field_538 = 0.0;
-    field_86A = 0;
-    if ( cards_added >= 1 )
-    {
-      switch ( cards_active[0]->id)
-      {
-        case 0:
-        case 1:
-        case 2:
-        case 3:
-          field_4AA = 2;
-          field_534 = 0.1;
-          field_55C = 5.0;
-          field_538 = 0.0;
-          field_86A = 1;
-          if (get_pframe()->extra1[4] == 1)
-          {
-            field_86A = 3;
-            field_55C = 7.5;
-          }
-          if (get_pframe()->extra1[4] == 2)
-          {
-            field_86A = 3;
-            field_55C = 15.0;
-          }
-        break;
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-          field_4AA = 2;
-          field_534 = 0.1;
-          field_55C = 5.0;
-          field_538 = 0.0;
-          field_86A = 1;
-          if (get_pframe()->extra1[4] == 1)
-          {
-            field_86A = 3;
-            field_55C = 10.0;
-          }
-          if (get_pframe()->extra1[4] == 2)
-          {
-            field_86A = 3;
-            field_55C = 20.0;
-          }
-          break;
-        case 8:
-        case 9:
-        case 10:
-        case 11:
-          field_4AA = 2;
-          field_534 = 0.1;
-          field_55C = 2.5;
-          field_538 = 0.0;
-          if (get_pframe()->extra1[4] == 1)
-          {
-            field_86A = 3;
-            field_55C = 5.0;
-          }
-          if (get_pframe()->extra1[4] == 2)
-          {
-            field_86A = 3;
-            field_55C = 10.0;
-          }
-          break;
-        case 12:
-        case 13:
-        case 14:
-        case 15:
-                  field_4AA = 2;
-          field_534 = 0.1;
-          field_55C = 2.5;
-          field_538 = 0.0;
-          if (get_pframe()->extra1[4] == 1)
-          {
-            field_86A = 3;
-            field_55C = 5.0;
-          }
-          if (get_pframe()->extra1[4] == 2)
-          {
-            field_86A = 3;
-            field_55C = 10.0;
-          }
-          break;
-        case 16:
-        case 17:
-        case 18:
-        case 19:
-          field_4AA = 2;
-          field_534 = 0.1;
-          field_55C = 2.5;
-          field_538 = 0.0;
-          field_86A = 1;
-          if (get_pframe()->extra1[4] == 1)
-          {
-            field_86A = 3;
-            field_534 = 0.2;
-          }
-          if (get_pframe()->extra1[4] == 2)
-          {
-            field_86A = 3;
-            field_534 = 0.3;
-          }
-          break;
-        default:
-          break;
-
-      }
-    }
-    if ( field_882 == 1 )
-            {
-                if ( field_188 >= max_health && !field_574 )
-                {
-                    field_86A = 2;
-                    field_882 = 2;
-                    flip_with_force();
-                    set_seq( 149);
-                    scene_add_effect(this, 53, x, y + 100.0, dir, 1);
-                    if ( cards_added >= 1 && cards_active[0]->id <= 11 )
-                    {
-                        field_884 = 300;
-                        field_886 = 300;
-                    }
-                }
-                if ( health <= 0 )
-                    field_882 = 2;
-            }
-            if ( field_884 > 0 )
-            {
-                if ( damage_limit > 0 && damage_limit < 100 )
-                    damage_limit = 0;
-
-                if ( field_884 == 1 || health <= 0 )
-                {
-                    field_4AA = 0;
-                    field_884 = 0;
-                    field_4BA = 0;
-                    field_188 = 0;
-                    field_81E = 1;
-                    field_81A = 0;
-                    field_81C = 0;
-                    field_818 = 0;
-                    field_882 = 1;
-                    if (health <= 0 )
-                    {
-                        field_86A = 0;
-                        float tmp[3];
-                        tmp[0] = 0.0;
-                        tmp[1] = 0.0;
-                        tmp[2] = 0.0;
-                        addbullet(this, NULL, 1201, 180.0, 130.0, 1, 2, tmp, 3);
-                    }
-                }
-                else
-                {
-                    field_86A = 2;
-                    field_4AA = 2;
-                    field_538 = 1.0;
-                    field_534 = 1.0;
-                    field_884--;
-                    field_4BA = 6000;
-                }
-            }
-            if ( health > 0 )
-                field_86A = 0;
-        }
-
-  if (get_seq() > 149 && get_seq() < 159)
-  {
-    if (!bbarrier_show)
-    {
-      bbarrier_show = 1;
-      if ( sq > 149 && sq < 154 )
-          addbullet(this, NULL, 998, (57 * dir) + x, y + 94.0, dir, 1, 0, 0);
-      if ( sq > 153 && sq < 158 )
-          addbullet(this, NULL, 998, (57 * dir) + x, y + 60.0, dir, 1, 0, 0);
-      if ( sq == 158 )
-          addbullet(this, NULL, 998, (57 * dir) + x, y + 100.0, dir, 1, 0, 0);
-    }
-  }
-
-  if ( hit_stop != 0|| enemy->time_stop != 0 )
-    return;
-
-  //RE COMPILE NAMAZU FUNC10!!
-  /* main big-switch statement */
-  switch(sq)
-  {
-    case 0: //idle state?
-      sub10func();
-      if ( h_inerc == 0.0)
-        field_49A = 0;
-      if(!field_49A)
-      {
-        reset_forces();
-        process();   
-      }
-      stopping_posit(0.5);
-      break;
-    case 1: //?
-      sub10func();
-      stopping(0.5);
-      if(process() && !get_frame())
-      {
-        set_seq(2);
-        return; 
-      }
-      break;
-    case 2: //crouch?
-      sub10func();
-      stopping_posit(0.5);
-      if ( h_inerc >= 0.0 || (h_inerc + 0.5) >= 0.0)
-      {
-        process();
-      }
-      else
-      {
-        reset_forces();
-        process();
-      }
-      break;
-    case 3:
-      sub10func();
-      stopping(0.5);
-      if(process() && !get_frame())
-        set_seq(0);
-      break;
-    case 4: //walk fwd
-      sub10func();
-      char_h_move(4.0);
-      process();
-      break;
-    case 5: //walk back
-      sub10func();
-      char_h_move(-4.0);
-      process();
-      break;
-    case 6: // jump up
-        if (get_subseq() == 0)
-        {
-            sub10func();
-            if (field_49A == 0)
-                reset_forces();
-        }
-
-        if (get_subseq()>0)
-        {
-            v_inerc -=v_force;
-
-            if (char_on_ground_down())
-            {
-                set_seq(10);
-                y = getlvl_height();
-                reset_forces();
-                break;
-            }
-        }
-
-        process();
-
-        if (get_elaps_frames() == 0 &&
-              get_frame_time() == 0 &&
-              get_frame() == 0 &&
-              get_subseq() == 1)
-        { 
-            h_inerc = 0.0;  //field_85C;
-            v_inerc = 12.0; //field_860;
-            v_force = 0.4;  //field_864;
-        }
-        break;
-    case 7: // jump fwd
-      if (!get_subseq())
-      {
-        sub10func();
-        if( !field_49A)
-          reset_forces();
-      }
-
-      if (get_subseq()>0)
-      {
-        v_inerc -= v_force;
-        if (char_on_ground_down())
-        {
-          set_seq(10);
-          y = getlvl_height();
-          reset_forces();
-          break; //return?
-        }
-      }
-
-      process();
-
-      if (get_subseq()       == 1 &&
-            get_frame_time()   == 0 &&
-            get_frame()        == 0 &&
-            get_elaps_frames() == 0)
-      {
-        char_h_move(4.0);
-        v_inerc = 12.0;
-        v_force = 0.4;
-        field_49A = 0;   
-      }
-      break;
-    case 8: // jump back
-      if (get_subseq() == 0)
-      {
-          sub10func();
-          if (field_49A == 0)
-              reset_forces();
-      }
-
-      if(get_subseq()>0)
-      {
-        v_inerc -= v_force;
-        if (char_on_ground_down())
-        {
-          set_seq(10);
-          y = getlvl_height();
-          reset_forces();
-          break;
-        }
-      }
-
-      process();
-
-      if(!get_elaps_frames() && !get_frame_time() && !get_frame() && get_subseq() == 1)
-      {
-        char_h_move(-4.0);
-        v_inerc = 12.0;
-        v_force = 0.4;
-        field_49A = 0;
-      }
-      break;
-    case 9: //?
-      if( v_force == 0.0 )
-        v_force = 0.6;
-      v_inerc -= v_force;
-      if ( !char_on_ground_down()) 
-        process();
-      set_seq(10);
-      y = getlvl_height();
-      reset_forces();
-      break;
-    case 10:
-      sub10func();
-      reset_forces();
-      if(process())
-        set_seq(0);
-      break;
-    case 50:
-    case 51:
-    case 52:
-    case 53:
-    case 54:
-    case 55:
-    case 56:
-    case 57:
-    case 58:
-    case 59:
-    case 60:
-    case 61:
-    case 62:
-    case 63:
-    case 64:
-    case 65:
-    case 66:
-    case 67: //?
-      v_inerc -= 0.3;
-      h_inerc += 0.1;
-      if ( h_inerc >  -1.0)
-        h_inerc = -1.0;
-      if (!has_shadow)
-        has_shadow = 1;
-      if(!char_on_ground_down())
-      {
-        if ( process() )
-          set_seq(0);
-      }
-      play_sfx(0);
-      reset_forces();
-      y = getlvl_height();
-      //shake_camera(2.0); //HACK
-
-      //edited in myself
-      /*float v1489 = 0.0;
-      //?!
-      float t67[0];
-      t67[0] = scene_rand_rngf(10) + v1489 * 24.0;
-      float xx67 = cos_deg(-t67[0]) * 100.0 * (double)dir + x;
-      float yy67 = sin_deg(-t67[0]) * 20.0 + y;
-      do
-      {
-        addbullet(this,NULL, 971,xx67, yy67, dir, y, t67, 3);
-        //timer?
-        v1489 += 1.0;
-      }
-      while( v1489 < 15.0 ); */
-      set_seq(10);
-      break;
-    case 70:
-    case 71:
-    case 72:
-    case 73:
-    case 74:
-    case 75:
-    case 76:
-    case 77:
-    case 78:
-    case 79:
-    case 80:
-    case 81:
-    case 82:
-    case 83:
-    case 84:
-    case 85:
-    case 86:
-    case 87:
-    case 88:
-      v_inerc -= 0.3;
-      h_inerc += 0.1;
-      if ( h_inerc > -1.0)
-        h_inerc = -1.0;
-      if ( !has_shadow)
-        has_shadow = 1;
-      if (char_on_ground_down())
-      {
-        y = getlvl_height();
-        play_sfx(0);
-        field_7DC = h_inerc;
-        dash_angle = v_inerc;
-        reset_forces();
-        //shake_camera(10.0) //HACK ?
-        //edited in myself
-        //falling on ground effect <- FIXTHIS
-
-        /*float v1490 = 0.0;
-
-        float t[0];
-        t[0] = scene_rand_rngf(10) + v1490 * 24.0;
-        float xx = cos_deg(-t[0]) * 100.0 * (double)dir + x;
-        float yy = sin_deg(-t[0]) * 20.0 + y;
-        do
-        {
-          addbullet(this,NULL, 971, xx, yy, dir, (1 - 2 * (sin_deg(-t[0])) > 0.0), t, 3);
-          v1490 += 1.0;
-        }
-        while ( v1490 < 15.0);*/
-        set_seq(96);  
-      }
-      else if (process()) //else if or just if only?
-        set_seq(199);
-      break;
-    case 96:
-      if ( get_subseq() == 1)
-      {
-        v_inerc -= 0.2;
-        h_inerc += 0.1;
-        if (h_inerc > 0.0)
-          h_inerc = 0.0;
-        if ( char_on_ground_down())
-        {
-          y = getlvl_height();
-          play_sfx(0);
-          reset_forces();
-          //shake_camera(2.0); //HACK ?
-          set_seq(99);
-          next_subseq();
-        }
-      }
-      else //else? or just an if?
-        sub10func();
-
-      if ( process() )
-        set_seq(0);
-      if (!get_elaps_frames() &&
-            !get_frame_time() &&
-            !get_frame() &&
-            get_subseq() == 1)
-      {
-        h_inerc = field_7DC * 0.2;
-        v_inerc = 0.2 * -dash_angle;
-        v_force = 0.2;
-      }
-      break;
-    case 99:
-      sub10func();
-      if ( get_subseq() == 3)
-      {
-        has_shadow = 0;
-        /* //what is this?
-        if ( color_A <= 3u)
-          color_A = 0;
-        else
-          color_A -= 3; */
-      }
-      if ( health <= 0)
-      {
-        field_51C = 3;
-        field_520 = 3;
-      }
-      process();
-      if ( !get_elaps_frames() && 
-              !get_frame_time() &&
-              !get_frame() &&
-              get_subseq() == 2)
-      {
-        if ( !field_576 && !field_880)
-        {
-          if (cards_added >0 && (controlling_type) == 2 && cards_active[0]->id >= 248 )
-          {
-            health_to_max();
-            field_868;
-          }
-          field_51C = 3;
-          field_520 = 3;
-          set_seq(199);
-          field_574 = 0;
-          field_577 = 1;
-        }
-        field_880 = 0;
-      }
-      break;
-
-    case 149:
-    //are brackets needed?
-    
-    if ( v_inerc <= 0.0)
-      v_inerc -= v_force * 0.25;
-    else
-      v_inerc -= v_force;
-    if ( !char_on_ground_down() )
-      process();
-    else
-    {
-      reset_forces();
-      field_49A = 0;
-      process();
-    }
-    play_sfx(0);
-    field_7DC = h_inerc;
-    dash_angle = v_inerc;
-    y = getlvl_height();
-    reset_forces();
-    //shake_camera(10.0) //HACK ?
-
-    //?!
-    /*float v1491 = 0.0;
-    float t149[0];
-    t[0] = scene_rand_rngf(10) + v1491 * 24.0;
-    float xx149 = cos_deg(t149[0]) * 100.0 * (double)dir + x;
-    float yy149 = sin_deg(-t149[0]) * 20.0 + y; */
-    //this is actually a do statement?
-    //for ( float i = 0.0; i < 15.0; i++)
-      //addbullet(this, NULL, 971, xx149, yy149, dir, (1 - 2 * (sin_deg(-t149[0])) > 0.0), t149, 3);
-    set_seq(96);
-    angZ = 0.0;
-    //shake_camera(2.0) //HACK ?
-    reset_ofs();
-    break;
+void char_namazu::func10() {
   
-  case 199: //getting up (tech?)
-    sub10func();
-    if ( health <= 0)
-    {
-      field_51C = 3;
-      field_520 = 3;
-    }
-    if ( process() )
-    {
-      field_51C = 3;
-      field_520 = 3;
-      set_seq(0);
-      if ( enemy->x < (double)x)
-        dir = -1;
-      if ( enemy->x > (double)x)
-        dir = 1;
-    }
-    break;
-
-  case 200:
-  //TOO: why are hi-jumps malfunctioning? why namazu sprites are missing?
-    sub10func();
-    field_49A = 1;
-    if ( h_inerc > 6.0)
-    {
-      h_inerc -= 0.5;
-      if ( h_inerc < 6.0)
-        h_inerc = 6.0;
-    }
-
-    process();
-    if ( get_subseq() != 1)
-    {
-      if (!get_elaps_frames() && !get_frame_time() && get_frame() && get_subseq() == 1)
-      {
-        char_h_move(15.0);
-        scene_add_effect(this, 125, (double)(80 * (char)dir) + x, y + 80.0, dir, 1);
-        scene_play_sfx(31);
-      }
-    }
-
-    if (!(get_elaps_frames() % 5))
-    {
-      float yy200 = (scene_rand() % 200) + y;
-      float xx200 = x - (scene_rand() % 100) + 50;
-      scene_add_effect(this, 124,xx200, yy200, dir, 1);
-    }
-
-    if (dY() >= 0)
-    {
-      ++field_7D0;
-      if ( (dX(dir) > 0 || field_7D0 <= 5) && field_7D0 <= 60 )
-      {
-        if (!get_elaps_frames() && !get_frame_time() && get_frame() && get_subseq() == 1)
-        {
-          char_h_move(15.0);
-          scene_add_effect(this, 125, (double)(80 * (char)dir) + x, y + 80.0, dir, 1);
-          scene_play_sfx(31);
-        }
-      } 
-      else
-      {
-        set_seq(204);
-      }
-    }
-    else
-    {
-      if (dX(dir) <= 0)
-        set_seq(200);
-      else
-        set_seq(201);
-    }
-    break;
-  //TODO: fix broken falling effect
-  case 201:
-    if ( !get_subseq() || get_subseq() == 4 )
-    {
-      sub10func();
-    }
-    if ( !char_on_ground_down() && (get_elaps_frames() % 5) == 0)
-    {
-      float xx = x + 50.0 - (scene_rand() % 100);
-      float yy = (scene_rand() % 200) + y;
-      scene_add_effect(this, 124,xx, yy, dir, 1 );
-    }
-
-    if ( get_subseq() < 4 )
-    {
-      v_inerc -= v_force;
-      if ( char_on_ground_down() )
-      {
-        reset_forces();
-        y = getlvl_height();
-        set_subseq(4);
-        break;
-      }
-    }
-    if (process() )
-    {
-      set_seq(0);
-      h_inerc = 0.0;
-    }
-    else if (!get_elaps_frames() && !get_frame_time() && !get_frame() && get_subseq() == 1)
-    {
-      char_h_move(-10.0);
-      v_inerc = 2.0;
-      v_force = 0.2;
-      scene_add_effect(this, 125, x, y + 80.0, dir , 1);
-      scene_add_effect(this, 126, x, y + 80.0, dir , 1);
-      scene_play_sfx(31);
-    }
-    break;
-  case 202:
-    v_inerc -= v_force;
-    if ( char_on_ground_down() )
-    {
-      reset_forces();
-      y = getlvl_height();
-      set_seq(10);
-    }
-    else
-    {
-      if ( (get_subseq() == 1 || get_subseq() == 2) && (get_elaps_frames() % 5) == 0 )
-      {
-        float xx = x + 50.0 - (scene_rand() % 100);
-        float yy = (scene_rand() % 200) + y;
-        scene_add_effect(this, 124, xx, yy, dir, 1);
-      }
-      if ( process() )
-        set_seq(9);
-      if ( !get_elaps_frames() && !get_frame_time() && !get_frame() && get_subseq() == 1)
-      {
-        field_7D0 = 0;
-        char_h_move(7.5);
-        v_inerc = 3.5;
-        v_force = 0.4;
-        scene_add_effect(this, 125, (80 * dir) + x, y + 110.0, dir, 1);
-        scene_add_effect(this, 126, x, y + 110.0, dir, 1);
-        scene_play_sfx(31);
-      }
-      if ( get_subseq() == 2 &&
-            !get_frame_time() &&
-            get_frame() == 5)
-        flip_with_force();
-    }
-    break;
-  case 203:
-    v_inerc -= v_force;
-    if(char_on_ground_down())
-    {
-      reset_forces();
-      y = getlvl_height();
-      set_seq(10);
-    }
-    else
-    {
-      if ( get_subseq() < 2 && !(get_elaps_frames() % 5))
-      {
-        float xx = x + 50.0 - (scene_rand() % 100);
-        float yy = (scene_rand() % 200) + y;
-        scene_add_effect(this, 124, xx, yy, dir, 1);
-      }
-      process();
-      if ( !get_subseq() && !get_frame_time() && get_frame() == 1)
-      {
-        char_h_move(-7.5);
-        v_inerc = 3.5;
-        v_force = 0.4;
-        scene_add_effect(this, 125, x, y + 120.0, dir, 1);
-        scene_add_effect(this, 126, x, y + 120.0, dir, 1);
-        scene_play_sfx(31);
-      }
-      if ( get_subseq() == 1 && !get_frame_time() && get_frame() == 2)
-        flip_with_force();
-    }
-    break;
-  case 204:
-    sub10func();
-    h_inerc -= 0.5;    
-    if ( h_inerc < 0.0)
-    {
-      h_inerc = 0.0;
-      field_49A = 0;
-    }
-    if ( process() )
-    {
-      set_seq(0);
-      field_49A = 0;
-    }
-    break;
-    //things go wack here
-  /*case 208:
-    sub10func();
-    reset_forces();
-    set_seq(6);
-    break;*/
-  case 209:
-  case 212:
-  case 222:
-    if ( !get_subseq())
-      sub10func();
-    if ( char_on_ground_down())
-    {
-      set_seq(10);
-      y = getlvl_height();
-      reset_forces();
-      break;
-    }
-    if ( char_on_ground_down() || v_inerc > 0.0)
-      field_522 = 2;
-    if ( get_subseq() > 0)
-    {
-      v_inerc -= v_force;
-      if ( v_inerc < -20.0)
-        v_inerc = -20.0;
-    }
-    if ( get_subseq() == 1 && v_inerc < 4.0)
-      set_subseq(2);
-    process();
-    if ( get_elaps_frames() == 0&& 
-         get_frame_time()   == 0&&
-         get_frame()        == 0&&
-         get_subseq() == 1)
-    {
-      char_h_move(10.0);
-      v_inerc = 13.5;
-      v_force = 0.5;
-      field_49A = 0;
-      scene_add_effect(this, 63, x, y, dir, 1);
-    }
-    break;
-  case 211:
-    if (!get_subseq())
-      sub10func();
-    if (char_on_ground_down())
-    {
-      set_seq(10);
-      y = getlvl_height();
-      reset_forces();
-      break;
-    }
-    if ( char_on_ground_down() || v_inerc > 0.0)
-      field_522 = 2;
-    if ( get_subseq() > 0)
-    {
-      v_inerc -= v_force;
-      if ( v_inerc < -20.0)
-        v_inerc = -20.0;
-    }
-    if ( get_subseq() == 1 && v_inerc < 4.0)
-      set_subseq(2);
-    process();
-    if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 1 )
-    {
-      char_h_move(2.0);
-      v_inerc = 18.5;
-      v_force = 0.5;
-      field_49A = 0;
-      scene_add_effect(this, 63, x, y, dir, 1);
-    }
-    break;
-  case 214:
-  //taken from alice.cpp
-        if ( process() )
-        {
-            set_seq( 9);
-            break;
-        }
-        if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 )
-        {
-            if ( get_subseq() == 1 )
-                scene_play_sfx(31);
-            if (get_subseq() == 6 )
-            {
-                set_seq( 9);
-                break;
-            }
-        }
-        if ( dY() < 0)
-        {
-            field_7D2 = 90 - dX(dir) * 45;
-        }
-        else if (dY() == 0)
-        {
-            if (dX(dir) > 0 )
-                field_7D2 = 0;
-            else if (dX(dir) < 0 )
-                field_7D2 = 180;
-        }
-        else if (dY() > 0)
-        {
-            field_7D2 = -90 - dX(dir) * 45;
-        }
-
-        if ( get_subseq() == 5 || get_subseq() == 6 )
-            v_inerc -= v_force;
-
-        if ( get_subseq() <= 0 || get_subseq() >= 5 )
-        {
-            if ( char_on_ground_down() )
-            {
-                y = getlvl_height();
-                v_force = 0.0;
-                v_inerc = 0.0;
-                if ( get_subseq() >= 5 )
-                {
-                    set_seq( 10);
-                    reset_forces();
-                }
-                else
-                {
-                    reset_ofs();
-                    set_seq( 215);
-                }
-            }
-            break;
-        }
-        field_7D6++;
-        field_7D4 = field_7D2 - dash_angle;
-        if ( field_7D4 >180 )
-            field_7D4 -= 360;
-        else if (field_7D4 < -180)
-            field_7D4 += 360;
-
-        if ( field_7D4 > 0 )
-        {
-            if ( weather_id != WEATHER_SUNNY )
-                dash_angle += 0.5;
-            else
-                dash_angle += 1.5;
-        }
-        else if ( field_7D4 < 0 )
-        {
-            if ( weather_id != WEATHER_SUNNY )
-                dash_angle -= 0.5;
-            else
-                dash_angle -= 1.5;
-        }
-        h_inerc = cos_deg(dash_angle) * field_7DC;
-        v_inerc = sin_deg(dash_angle) * field_7DC;
-
-        if ( y > 680.0 )
-            if ( v_inerc > 0.0 )
-                v_inerc = 0.0;
-
-        field_7DC += 0.3;
-        if ( field_7DC > 12.0 )
-            field_7DC = 12.0;
-
-        spell_energy_spend( weather_id != WEATHER_SUNNY ? 10 : 5, 1);
-        angZ = -dash_angle;
-
-
-        if ( h_inerc < 0.0 )
-            angZ = 180.0 - dash_angle;
-
-
-        if ( h_inerc < 0.0 )
-        {
-            if ( get_subseq() == 1 )
-                set_subseq(3);
-            else if ( get_subseq() == 2 )
-                set_subseq(4);
-        }
-        else
-        {
-            if ( get_subseq() == 3 )
-                set_subseq(1);
-            else if ( get_subseq() == 4 )
-                set_subseq(2);
-        }
-
-        if ( get_elaps_frames() % 5 == 1 )
-        {
-            float yy = sin_deg(dash_angle) * 100.0 + y + 100.0;
-            float xx = cos_deg(dash_angle) * 100.0 * dir + x;
-            scene_add_effect(this, 125, xx, yy, dir, 1);
-        }
-
-        if ( (keyDown(INP_D) == 0 && field_7D6 > 10) || spell_energy <= 0 )
-        {
-            reset_ofs();
-            angZ = 0;
-
-            if ( get_subseq() == 1 || get_subseq() == 2 )
-            {
-                if ( dir == 1 )
-                {
-                    if ( enemy->x >= x )
-                        set_subseq(5);
-                    else
-                    {
-                        dir = -dir;
-                        h_inerc = -h_inerc;
-                        set_subseq(6);
-                    }
-                }
-                else
-                {
-                    if ( enemy->x <= x )
-                        set_subseq(5);
-                    else
-                    {
-                        dir = -dir;
-                        h_inerc = -h_inerc;
-                        set_subseq(6);
-                    }
-                }
-            }
-            else if ( get_subseq() == 3 || get_subseq() == 4 )
-            {
-                if ( dir == 1 )
-                {
-                    if ( enemy->x >= x )
-                        set_subseq(6);
-                    else
-                    {
-                        dir = -dir;
-                        h_inerc = -h_inerc;
-                        set_subseq(5);
-                    }
-                }
-                else
-                {
-                    if ( enemy->x <= x )
-                        set_subseq(6);
-                    else
-                    {
-                        dir = -dir;
-                        h_inerc = -h_inerc;
-                        set_subseq(5);
-                    }
-                }
-            }
-        }
-        break;
-  case 215:
-    sub10func();
-    if ( h_inerc > 0.0)
-    {
-      h_inerc -= 0.75;
-      if ( h_inerc < 0.0)
-        h_inerc = 0.0;
-    }
-    if ( h_inerc < 0.0)
-    {
-      h_inerc += 0.75;
-      if ( h_inerc > 0.0 )
-        h_inerc = 0.0;
-    }
-    if ( process())
-    {
-      set_seq(0);
-      break;
-    }
-    break;
-  case 217:
-  //taken from alice.cpp
-        if ( process() )
-        {
-            set_seq( 9);
-            break;
-        }
-        if ( get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 )
-        {
-            if ( get_subseq() == 1 )
-                scene_play_sfx(31);
-            if (get_subseq() == 6 )
-            {
-                set_seq( 9);
-                break;
-            }
-        }
-
-        field_7D2 = atan2_deg(enemy->y + 100.0 - y, (enemy->x - x) * dir);
-
-        if ( get_subseq() == 5 || get_subseq() == 6 )
-            v_inerc -= v_force;
-
-        if ( get_subseq() <= 0 || get_subseq() >= 5 )
-        {
-            if ( char_on_ground_down() )
-            {
-                y = getlvl_height();
-                v_force = 0.0;
-                v_inerc = 0.0;
-                if ( get_subseq() >= 5 )
-                {
-                    set_seq( 10);
-                    reset_forces();
-                }
-                else
-                {
-                    reset_ofs();
-                    set_seq( 215);
-                }
-            }
-            break;
-        }
-
-        field_7D6++;
-        field_7D4 = field_7D2 - dash_angle;
-        if ( field_7D4 >180 )
-            field_7D4 -= 360;
-        else if (field_7D4 < -180)
-            field_7D4 += 360;
-
-        if ( field_7D4 > 0 )
-        {
-            if ( weather_id != WEATHER_SUNNY )
-                dash_angle += 0.25;
-            else
-                dash_angle += 0.75;
-        }
-        else if ( field_7D4 < 0 )
-        {
-            if ( weather_id != WEATHER_SUNNY )
-                dash_angle -= 0.25;
-            else
-                dash_angle -= 0.75;
-        }
-
-        h_inerc = cos_deg(dash_angle) * field_7DC;
-        v_inerc = sin_deg(dash_angle) * field_7DC;
-
-        if ( y > 680.0 )
-            if ( v_inerc > 0.0 )
-                v_inerc = 0.0;
-
-        field_7DC += 0.3;
-        if ( field_7DC > 12.0 )
-            field_7DC = 12.0;
-
-        if (weather_id == WEATHER_SUNNY)
-            spell_energy_spend(10, 1);
-        else
-            spell_energy_spend(15, 60);
-
-        angZ = -dash_angle;
-
-        if ( h_inerc < 0.0 )
-        {
-            if ( get_subseq() == 1 )
-                set_subseq(3);
-            else if ( get_subseq() == 2 )
-                set_subseq(4);
-        }
-
-        if ( h_inerc >= 0 )
-        {
-            if ( get_subseq() == 3 )
-                set_subseq(1);
-            else if ( get_subseq() == 4 )
-                set_subseq(2);
-        }
-
-        if ( get_elaps_frames() % 5 == 1 )
-        {
-            float yy = sin_deg(dash_angle) * 100.0 + y + 100.0;
-            float xx = cos_deg(dash_angle) * 100.0 * dir + x;
-            scene_add_effect(this, 125, xx, yy, dir, 1);
-        }
-
-        if ( (keyDown(INP_D) == 0 && field_7D6 > 10) || spell_energy <= 0 )
-        {
-            reset_ofs();
-
-            if ( get_subseq() == 1 || get_subseq() == 2 )
-            {
-                if ( dir == 1 )
-                {
-                    if ( enemy->x >= x )
-                        set_subseq(5);
-                    else
-                    {
-                        dir = -dir;
-                        h_inerc = -h_inerc;
-                        set_subseq(6);
-                    }
-                }
-                else
-                {
-                    if ( enemy->x <= x )
-                        set_subseq(5);
-                    else
-                    {
-                        dir = -dir;
-                        h_inerc = -h_inerc;
-                        set_subseq(6);
-                    }
-                }
-            }
-            else if ( get_subseq() == 3 || get_subseq() == 4 )
-            {
-                if ( dir == 1 )
-                {
-                    if ( enemy->x >= x )
-                        set_subseq(6);
-                    else
-                    {
-                        dir = -dir;
-                        h_inerc = -h_inerc;
-                        set_subseq(5);
-                    }
-                }
-                else
-                {
-                    if ( enemy->x <= x )
-                        set_subseq(6);
-                    else
-                    {
-                        dir = -dir;
-                        h_inerc = -h_inerc;
-                        set_subseq(5);
-                    }
-                }
-            }
-        }
-        break;
-  case 220:
-    if (!get_subseq())
-      sub10func();
-    if ( char_on_ground_down())
-    {
-      set_seq(10);
-      y = getlvl_height();
-      reset_forces();
-      break;
-    }
-    if ( char_on_ground_down() || v_inerc > 0.0)
-      field_522 = 2;
-    if ( get_subseq() > 0)
-    {
-      v_inerc -= v_force;
-      if ( v_inerc < -20.0)
-        v_inerc = -20.0;
-    }
-    if ( get_subseq() == 1 && v_inerc < 4.0)
-      set_subseq(2);
-    process();
-    if ( !get_elaps_frames() && !get_frame_time() && !get_frame() && get_subseq() == 1 )
-    {
-      char_h_move(0.0);
-      v_inerc = 18.5;
-      v_force = 0.5;
-      field_49A = 0;
-      scene_add_effect(this, 63, x, y, dir, 1);
-    }
-    break;
-  case 223:
-    sub10func();
-    field_49A = 1;
-    if ( h_inerc > 6.0)
-    {
-      h_inerc -= 0.5;
-      if ( h_inerc <  6.0)
-        h_inerc = 6.0;
-    }
-    process();
-    if ( get_subseq() != 1)
-    {
-      if (!get_elaps_frames() && !get_frame_time() && !get_frame() && get_subseq() == 1)
-      {
-        char_h_move(7.5);
-        scene_add_effect(this, 125, (80 * dir)+x, y + 80.0, dir, 1);
-        scene_add_effect(this, 126, x, y + 80.0, dir, 1);
-        scene_play_sfx(31);
-      }
-    }
-    else
-    {
-      set_seq(204);
-    }
-    if ( !(get_elaps_frames() % 5) )
-    {
-      float xx = x + 50.0 - (scene_rand() % 100);
-      float yy = (scene_rand() % 200) + y;
-      scene_add_effect(this, 124, xx, yy, dir, 1);
-    }
-
-    ++field_7D0;
-    if ( dX(dir) > 0 || field_7D0 <= 15 && field_7D0 <= 60)
-    {
-        if (!get_elaps_frames() && !get_frame_time() && !get_frame() && get_subseq() == 1)
-        {
-          char_h_move(7.5);
-          scene_add_effect(this, 125, (80 * dir)+x, y + 80.0, dir, 1);
-          scene_add_effect(this, 126, x, y + 80.0, dir, 1);
-          scene_play_sfx(31);
-        }
-    }
-    else
-    {
-      set_seq(204);
-    }
-    break;
-  case 224:
-    if ( !get_subseq() || get_subseq() == 4)
-      sub10func();
-    if ( char_on_ground_down() && !(get_elaps_frames() % 5))
-    {
-      float xx = x + 50.0 - (scene_rand() % 100);
-      float yy = (scene_rand() % 200) + y;
-      scene_add_effect(this, 124, xx, yy, dir, 1);
-    }
-    if (get_subseq() < 4)
-    {
-      v_inerc -= v_force;
-      if ( char_on_ground_down())
-      {
-        reset_forces();
-        y = getlvl_height();
-        set_subseq(4);
-        break;
-      }
-    }
-    if ( process() )
-    {
-      set_seq(0);
-      h_inerc = 0.0;
-    }
-    else if (!get_elaps_frames() && !get_frame_time() && !get_frame() && get_subseq() == 1)
-    {
-      char_h_move(-10.0);
-      v_inerc = 2.0;
-      v_force = 0.2;
-      scene_add_effect(this, 125, x, y + 80.0, dir, 1);
-      scene_add_effect(this, 126, x, y + 80.0, dir, 1);
-      scene_play_sfx(31);
-    }
-    break;
-  case 225:
-    v_inerc -= v_force;
-    if ( char_on_ground_down())
-    {
-      reset_forces();
-      y = getlvl_height();
-      set_seq(10);
-    }
-    else
-    {
-      if ( (get_subseq() == 1 || get_subseq() == 2) && !(get_elaps_frames() % 5))
-      {
-        float xx = x + 50.0 - (scene_rand() % 100);
-        float yy = (scene_rand() % 200) + y;
-        scene_add_effect(this, 124, xx, yy, dir, 1);
-      }
-    }
-    if ( process())
-      set_seq(9);
-
-    if ( !get_elaps_frames() && !get_frame_time() && !get_frame() && get_subseq() == 1)
-    {
-      field_7D0 = 0;
-      char_h_move(-7.5);
-      v_inerc = 3.5;
-      v_force = 0.4;
-      scene_add_effect(this, 125, (80 * dir) + x, y + 110.0, dir, 1);
-      scene_add_effect(this, 126, x, y + 110.0, dir, 1);
-      scene_play_sfx(31);
-    }
-    if ( get_subseq() == 2 && !get_frame_time() && get_frame() == 5)
-      flip_with_force();
-    break;
-  case 226:
-    v_inerc -= v_force;
-    if ( char_on_ground_down())
-    {
-      reset_forces();
-      y = getlvl_height();
-      set_seq(10);
-    }
-    else
-    {
-      if ( (get_subseq() == 1 || get_subseq() == 2) && !(get_elaps_frames() % 5))
-      {
-        float xx = x + 50.0 - (scene_rand() % 100);
-        float yy = (scene_rand() % 200) + y;
-        scene_add_effect(this, 124, xx, yy, dir, 1);
-      }
-    }
-    if ( process())
-      set_seq(9);
-
-    if ( !get_elaps_frames() && !get_frame_time() && !get_frame() && get_subseq() == 1)
-    {
-      field_7D0 = 0;
-      char_h_move(7.5);
-      v_inerc = 3.5;
-      v_force = 0.4;
-      scene_add_effect(this, 125, (80 * dir) + x, y + 110.0, dir, 1);
-      scene_add_effect(this, 126, x, y + 110.0, dir, 1);
-      scene_play_sfx(31);
-    }
-    if ( get_subseq() == 2 && !get_frame_time() && get_frame() == 5)
-      flip_with_force();
-    break;
-  // still can't determine if hi jumps/airdashes/dashes are part of namazu*/
-
-
-  //?? starts from here onwards
-  case 301:
-    sub10func();
-    //if (get_true(0))
-    if ( field_49A)
-    {
-      h_inerc -= 0.5;
-      if ( h_inerc < 0.0)
-      {
-        h_inerc = 0.0;
-        field_49A = 0;
-      }
-    }
-    if (get_frame() >= 5)
-    {
-      h_inerc -= 0.1;
-      if ( h_inerc < 0.0)
-        h_inerc = 0.0;
-    }
-    if ( process())
-      set_seq(0);
-    if ( get_frame_time() )
-      break;
-    if ( get_frame() == 2)
-    {
-      h_inerc = 4.0;
-      field_49A = 0;
-
-      float tmp[3];
-      tmp[0] = 0.0;
-      tmp[1] = 0.0;
-      tmp[2] = 3.0;
-
-      addbullet(this,NULL, 848, x, y, dir, 1, tmp, 3);
-    }
-    if ( !get_frame_time() && get_frame() == 3)
-    {
-      play_sfx(0);
-      field_49A = 0;
-    }
-    break;
-  //case 302: taken from cirno.cpp
-  case 302:
-            if ( keyDown(INP_A) == 0 )
-            not_charge_attack = 0;
-        if ( h_inerc > 0.0 )
-        {
-            h_inerc -= 0.75;
-            if ( h_inerc < 0.0 )
-                h_inerc = 0.0;
-        }
-        if ( process() ||
-                (get_elaps_frames() == 0 && get_frame_time() == 0 && get_frame() == 0 && get_subseq() == 1) )
-        {
-            set_seq( 0);
-            break;
-        }
-        if (get_subseq() == 1 && get_frame_time() == 0 && get_frame() == 7)
-        {
-            h_inerc = 15.0;
-            play_sfx( 52);
-            float tmp[3];
-            tmp[0] = 0.0;
-            tmp[1] = 0.0;
-            tmp[2] = 0.0;
-
-            CharFrameData *frm = get_pframe();
-            addbullet(this, NULL, 990, (frm->extra1[4] * dir) + x, y - frm->extra1[5], dir, 1, tmp, 3);
-        }
-        if (get_subseq() == 0 && get_frame_time() == 0)
-        {
-            if (get_frame() == 4 && not_charge_attack)
-            {
-                scene_add_effect(this, 62, x, y + 205.0, dir, 1);
-                next_subseq();
-                break;
-            }
-            if (get_frame() == 6)
-            {
-                h_inerc = 12.5;
-                play_sfx( 52);
-                float tmp[3];
-                tmp[0] = 0.0;
-                tmp[1] = 0.0;
-                tmp[2] = 0.0;
-
-                CharFrameData *frm = get_pframe();
-                addbullet(this, NULL, 990, (frm->extra1[4] * dir) + x, y - frm->extra1[5], dir, 1, tmp, 3);
-            }
-        }
-        break;
-  default:
-    char_c::func10();
-    break;
-  }
 }
 
 //Func20
@@ -2476,432 +1010,442 @@ void char_namazu::func24() {
 	if (  )
 }  */
 
-void char_namazu::set_seq_params() 
+
+void char_namazu::set_seq_params()
 {
-  //acquire current state!
-  std::cout << "NAMAZU_get_seq(): " << get_seq() << std::endl;
-  std::cout << "NAMAZU_get_subseq(): " << get_subseq() << std::endl;
-
-  //big switch statement
-  uint32_t sq = get_seq();
-
-  switch(sq)
+  if ( get_seq() <= 330 )
   {
-    case 4: //walk fwd
-      h_inerc = 4.0;
-      break;
-    case 5: //walk back
-      h_inerc = -4.0;
-      break;
-    case 50:
-    case 51:
-    case 52:
-    case 53:
-    case 54:
-    case 55:
-    case 56:
-    case 57:
-    case 58:
-    case 59:
-    case 60:
-    case 61:
-    case 62:
-    case 63:
-    case 64:
-    case 65:
-    case 66:
-    case 67:
-      field_1A4 = 0.0;
-      field_7D0 = 0;
-      field_1A8 = 0.0;
-      field_7D2 = 0;
-      angZ = 0.0;
-      field_571 = 1;
-      field_572 = 1;
-      h_inerc = -6.0;
-      v_inerc = 6.0;
-      v_force = 0.2;
-      break;
-    case 88:
-    case 89:
-      field_571 = 1;
-      field_572 = 1;
-      field_7D0 = 0;
-      h_inerc = -field_1A4;
-      v_inerc *= 0.5;
-      v_force = 0.2;
-      if(field_1A4 > 0.0)
-        field_7D0 = 1;
-      if(field_1A4 < 0.0)
-        field_7D0 = -1;
-      angZ = 0.0;
-      break;
-    case 214:
-      field_7D6 = 0;
-      h_inerc = 0.0;
-      v_inerc = 0.0;
-      v_force = 0.6;
-      x_off = 0.0;
-      y_off = 95.0;
-      field_7DC = 9.0;
-      field_7EC = 0.0;
-      break;
-    case 217:
-      reset_ofs();
-      field_7D6 = 0;
-      h_inerc = 0.0;
-      v_inerc = 0.0;
-      v_force = 0.6;
-      x_off = 0.0;
-      y_off = 95.0;
-      field_7DC = 9.0;
-      field_7EC = 0.0;
-      break;
-    case 300:
-    case 301:
-    case 303:
-    case 322:
-      if( !field_49A )
+    if ( get_seq() == 330 )
+    {
+LABEL_30:
+      if ( !field_49A )
         reset_forces();
       field_190 = 0;
       field_194 = 1;
-      break;
-    case 302:
-      if( !field_49A )
+      return;
+    }
+    if ( get_seq() <= 79 )
+    {
+      if ( get_seq() >= 70 )
+      {
+LABEL_10:
+        field_571 = 1;
+        field_572 = 1;
+        field_7D0 = 0;
+        h_inerc = -field_1A4;
+        v_inerc = field_1A8 * 0.5;
+        v_force = 0.2;
+        if ( -field_1A4 > 0.0 )
+          field_7D0 = 1;
+        if ( -field_1A4 < 0.0 )
+          field_7D0 = -1;
+        angZ = 0.0;
+      }
+      else
+      {
+        switch ( get_seq() )
+        {
+          case 4:
+            h_inerc = 4.0;
+            break;
+          case 5:
+            h_inerc = -4.0;
+            break;
+          case 50:
+          case 51:
+          case 52:
+          case 53:
+          case 54:
+          case 55:
+          case 56:
+          case 57:
+          case 58:
+          case 59:
+          case 60:
+          case 61:
+          case 62:
+          case 63:
+          case 64:
+          case 65:
+          case 66:
+          case 67:
+            field_1A4 = 0.0;
+            field_7D0 = 0;
+            field_1A8 = 0.0;
+            field_7D2 = 0;
+            angZ = 0.0;
+            field_571 = 1;
+            field_572 = 1;
+            h_inerc = -6.0;
+            v_inerc = 6.0;
+            v_force = 0.2;
+            break;
+          default:
+            goto LABEL_87;
+        }
+      }
+      return;
+    }
+    switch ( get_seq() )
+    {
+      case 88:
+      case 89:
+        goto LABEL_10;
+      case 214:
+        goto LABEL_16;
+      case 217:
+        reset_ofs();
+LABEL_16:
+        field_7D6 = 0;
+        h_inerc = 0.0;
+        v_inerc = 0.0;
+        v_force = 0.60000002;
+        x_off = 0.0;
+        y_off = 95.0;
+        field_7DC = 9.0;
+        field_7EC = 0.0;
+        return;
+      case 300:
+      case 301:
+      case 303:
+      case 322:
+        goto LABEL_30;
+      case 302:
+        if ( !field_49A )
+          reset_forces();
+        field_190 = 0;
+        field_194 = 1;
+        not_charge_attack = 1;
+        return;
+      case 304:
+        field_49A = 0;
+        field_194 = 1;
+        field_190 = 0;
         reset_forces();
-      field_190 = 0;
-      field_194 = 1;
-      not_charge_attack = 1;
-      break;
-    case 304:
-      field_49A = 0;
-      field_194 = 1;
-      field_190 = 0;
-      reset_forces();
-      not_charge_attack = 1;
-      break;
-    case 305:
-      v_inerc = 0.0;
-      field_49A = 0;
-      field_190 = 0;
-      h_inerc = 12.0;
-      field_194 = 1;
-      v_force = 0.0;
-      break;
-    case 306:
-      field_7D0 = 0;
-      field_190 = 0;
-      field_194 = 1;
-    case 307:
-    case 309:
-      field_194 = 1;
-      field_190 = 0;
-      not_charge_attack = 1;
-      break;
-    case 310:
-      h_inerc = 0.0;
-      field_7D0 = 0;
-      v_inerc = 0.0;
-      field_190 = 0;
-      field_194 = 99;
-      v_force = 0.5;
-      break;
-    case 320:
-      field_49A = 0;
-      reset_forces();
-      field_190 = 0;
-      field_194 = 1;
-      break;
-    case 321:
-      reset_forces();
-      field_194 = 1;
-      field_190 = 0;
-      break;
-    case 400:
-    case 401:
-    case 411:
-      field_190 = 0;
-      reset_forces();
-      field_7D0 = 0;
-      field_7D2 = 0;
-      field_7D6 = 0;
-      not_charge_attack = 1;
-      break;
-    case 402:
-    case 410:
-    case 412:
-      field_190 = 0;
-      reset_forces();
-      field_7D0 = 0;
-      field_7D2 = 0;
-      field_7D4 = 0;
-      not_charge_attack = 1;
-      break;
-    case 404:
-    case 406:
-      field_7D6 = 0;
-    case 408:
-      h_inerc = 14.5;
-      v_inerc = 0.0;
-      field_49A = 0;
-      field_7D0 =0;
-      field_190 = 0;
-      field_194 = 1;
-      break;
-    case 409:
-      v_force = 0.3;
-      field_49A = 0;
-      field_7D0 = 0;
-      field_190 = 0;
-      field_194 = 1;
-      break;
-    case 414:
-    case 416:
-      v_force = 0.0;
-      field_190 = 0;
-      field_7D0 = 0;
-      field_7D2 = 0;
-      field_7D4 = 0;
-      not_charge_attack = 1;
-      h_inerc *= 0.2;
-      v_inerc *= 0.2;
-      break;
-    case 415:
-      field_7D4 = 0;
-      field_7D2 = 0;
-      v_force = 0.0;
-      field_7D0 = 0;
-      field_190 =0;
-      not_charge_attack = 1;
-      h_inerc *= 0.2;
-      v_inerc *= 0.2;
-      break;
-    case 418:
-      h_inerc = 15.0;
-      field_194 = 1;
-      field_190 = 0;
-      break;
-    case 500:
-    case 501:
-      field_18C = 0;
-      reset_forces();
-    case 502:
-    case 503:
-      field_18C = 0;
-      h_inerc *= 0.2;
-      v_inerc *= 0.2;
-      v_force = 0.0;
-      field_49A = 0;
-      field_7D0 = 0;
-      field_190 = 1;
-      break;
-    case 505:
-    case 506:
-      field_18C = 4;
-      reset_forces();
-      field_49A = 0;
-      field_7D0 = 0;
-      field_190 = 1;
-      break;
-    case 507:
-    case 508:
-      field_18C = 4;
-      h_inerc *= 0.2;
-      v_inerc *= 0.2;
-      v_force = 0.0;
-      field_49A = 0;
-      field_7D0 = 0;
-      field_190 = 1;
-      break;
-    case 510:
-    case 511:
-      field_18C = 8;
-      reset_forces();
-      dash_angle = 0.0;
-      field_49A = 0;
-      field_7D0 = 0;
-      field_190 = 1;
-      break;
-    case 512:
-    case 513:
-      field_49A = 0;
-      field_7D0 = 0;
-      field_18C = 8;
-      field_190 = 1;
-      h_inerc *= 0.2;
-      v_inerc *= 0.2;
-      v_force = 0.0;
-      dash_angle = 0.0;
-      break;
-    case 520:
-    case 521:
-      field_18C = 1;
-      reset_forces();
-      field_190 = 0;
-      field_49A = 0;
-      break;
-    case 522:
-    case 523:
-      field_190 = 0;
-      field_49A = 0;
-      field_18C = 1;
-      h_inerc *= 0.2;
-      v_inerc *= 0.2;
-      v_force = 0.0;
-      break;
-    case 525:
-    case 526:
-      field_18C = 5;
-      reset_forces();
-      field_190 = 0;
-      field_49A = 0;
-      break;
-    case 540:
-    case 541:
-      field_18C = 2;
-      field_190 = 0;
-      reset_forces();
-      field_7D0 = 0;
-      field_7D2 = 0;
-      field_7D6 = 0;
-      field_7D8 = 0;
-      not_charge_attack = 0;
-      break;
-    case 545:
-    case 546:
-      field_18C = 6;
-      field_190 = 0;
-      reset_forces();
-      field_7D0 = 0;
-      field_7D2 = 0;
-      field_7D6 = 0;
-      field_7D8 = 0;
-      not_charge_attack = 1;
-      break;
-    case 547:
-      field_190 = 0;
-      not_charge_attack = 0;
-      field_18C = 2;
-      field_194 = 1;
-      break;
-    case 560:
-    case 561:
-      field_18C = 3;
-      field_194 = 1;
-      field_190 = 0;
-      reset_forces();
-      not_charge_attack = 1;
-      break;
-    case 562:
-      field_18C = 3;
-      field_7D6 = 0;
-      field_7D2 = 0;
-      v_force = 0.0;
-      field_7D0 = 0;
-      field_190 = 0;
-      not_charge_attack = 1;
-      h_inerc *= 0.2;
-      v_inerc *= 0.2;
-      break;
-    case 565:
-    case 566:
-    case 567:
-      field_18C = 7;
-      field_194 = 1;
-      field_190 = 0;
-      reset_forces();
-      not_charge_attack = 1;
-      break;
-    case 599:
+        not_charge_attack = 1;
+        return;
+      case 305:
+        v_inerc = 0.0;
+        field_49A = 0;
+        field_190 = 0;
+        h_inerc = 12.0;
+        field_194 = 1;
+        v_force = 0.0;
+        return;
+      case 306:
+        field_7D0 = 0;
+        field_190 = 0;
+        field_194 = 1;
+        return;
+      case 307:
+      case 309:
+        field_194 = 1;
+        goto LABEL_24;
+      case 308:
+        field_194 = 4;
+        goto LABEL_24;
+      case 310:
+        h_inerc = 0.0;
+        field_7D0 = 0;
+        v_inerc = 0.0;
+        field_190 = 0;
+        field_194 = 99;
+        v_force = 0.5;
+        return;
+      case 320:
+        field_49A = 0;
+        reset_forces();
+        field_190 = 0;
+        field_194 = 1;
+        return;
+      case 321:
+        reset_forces();
+        goto LABEL_29;
+      default:
+        break;
+    }
+LABEL_87:
+    char_c::set_seq_params();
+    return;
+  }
+  if ( get_seq() <= 657 )
+  {
+    if ( get_seq() == 657 )
+    {
+LABEL_73:
       field_190 = 1;
       reset_forces();
       field_7D0 = 0;
       field_7D2 = 0;
-      field_7D6 = 0;
-      field_7D8 = 0;
-      break;
-    case 600:
-    case 602:
-    case 605:
-    case 606:
-      field_190 = 1;
-      reset_forces();
-      break;
-    case 601:
-    case 604:
-    case 608:
-    case 610:
-    case 611:
-      field_7D0 = 0;
-      field_7D2 = 0;
-      field_190 = 1;
-      reset_forces();
-      break;
-    case 603:
-      field_7D0 = 0;
-      dash_angle = 0.0;
-      field_7D2 = 0;
-      field_190 = 1;
-      reset_forces();
-      break;
-    case 607:
-      field_190 = 1;
-      reset_forces();
-      field_7D0 = 0;
-      field_7D2 = 0;
-      break;
-    case 612:
-    case 615:
-      field_190 = 1;
-      reset_forces();
-      field_7D0 = 0;
-      field_7D2 = 0;
-      field_7D6 = 0;
-      field_7D8 = 0;
-      not_charge_attack = 1;
-      break;
-    case 613:
-      field_190 = 0;
-      not_charge_attack = 1;
-      break;
-    case 651:
-      v_force = 0.0;
-      field_7D0 = 0;
-      field_7D2 = 0;
-      field_190 = 1;
-      v_inerc *= 0.2;
-      h_inerc *= 0.2;
-      break;
+      return;
+    }
+    switch ( get_seq() )
+    {
+      case 400:
+      case 401:
+      case 411:
+        field_190 = 0;
+        reset_forces();
+        field_7D0 = 0;
+        field_7D2 = 0;
+        field_7D6 = 0;
+        not_charge_attack = 1;
+        return;
+      case 402:
+      case 410:
+      case 412:
+        field_190 = 0;
+        reset_forces();
+        field_7D0 = 0;
+        field_7D2 = 0;
+        field_7D4 = 0;
+        not_charge_attack = 1;
+        return;
+      case 404:
+      case 406:
+        goto LABEL_62;
+      case 408:
+        h_inerc = 14.5;
+        v_inerc = 0.0;
+        goto LABEL_39;
+      case 409:
+        v_force = 0.34999999;
+LABEL_39:
+        field_49A = 0;
+        field_7D0 = 0;
+        field_190 = 0;
+        field_194 = 1;
+        return;
+      case 414:
+      case 416:
+        v_force = 0.0;
+        field_190 = 0;
+        field_7D0 = 0;
+        field_7D2 = 0;
+        field_7D4 = 0;
+        not_charge_attack = 1;
+        h_inerc = h_inerc * 0.2000000029802322;
+        v_inerc = 0.2000000029802322 * v_inerc;
+        return;
+      case 415:
+        field_7D4 = 0;
+        goto LABEL_63;
+      case 418:
+        h_inerc = 15.0;
+LABEL_29:
+        field_194 = 1;
+        field_190 = 0;
+        return;
+      case 500:
+      case 501:
+        field_18C = 0;
+        reset_forces();
+        goto LABEL_45;
+      case 502:
+      case 503:
+        field_18C = 0;
+        h_inerc = h_inerc * 0.2000000029802322;
+        v_inerc = 0.2000000029802322 * v_inerc;
+        v_force = 0.0;
+        goto LABEL_45;
+      case 505:
+      case 506:
+        field_18C = 4;
+        reset_forces();
+        goto LABEL_45;
+      case 507:
+      case 508:
+        field_18C = 4;
+        h_inerc = h_inerc * 0.2000000029802322;
+        v_inerc = 0.2000000029802322 * v_inerc;
+        v_force = 0.0;
+LABEL_45:
+        field_49A = 0;
+        field_7D0 = 0;
+        field_190 = 1;
+        return;
+      case 510:
+      case 511:
+        field_18C = 8;
+        reset_forces();
+        dash_angle = 0.0;
+        field_49A = 0;
+        field_7D0 = 0;
+        field_190 = 1;
+        return;
+      case 512:
+      case 513:
+        field_49A = 0;
+        field_7D0 = 0;
+        field_18C = 8;
+        field_190 = 1;
+        h_inerc = h_inerc* 0.2000000029802322;
+        v_inerc = 0.2000000029802322 * v_inerc;
+        v_force = 0.0;
+        dash_angle = 0.0;
+        return;
+      case 520:
+      case 521:
+        field_18C = 1;
+        goto LABEL_52;
+      case 522:
+      case 523:
+        field_190 = 0;
+        field_49A = 0;
+        field_18C = 1;
+        h_inerc = h_inerc * 0.2000000029802322;
+        v_inerc = 0.2000000029802322 * v_inerc;
+        v_force = 0.0;
+        return;
+      case 525:
+      case 526:
+        field_18C = 5;
+LABEL_52:
+        reset_forces();
+        field_190 = 0;
+        field_49A = 0;
+        return;
+      case 540:
+      case 541:
+        field_18C = 2;
+        field_190 = 0;
+        reset_forces();
+        field_7D0 = 0;
+        field_7D2 = 0;
+        field_7D6 = 0;
+        field_7D8 = 0;
+        not_charge_attack = 0;
+        return;
+      case 545:
+      case 546:
+        field_18C = 6;
+        field_190 = 0;
+        reset_forces();
+        goto LABEL_57;
+      case 547:
+        field_190 = 0;
+        not_charge_attack = 0;
+        field_18C = 2;
+        field_194 = 1;
+        return;
+      case 560:
+      case 561:
+        field_18C = 3;
+        goto LABEL_60;
+      case 562:
+        field_18C = 3;
+LABEL_62:
+        field_7D6 = 0;
+LABEL_63:
+        field_7D2 = 0;
+        v_force = 0.0;
+        field_7D0 = 0;
+        field_190 = 0;
+        not_charge_attack = 1;
+        h_inerc = h_inerc * 0.2000000029802322;
+        v_inerc = 0.2000000029802322 * v_inerc;
+        return;
+      case 565:
+      case 566:
+      case 567:
+        field_18C = 7;
+LABEL_60:
+        field_194 = 1;
+        field_190 = 0;
+        reset_forces();
+        not_charge_attack = 1;
+        return;
+      case 599:
+        field_190 = 1;
+        reset_forces();
+        goto LABEL_66;
+      case 600:
+      case 602:
+      case 605:
+      case 606:
+        goto LABEL_68;
+      case 601:
+      case 604:
+      case 608:
+      case 610:
+      case 611:
+        field_7D0 = 0;
+        field_7D2 = 0;
+LABEL_68:
+        field_190 = 1;
+        goto LABEL_69;
+      case 603:
+        field_7D0 = 0;
+        dash_angle = 0.0;
+        field_7D2 = 0;
+        field_190 = 1;
+        reset_forces();
+        return;
+      case 607:
+        goto LABEL_73;
+      case 612:
+      case 615:
+        field_190 = 1;
+        reset_forces();
+LABEL_57:
+        field_7D0 = 0;
+        field_7D2 = 0;
+        field_7D6 = 0;
+        field_7D8 = 0;
+        not_charge_attack = 1;
+        return;
+      case 613:
+LABEL_24:
+        field_190 = 0;
+        not_charge_attack = 1;
+        return;
+      case 651:
+        v_force = 0.0;
+        field_7D0 = 0;
+        field_7D2 = 0;
+        field_190 = 1;
+        v_inerc = v_inerc * 0.2000000029802322;
+        h_inerc = 0.2000000029802322 * h_inerc;
+        return;
+      default:
+        goto LABEL_87;
+    }
+    goto LABEL_87;
+  }
+  switch ( get_seq() )
+  {
     case 700:
-      break;
+      return;
     case 701:
     case 702:
     case 703:
       if ( !field_49A )
         reset_forces();
-      break;
+      return;
     case 704:
     case 707:
     case 740:
+LABEL_69:
       reset_forces();
-      break;
+      return;
     case 705:
       h_inerc = 6.0;
-      break;
+      return;
     case 706:
       h_inerc = -6.0;
-      break;
+      return;
     case 708:
       h_inerc = 0.0;
-      field_7D0 = 0;
-      break;
+      goto LABEL_80;
     case 709:
+LABEL_80:
       field_7D0 = 0;
       break;
     case 710:
     case 720:
       field_190 = 0;
       reset_forces();
+LABEL_66:
       field_7D0 = 0;
       field_7D2 = 0;
       field_7D6 = 0;
@@ -2926,7 +1470,6 @@ void char_namazu::set_seq_params()
       play_sfx(50);
       break;
     default:
-      char_c::set_seq_params();
-      break;
+      goto LABEL_87;
   }
 }

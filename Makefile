@@ -18,6 +18,9 @@ CXX = g++
 #gcc compiler
 CC = gcc
 
+# Flags
+CFLAGS = -Wall -Wextra
+
 #==================================================
 # Under construction!
 #WINDOWS options
@@ -156,6 +159,10 @@ MKDIR = mkdir "build" -p
 #Linux build v0.02
 # Changelog:
 #	-Now creating "src/build" to avoid makefile errors
+#=================
+#Linux build v0.03
+# Changelog:
+#	-Release and Debug versions
 #------------
 #Experimental!
 #Build everything
@@ -164,7 +171,10 @@ linux: $(OBJS)
 	@echo "Creating directories.."
 	$(MKDIR)
 	@echo "Compiling everything.."
-	$(CXX) -O3 -Os --std=c++11 -pedantic -o $(TARGET) $(OBJS) $(LIBS) -I /usr/include/ -g
+	# Release version
+	# $(CXX)  -O3 -0s --std=c++11 -pedantic -o $(TARGET) $(OBJS) $(LIBS) -I -g
+	# Debug version
+	$(CXX) -g $(OBJS) --std=c++11 -pedantic -o $(TARGET) $(CFLAGS) $(LIBS) -I /usr/include/
 	#$(CXX) -o $(TARGET) archive.o $(LIBS)
 
 #	---The Objects ---

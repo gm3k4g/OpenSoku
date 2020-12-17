@@ -4524,7 +4524,7 @@ LABEL_160:
         return;
       default:
 LABEL_3210:
-        func10();
+        char_c::func10();
         return;
     }
   }
