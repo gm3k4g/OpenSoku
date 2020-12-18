@@ -7,13 +7,15 @@ class char_namazu: public char_c
 public:
 	//Variables to initialize
 	int16_t field_890;
-	int16_t field_891[4];
 	int16_t field_892;
 	int16_t field_894;
 	int16_t field_898;
 	int16_t field_89C;
 	float field_138;
 	int8_t field_8A8;
+
+	// for testing, used from alice.h
+	int16_t field_891[4];
 
 
 	char_namazu(inp_ab *func,uint8_t pal = 0);

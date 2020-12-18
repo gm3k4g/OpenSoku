@@ -20,6 +20,12 @@ public:
 	float field_8AC;
 	float field_8B0;
 
+	// for testing, used from alice.h
+	int16_t field_891[4];
+	int16_t field_892;
+
+
+
 	char_reimu(inp_ab *func,uint8_t pal = 0);
 
 	void func10(); //Number of variables detected: 1882

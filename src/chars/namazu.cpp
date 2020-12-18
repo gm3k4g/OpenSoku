@@ -7974,7 +7974,7 @@ LABEL_248:
   }
 }
 
-// note: copied from alice.cpp
+// note: taken from alice.cpp
 void char_namazu::func20()
 {
     /*v1 = a1;
