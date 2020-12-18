@@ -173,7 +173,8 @@ linux: $(OBJS)
 	$(CXX) -g $(OBJS) --std=c++11 -pedantic -o $(TARGET) $(CFLAGS) $(LIBS) -I /usr/include/
 	#$(CXX) -o $(TARGET) archive.o $(LIBS)
 # Release version
-# $(CXX)  -O3 -0s --std=c++11 -pedantic -o $(TARGET) $(OBJS) $(LIBS) -I -g
+# $(CXX)  -O3 --std=c++11 -pedantic -o $(TARGET) $(OBJS) $(LIBS) -I -g
+# TODO: use -O3 or -Os?
 
 #	---The Objects ---
 #Build "archive.cpp"

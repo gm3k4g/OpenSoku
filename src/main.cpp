@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
     /* Setting the characters */
 
     /* Player 1 */
-    char_c *player1 = new char_reimu(inp_createinput(INP_TYPE_BOTH));
+    char_c *player1 = new char_namazu(inp_createinput(INP_TYPE_BOTH));
 
     /* Set profiles here */
     sprintf(buf,"%s/profile/profile1p.pf",path);
@@ -182,6 +182,18 @@ int main(int argc, char *argv[])
          */
         if (inp->rawPressed(kC_End))
             game_run = false;
+
+        // F1: recover health
+        if (inp->rawPressed(kC_F1)) {
+            player1->health_to_max();
+            player2->health_to_max();
+        }
+        
+        // F7: change weather
+        if (inp->rawPressed(kC_F7)) {
+            weather_time_set(999);
+            weather_change((WEATHER_ID)bb,true);
+        }
 
         aa++;
         if (aa > 10 && inp->rawPressed(kC_Q))
