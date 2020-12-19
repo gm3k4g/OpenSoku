@@ -9,9 +9,12 @@ public:
 	int16_t field_892;
 	int16_t field_894;
 
+	// from alice.h
+	int16_t field_891[4];
+
 	char_suika(inp_ab *func,uint8_t pal = 0);
 
-	void func10(); //Number of variables detected: 1882
+	void func10();
 	void func20();
 	//void func24();
 	void init_vars();

@@ -20,9 +20,6 @@
 #include "weather.h"
 #include "bullets.h"
 
-#include <iostream>
-
-
 int main(int argc, char *argv[])
 {
 
@@ -100,7 +97,7 @@ int main(int argc, char *argv[])
     /* Setting the characters */
 
     /* Player 1 */
-    char_c *player1 = new char_reimu(inp_createinput(INP_TYPE_BOTH));
+    char_c *player1 = new char_suika(inp_createinput(INP_TYPE_BOTH));
 
     /* Set profiles here */
     sprintf(buf,"%s/profile/profile1p.pf",path);
@@ -189,8 +186,8 @@ int main(int argc, char *argv[])
             player2->health_to_max();
         }
         
-        // F7: change weather
-        if (inp->rawPressed(kC_F7)) {
+        // F6: change weather
+        if (inp->rawPressed(kC_F6)) {
             weather_time_set(999);
             weather_change((WEATHER_ID)bb,true);
         }
