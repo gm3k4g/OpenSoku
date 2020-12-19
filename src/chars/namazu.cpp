@@ -9,7 +9,6 @@
 
 #include <iostream>
 
-//"Constructor" ?
 char_namazu::char_namazu(inp_ab *func,uint8_t pal):
 	char_c::char_c(func)
 {
@@ -22,7 +21,6 @@ char_namazu::char_namazu(inp_ab *func,uint8_t pal):
 	stand_gfx->init(this,"namazu");
 }
 
-//Initialize some variables
 void char_namazu::init_vars()
 {
 	field_138 = -6.0;
@@ -33,7 +31,6 @@ void char_namazu::init_vars()
 	char_c::init_vars();
 }
 
-//Associated with bullets
 /*
 c_bullet *char_namazu::new_bullet()
 {
@@ -85,6 +82,8 @@ void char_namazu::func10()
   double move_val = 0.0;
   double move_vala = 0.0;
   double move_valb = 0.0;
+
+   std::cout<<"GET_SEQ(): "<<sq<<endl;
 
   x_delta = 0;
   y_delta = 90;
@@ -1812,7 +1811,7 @@ LABEL_1242:
             {
               move_val = 2;
 LABEL_139:
-              set_subseq(move_val);
+              set_seq(move_val);
               goto LABEL_140;
             }
           }
@@ -6904,6 +6903,7 @@ LABEL_62:
           h_inerc = field_85C;
           v_inerc = field_860;
           v_force = field_864;
+          goto LABEL_121; //allows to do neutral jump!
         }
         return;
       case 7:
@@ -7974,1214 +7974,1097 @@ LABEL_248:
   }
 }
 
-// note: taken from alice.cpp
 void char_namazu::func20()
 {
-    /*v1 = a1;
-      v2 = a1->current_frame_params;
-      v3 = v2->fflags;
-      v147 = a1->current_seq_frames_vector->cprior;
-      v4 = v2->fflags & FF_CANCELLEABLE;
-      v148 = v2->fflags & FF_CANCELLEABLE;
-      v5 = v3 & FF_UNK200000;*/
-
-    uint16_t cprior = get_cprior();
-    uint32_t fflags = get_pframe()->fflags;
-
-    bool cc = (fflags & FF_CANCELLEABLE) != 0;
-    bool cu = (fflags & FF_HJC) != 0;
-    int32_t sq = get_seq();
-
-    if ( !check_AB_pressed() ) // !sub_4870A0(a1, v2) - AB input check
+  uint16_t cprior = get_cprior();
+  uint32_t fflags = get_pframe()->fflags;
+  bool cc = (fflags & FF_CANCELLEABLE) != 0;
+  bool cu = (fflags & FF_HJC) != 0;
+  if ( check_AB_pressed() )
+    return;
+  if ( cc || cu )
+  {
+    /*
+    v4 = pres_comb;
+    if ( v4 >= 0x2BC && v4 < 0x320 )
     {
-        if ( cc || cu )
-        {
-            /*
-             if ( pres_comb >= 700 && pres_comb < 800 )
-             {
-               //v1->class->func2_set_seq(v1, LOWORD(v1->pressed_combination));
-               return;
-             }
-             else*/
-            if ( char_on_ground_flag() )
-            {
-                if ( (cu && cprior >= 10 && hi_jump_after_move())
-                        || border_escape_ground()
-                        || hi_jump(cprior, cu)
-                        || fw_bk_dash_ground(cprior, cu) )
-                    return;
-            }
-            else
-            {
-                int8_t mx = (weather_id == WEATHER_TEMPEST) + 2;
-                if ( border_escape_air()
-                        || fwd_dash_air(cprior, cu, mx, 2)
-                        || bkg_dash_air(cprior, cu, mx, 2)
-                        || flying_air(cprior, cu, mx) )
-                    return;
-            }
-        }
-        if ( field_84C == 0 && cc )
-        {
-            if (field_524 == 0)
-            {
-                if (((keyDown(INP_BC) && keyDown(INP_BC) < 3) || keyHit(INP_BC)) && sub_468660(0) && field_836 == 0)
-                {
-                    if (char_on_ground_flag())
-                    {
-                        if ( !sub_489F10(cprior) && seq299_300_field190_0_3()) //HACK
-                        {
-                            int32_t crd_id = cards_active[0]->id;
-
-                            if (cprior <= 50 && crd_id >= 100 && crd_id <= 199)
-                            {
-                                switch(crd_id)
-                                {
-                                case 100:
-                                    if ( field_800 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(500, cprior);
-                                    return;
-                                case 101:
-                                    if ( field_801 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_801 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(520, cprior);
-                                    return;
-                                case 102:
-                                    if ( field_802 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(540, cprior);
-                                    return;
-                                case 103:
-                                    if ( field_803 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_803 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(560, cprior);
-                                    return;
-                                case 104:
-                                    if ( field_800 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(505, cprior);
-                                    return;
-                                case 105:
-                                    if ( field_801 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_801 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(525, cprior);
-                                    return;
-                                case 106:
-                                    if ( field_802 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(545, cprior);
-                                    return;
-                                case 107:
-                                    if ( field_803 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_803 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    if ( field_891[0] < 3 )
-                                        sub_4873B0(568, cprior);
-                                    else
-                                        sub_4873B0(566, cprior);
-                                    return;
-                                case 108:
-                                    if ( field_800 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(510, cprior);
-                                    return;
-                                case 109:
-                                    if ( field_801 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_801 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(530, cprior);
-                                    return;
-                                case 110:
-                                    if ( field_802 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(550, cprior);
-                                    return;
-                                case 111:
-                                    if ( field_803 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_803 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(570, cprior);
-                                    return;
-                                default:
-                                    break;
-                                }
-                            }
-                            else if (cprior <= 100 && crd_id >= 200 && crd_id <= 299 && keyDown(INP_X_AXIS) == 0)
-                            {
-                                switch(crd_id)
-                                {
-                                case 200:
-                                    sub_487370(600, cprior);
-                                    return;
-                                case 201:
-                                    sub_487370(601, cprior);
-                                    return;
-                                case 202:
-                                    sub_487370(602, cprior);
-                                    return;
-                                case 203:
-                                    sub_487370(603, cprior);
-                                    return;
-                                case 204:
-                                    sub_487370(604, cprior);
-                                    return;
-                                case 205:
-                                    sub_487370(605, cprior);
-                                    return;
-                                case 206:
-                                    sub_487370(606, cprior);
-                                    return;
-                                case 207:
-                                    sub_487370(607, cprior);
-                                    return;
-                                case 208:
-                                    sub_487370(608, cprior);
-                                    return;
-                                case 209:
-                                    sub_487370(609, cprior);
-                                    return;
-                                case 210:
-                                    sub_487370(610, cprior);
-                                    return;
-                                case 211:
-                                    sub_487370(611, cprior);
-                                    return;
-                                default:
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (seq299_300_field190_0_3()) //HACK
-                        {
-                            int32_t crd_id = cards_active[0]->id;
-
-                            if (cprior <= 50 && crd_id >= 100 && crd_id <= 199)
-                            {
-                                switch(crd_id)
-                                {
-                                case 101:
-                                    if ( field_801 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_801 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(522, cprior);
-                                    return;
-                                case 102:
-                                    if ( field_802 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(542, cprior);
-                                    return;
-                                case 104:
-                                    if ( field_800 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(507, cprior);
-                                    return;
-                                case 106:
-                                    if ( field_802 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(547, cprior);
-                                    return;
-                                case 107:
-                                    if ( field_891[0] >= 3 )
-                                    {
-                                        if ( field_803 == 0 )
-                                        {
-                                            field_4C8++;
-                                            field_803 = 1;
-                                        }
-                                        sub_4834F0();
-                                        sub_488E70();
-                                        sub_4873B0( 569, cprior);
-                                        return;
-                                    }
-                                    break;
-                                case 108:
-                                    if ( field_800 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_488E70();
-                                    sub_4873B0(512, cprior);
-                                    return;
-                                default:
-                                    break;
-                                }
-                            }
-                            else if (cprior <= 100 && crd_id >= 200 && crd_id <= 299 && keyDown(INP_X_AXIS) == 0)
-                            {
-                                switch(crd_id)
-                                {
-                                case 202:
-                                    sub_487370( 652, cprior);
-                                    return;
-                                case 207:
-                                    sub_487370( 657, cprior);
-                                    return;
-                                case 209:
-                                    sub_487370( 659, cprior);
-                                    return;
-                                case 210:
-                                    sub_487370( 660, cprior);
-                                    return;
-                                default:
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (pres_comb && spell200_seq299_300_field190_0_3() )
-                {
-                    if (char_on_ground_flag())
-                    {
-                        if ( pres_comb & PCOMB_623C )
-                        {
-                            if ( skills_1[9] >= 1 )
-                            {
-                                if ( cprior <= get_prior(531) || (sq >= 500 && sq <= 599 && field_801 == 0))
-                                {
-                                    if ( field_801 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_801 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 531, cprior);
-                                    return;
-                                }
-                            }
-                            if ( skills_1[5] >= 1 )
-                            {
-                                if ( cprior <= get_prior(526) || (sq >= 500 && sq <= 599 && field_801 == 0))
-                                {
-                                    if ( field_801 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_801 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 526, cprior);
-                                    return;
-                                }
-                            }
-                            if ( cprior <= get_prior(521) || (sq >= 500 && sq <= 599 && field_801 == 0))
-                            {
-                                if ( field_801 == 0)
-                                {
-                                    field_4C8++;
-                                    field_801 = 1;
-                                }
-                                sub_4834F0();
-                                sub_4873B0( 521, cprior);
-                                return;
-                            }
-                        }
-                        if ( pres_comb & PCOMB_623B )
-                        {
-                            if ( skills_1[9] >= 1 )
-                            {
-                                if ( cprior <= get_prior(530) || (sq >= 500 && sq <= 599 && field_801 == 0))
-                                {
-                                    if ( field_801 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_801 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 530, cprior);
-                                    return;
-                                }
-                            }
-                            if ( skills_1[5] >= 1 )
-                            {
-                                if ( cprior <= get_prior(525) || (sq >= 500 && sq <= 599 && field_801 == 0))
-                                {
-                                    if ( field_801 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_801 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 525, cprior);
-                                    return;
-                                }
-                            }
-                            if ( cprior <= get_prior(520) || (sq >= 500 && sq <= 599 && field_801 == 0))
-                            {
-                                if ( field_801 == 0)
-                                {
-                                    field_4C8++;
-                                    field_801 = 1;
-                                }
-                                sub_4834F0();
-                                sub_4873B0( 520, cprior);
-                                return;
-                            }
-                        }
-
-
-                        if ( pres_comb & PCOMB_214C )
-                        {
-                            if ( skills_1[10] >= 1 )
-                            {
-                                if ( cprior <= get_prior(551) || (sq >= 500 && sq <= 599 && field_802 == 0))
-                                {
-                                    if ( field_802 == 0 )
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 551, cprior);
-                                    return;
-                                }
-                            }
-                            if ( skills_1[6] >= 1 )
-                            {
-                                if ( cprior <= get_prior(546) || (sq >= 500 && sq <= 599 && field_802 == 0))
-                                {
-                                    if ( field_802 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 546, cprior);
-                                    return;
-                                }
-                            }
-                            if ( cprior <= get_prior(541) || (sq >= 500 && sq <= 599 && field_802 == 0))
-                            {
-                                if ( field_802 == 0)
-                                {
-                                    field_4C8++;
-                                    field_802 = 1;
-                                }
-                                sub_4834F0();
-                                sub_4873B0( 541, cprior);
-                                return;
-                            }
-                        }
-                        if ( pres_comb & PCOMB_214B )
-                        {
-                            if ( skills_1[10] >= 1 )
-                            {
-                                if ( cprior <= get_prior(550) || (sq >= 500 && sq <= 599 && field_802 == 0))
-                                {
-                                    if ( field_802 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 550, cprior);
-                                    return;
-                                }
-                            }
-                            if ( skills_1[6] >= 1 )
-                            {
-                                if ( cprior <= get_prior(545) || (sq >= 500 && sq <= 599 && field_802 == 0))
-                                {
-                                    if ( field_802 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 545, cprior);
-                                    return;
-                                }
-                            }
-                            if ( cprior <= get_prior(540) || (sq >= 500 && sq <= 599 && field_802 == 0))
-                            {
-                                if ( field_802 == 0)
-                                {
-                                    field_4C8++;
-                                    field_802 = 1;
-                                }
-                                sub_4834F0();
-                                sub_4873B0( 540, cprior);
-                                return;
-                            }
-                        }
-
-                        if ( pres_comb & PCOMB_236C )
-                        {
-                            if ( skills_1[8] >= 1 )
-                            {
-                                if ( cprior <= get_prior(511) || (sq >= 500 && sq <= 599 && field_800 == 0))
-                                {
-                                    if ( field_800 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 511, cprior);
-                                    return;
-                                }
-                            }
-                            if ( skills_1[4] >= 1 )
-                            {
-                                if ( cprior <= get_prior(506) || (sq >= 500 && sq <= 599 && field_800 == 0))
-                                {
-                                    if ( field_800 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 506, cprior);
-                                    return;
-                                }
-                            }
-                            if ( cprior <= get_prior(501) || (sq >= 500 && sq <= 599 && field_800 == 0))
-                            {
-                                if ( field_800 == 0)
-                                {
-                                    field_4C8++;
-                                    field_800 = 1;
-                                }
-                                sub_4834F0();
-                                sub_4873B0( 501, cprior);
-                                return;
-                            }
-                        }
-                        if ( pres_comb & PCOMB_236B )
-                        {
-                            if ( skills_1[8] >= 1 )
-                            {
-                                if ( cprior <= get_prior(510) || (sq >= 500 && sq <= 599 && field_800 == 0))
-                                {
-                                    if ( field_800 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 510, cprior);
-                                    return;
-                                }
-                            }
-                            if ( skills_1[4] >= 1 )
-                            {
-                                if ( cprior <= get_prior(505) || (sq >= 500 && sq <= 599 && field_800 == 0))
-                                {
-                                    if ( field_800 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 505, cprior);
-                                    return;
-                                }
-                            }
-                            if ( cprior <= get_prior(500) || (sq >= 500 && sq <= 599 && field_800 == 0))
-                            {
-                                if ( field_800 == 0)
-                                {
-                                    field_4C8++;
-                                    field_800 = 1;
-                                }
-                                sub_4834F0();
-                                sub_4873B0( 500, cprior);
-                                return;
-                            }
-                        }
-                        if ( pres_comb & PCOMB_2N2C )
-                        {
-                            if ( field_892 >= 1)
-                            {
-                                if ( skills_1[11] >= 1 )
-                                {
-                                    if ( cprior <= get_prior(570) || (sq >= 500 && sq <= 599 && field_803 == 0))
-                                    {
-                                        if ( field_803 == 0)
-                                        {
-                                            field_4C8++;
-                                            field_803 = 1;
-                                        }
-                                        sub_4834F0();
-                                        sub_4873B0( 570, cprior);
-                                        return;
-                                    }
-                                }
-                            }
-                            if ( field_891[0] >= 1)
-                            {
-                                if ( skills_1[7] >= 1 )
-                                {
-                                    if ( cprior <= get_prior(565) || (sq >= 500 && sq <= 599 && field_803 == 0))
-                                    {
-                                        if ( field_803 == 0)
-                                        {
-                                            field_4C8++;
-                                            field_803 = 1;
-                                        }
-                                        sub_4834F0();
-                                        sub_4873B0( 565, cprior);
-                                        return;
-                                    }
-                                }
-                            }
-                            if ( field_891[0] == 1)
-                            {
-                                if ( skills_1[7] >= 1 )
-                                {
-                                    if ( cprior <= get_prior(568) || (sq >= 500 && sq <= 599 && field_803 == 0))
-                                    {
-                                        if ( field_803 == 0)
-                                        {
-                                            field_4C8++;
-                                            field_803 = 1;
-                                        }
-                                        sub_4834F0();
-                                        sub_4873B0( 568, cprior);
-                                        return;
-                                    }
-                                }
-                            }
-                            if ( field_892 >= 1)
-                            {
-                                if ( cprior <= get_prior(560) || (sq >= 500 && sq <= 599 && field_803 == 0))
-                                {
-                                    if ( field_803 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_803 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 560, cprior);
-                                    return;
-                                }
-                            }
-                        }
-                        if ( pres_comb & PCOMB_2N2B )
-                        {
-                            if ( field_892 >= 1)
-                            {
-                                if ( skills_1[11] >= 1 )
-                                {
-                                    if ( cprior <= get_prior(570) || (sq >= 500 && sq <= 599 && field_803 == 0))
-                                    {
-                                        if ( field_803 == 0)
-                                        {
-                                            field_4C8++;
-                                            field_803 = 1;
-                                        }
-                                        sub_4834F0();
-                                        sub_4873B0( 570, cprior);
-                                        return;
-                                    }
-                                }
-                            }
-                            if ( field_891[0] >= 3)
-                            {
-                                if ( skills_1[7] >= 1 )
-                                {
-                                    if ( cprior <= get_prior(566) || (sq >= 500 && sq <= 599 && field_803 == 0))
-                                    {
-                                        if ( field_803 == 0)
-                                        {
-                                            field_4C8++;
-                                            field_803 = 1;
-                                        }
-                                        sub_4834F0();
-                                        sub_4873B0( 566, cprior);
-                                        return;
-                                    }
-                                }
-                            }
-                            if ( field_891[0] <= 2)
-                            {
-                                if ( skills_1[7] >= 1 )
-                                {
-                                    if ( cprior <= get_prior(568) || (sq >= 500 && sq <= 599 && field_803 == 0))
-                                    {
-                                        if ( field_803 == 0)
-                                        {
-                                            field_4C8++;
-                                            field_803 = 1;
-                                        }
-                                        sub_4834F0();
-                                        sub_4873B0( 568, cprior);
-                                        return;
-                                    }
-                                }
-                            }
-                            if ( field_892 >= 1)
-                            {
-                                if ( cprior <= get_prior(560) || (sq >= 500 && sq <= 599 && field_803 == 0))
-                                {
-                                    if ( field_803 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_803 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 560, cprior);
-                                    return;
-                                }
-                            }
-                        }
-                    }
-                    else // Air specials
-                    {
-                        if ( pres_comb & PCOMB_623C )
-                        {
-                            if ( skills_1[5] == 0 && skills_1[9] == 0)
-                            {
-                                if ( cprior <= get_prior(523) || (sq >= 500 && sq <= 599 && field_801 == 0))
-                                {
-                                    if ( field_801 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_801 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 523, cprior);
-                                    return;
-                                }
-                            }
-                        }
-                        if ( pres_comb & PCOMB_623B )
-                        {
-                            if ( skills_1[5] == 0 && skills_1[9] == 0 )
-                            {
-                                if ( cprior <= get_prior(522) || (sq >= 500 && sq <= 599 && field_801 == 0))
-                                {
-                                    if ( field_801 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_801 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 522, cprior);
-                                    return;
-                                }
-                            }
-                        }
-                        if ( pres_comb & PCOMB_236C )
-                        {
-                            if ( skills_1[8] >= 1 )
-                            {
-                                if ( cprior <= get_prior(513) || (sq >= 500 && sq <= 599 && field_800 == 0))
-                                {
-                                    if ( field_800 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 513, cprior);
-                                    return;
-                                }
-                            }
-                            if ( skills_1[4] >= 1 )
-                                if ( cprior <= get_prior(508) || (sq >= 500 && sq <= 599 && field_800 == 0))
-                                {
-                                    if ( field_800 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 508, cprior);
-                                    return;
-                                }
-                        }
-                        if ( pres_comb & PCOMB_236B )
-                        {
-                            if ( skills_1[8] >= 1 )
-                            {
-                                if ( cprior <= get_prior(512) || (sq >= 500 && sq <= 599 && field_800 == 0))
-                                {
-                                    if ( field_800 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 512, cprior);
-                                    return;
-                                }
-                            }
-                            if ( skills_1[4] >= 1 )
-                                if ( cprior <= get_prior(507) || (sq >= 500 && sq <= 599 && field_800 == 0))
-                                {
-                                    if ( field_800 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_800 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 507, cprior);
-                                    return;
-                                }
-                        }
-                        if ( pres_comb & PCOMB_214C )
-                        {
-                            if ( skills_1[6] >= 1 )
-                            {
-                                if ( cprior <= get_prior(548) || (sq >= 500 && sq <= 599 && field_802 == 0))
-                                {
-                                    if ( field_802 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 548, cprior);
-                                    return;
-                                }
-                            }
-                            if ( skills_1[6] == 0 && skills_1[10] == 0 )
-                            {
-                                if ( cprior <= get_prior(543) || (sq >= 500 && sq <= 599 && field_802 == 0)) //originally get_prior(546)
-                                {
-                                    if ( field_802 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 543, cprior);
-                                    return;
-                                }
-                            }
-                        }
-                        if ( pres_comb & PCOMB_214B )
-                        {
-                            if ( skills_1[6] >= 1 )
-                            {
-                                if ( cprior <= get_prior(547) || (sq >= 500 && sq <= 599 && field_802 == 0))
-                                {
-                                    if ( field_802 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 547, cprior);
-                                    return;
-                                }
-                            }
-                            if ( skills_1[6] == 0 && skills_1[10] == 0 )
-                            {
-                                if ( cprior <= get_prior(542) || (sq >= 500 && sq <= 599 && field_802 == 0)) //originally get_prior(545)
-                                {
-                                    if ( field_802 == 0)
-                                    {
-                                        field_4C8++;
-                                        field_802 = 1;
-                                    }
-                                    sub_4834F0();
-                                    sub_4873B0( 542, cprior);
-                                    return;
-                                }
-                            }
-                        }
-                        if ( pres_comb & PCOMB_2N2C )
-                        {
-                            if ( field_891[0] >= 1 )
-                            {
-                                if ( skills_1[7] >= 1 )
-                                {
-                                    if ( cprior <= get_prior(567) || (sq >= 500 && sq <= 599 && field_803 == 0)) //originally get_prior(565)
-                                    {
-                                        if ( field_803 == 0)
-                                        {
-                                            field_4C8++;
-                                            field_803 = 1;
-                                        }
-                                        sub_4834F0();
-                                        sub_4873B0( 567, cprior);
-                                        return;
-                                    }
-                                }
-                            }
-                        }
-                        if ( pres_comb & PCOMB_2N2B )
-                        {
-                            if ( field_891[0] >= 3 )
-                            {
-                                if ( skills_1[7] >= 1 )
-                                {
-                                    if ( cprior <= get_prior(569) || (sq >= 500 && sq <= 599 && field_803 == 0)) //originally get_prior(566)
-                                    {
-                                        if ( field_803 == 0)
-                                        {
-                                            field_4C8++;
-                                            field_803 = 1;
-                                        }
-                                        sub_4834F0();
-                                        sub_4873B0( 569, cprior);
-                                        return;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            if ((keyUp(INP_A) && keyUp(INP_A) < 3) || keyDown(INP_A) == 2 || keyHit(INP_A) )
-            {
-                if (char_on_ground_flag()) // On Ground
-                {
-                    if ( sq == 200 && dY() == 0 &&
-                            dX(dir) > 0 &&
-                            cprior <= get_prior(305) )  // 66A
-                    {
-                        angZ = 0;
-                        set_seq(305);
-                        input->zero_keyhit();
-                        return;
-                    }
-
-                    if ( (sq > 299 && field_190 != 0 && field_190 != 3) || sq < 300 )
-                    {
-                        if ( dY() > 0 )
-                        {
-                            if ( ( dX(dir) > 0 || hX(dir) > 0 ) && cprior <= get_prior(304) ) // 3A
-                            {
-                                angZ = 0;
-                                set_seq(304);
-                                input->zero_keyhit();
-                                return;
-                            }
-                            else if (cprior <= get_prior(303) ) // 2A
-                            {
-                                angZ = 0;
-                                set_seq(303);
-                                input->zero_keyhit();
-                                return;
-                            }
-                        }
-                        else if ( dY() >= 0 )
-                        {
-                            if ( dX(dir) < 0 || hX(dir) < 0) // 4a
-                                if ( cprior <= get_prior(330) || sq == 330 )
-                                {
-                                    angZ = 0;
-                                    set_seq(330);
-                                    input->zero_keyhit();
-                                    return;
-                                }
-                        }
-
-                        if (dY() == 0)
-                        {
-                            if ( (dX(dir) > 0 || hX(dir) > 0) && cprior <= get_prior(302) ) // 6A
-                            {
-                                angZ = 0;
-                                set_seq(302);
-                                input->zero_keyhit();
-                                return;
-                            }
-
-                            float dst = fabs(x - enemy->x);
-
-                            if ( dst > 140.0 && cprior <= get_prior(301)) //Far A
-                            {
-                                angZ = 0;
-                                set_seq(301);
-                                input->zero_keyhit();
-                                return;
-                            }
-
-                            if(cprior <= get_prior(300)) //near A
-                            {
-                                angZ = 0;
-                                set_seq(300);
-                                input->zero_keyhit();
-                                return;
-                            }
-                        }
-                    }
-                    if ( field_190 != 0 && field_190 != 3 )
-                    {
-                        if ( sq == 321 ) // AAAA
-                        {
-                            angZ = 0;
-                            set_seq(322);
-                            input->zero_keyhit();
-                            return;
-                        }
-                        else if ( sq == 320 ) // AAA
-                        {
-                            angZ = 0;
-                            set_seq(321);
-                            input->zero_keyhit();
-                            return;
-                        }
-                        else if ( sq == 300 ) // AA
-                        {
-                            angZ = 0;
-                            set_seq(320);
-                            input->zero_keyhit();
-                            return;
-                        }
-                    }
-                }
-                else if ((sq > 299 && field_190 != 0 && field_190 != 3) || sq < 300 ) // In Air (Melee)
-                {
-
-                    if ( (dY() < 0 || hY() < 0 ) && dX(dir) == 0 && cprior <= get_prior(309) ) //j8A
-                    {
-                        angZ = 0;
-                        set_seq(309);
-                        input->zero_keyhit();
-                        return;
-                    }
-                    else if ((dY() > 0 || hY() > 0) /*&& gX(dir) >= 0*/ && cprior <= get_prior(308)) //j2A
-                    {
-                        angZ = 0;
-                        set_seq(308);
-                        input->zero_keyhit();
-                        return;
-                    }
-                    else if ( dY() == 0 && (dX(dir) > 0 || hX(dir) > 0 ) && cprior <= get_prior(307)) //j6A
-                    {
-                        angZ = 0;
-                        set_seq(307);
-                        input->zero_keyhit();
-                        return;
-                    }
-                    else if ( cprior <= get_prior(306) ) //j5A
-                    {
-                        angZ = 0;
-                        set_seq(306);
-                        input->zero_keyhit();
-                        return;
-                    }
-                }
-            }
-
-            if ((keyUp(INP_B) && keyUp(INP_B) < 3) || keyDown(INP_B) == 2 || keyHit(INP_B))
-            {
-                if (char_on_ground_flag()) // On Ground
-                {
-                    if ( sq == 200 && dY() == 0 && (dX(dir) > 0 || hX(dir) > 0) )  // 66B
-                    {
-                        angZ = 0;
-                        set_seq(408);
-                        input->zero_keyhit();
-                        return;
-                    }
-
-                    if ( ((sq > 299 && field_190 != 0 && field_190 != 3) || sq < 300 ) && spell_energy >= 200)
-                    {
-                        if ( (dY() > 0 || hY() > 0)/*&& gX(dir) > 0*/ && cprior <= get_prior(402) ) // 2B //HACK?
-                        {
-                            angZ = 0.0;
-                            set_seq(402);
-                            input->zero_keyhit();
-                            return;
-                        }
-                        else if ( dY() == 0  && (dX(dir) > 0 || hX(dir) > 0) && cprior <= get_prior(401) )
-                        {
-                            angZ = 0.0;
-                            set_seq(401);
-                            input->zero_keyhit();
-                            return;
-                        }
-                        else if (cprior <= get_prior(400) )
-                        {
-                            angZ = 0.0;
-                            set_seq(400);
-                            input->zero_keyhit();
-                            return;
-                        }
-                    }
-                }
-                else if ( ((sq > 299 && field_190 != 0 && field_190 != 3) || sq < 300 ) && spell_energy >= 200 ) //In AIR
-                {
-                    if ( (dY() > 0 || hY() > 0) && cprior <= get_prior(406))
-                    {
-                        angZ = 0.0;
-                        set_seq(406);
-                        input->zero_keyhit();
-                        return;
-                    }
-                    else if ( (dX(dir) > 0 || hX(dir) > 0) && cprior <= get_prior(405))
-                    {
-                        angZ = 0.0;
-                        set_seq(405);
-                        input->zero_keyhit();
-                        return;
-                    }
-                    else if (cprior <= get_prior(404))
-                    {
-                        angZ = 0.0;
-                        set_seq(404);
-                        input->zero_keyhit();
-                        return;
-                    }
-                }
-            }
-            if ((keyUp(INP_C) && keyUp(INP_C) < 3) || keyDown(INP_C) == 2 || keyHit(INP_C) )
-            {
-                if (char_on_ground_flag()) // On Ground
-                {
-                    if ( sq == 200 && dY() == 0 && (dX(dir) > 0 || hX(dir) > 0))  // 66B
-                    {
-                        angZ = 0;
-                        set_seq(418);
-                        input->zero_keyhit();
-                        return;
-                    }
-                    if ( ((sq > 299 && field_190 != 0 && field_190 != 3) || sq < 300 ) && spell_energy >= 200)
-                    {
-                        if ( (dY() > 0 || hY() > 0)/*&& gX(dir) > 0*/ && cprior <= get_prior(412) ) // 2C //HACK?
-                        {
-                            angZ = 0.0;
-                            set_seq(412);
-                            input->zero_keyhit();
-                            return;
-                        }
-                        else if ( dY() == 0  && (dX(dir) > 0 || hX(dir) > 0) && cprior <= get_prior(411) ) // 6C
-                        {
-                            angZ = 0.0;
-                            set_seq(411);
-                            input->zero_keyhit();
-                            return;
-                        }
-                        else if ( dY() == 0  && (dX(dir) < 0 || hX(dir) < 0) && cprior <= get_prior(419) ) // 4C
-                        {
-                            angZ = 0.0;
-                            set_seq(419);
-                            input->zero_keyhit();
-                            return;
-                        }
-                        else if (cprior <= get_prior(410) )
-                        {
-                            angZ = 0.0;
-                            set_seq(410);
-                            input->zero_keyhit();
-                            return;
-                        }
-                    }
-                }
-                else
-                {
-                    if ( ((sq > 299 && field_190 != 0 && field_190 != 3) || sq < 300 ) && spell_energy >= 200)
-                    {
-                        if (dY() <= 0 && (dX(dir) > 0 || hX(dir) > 0) && cprior <= get_prior(415))
-                        {
-                            angZ = 0.0;
-                            set_seq(415);
-                            input->zero_keyhit();
-                            return;
-                        }
-                        else if ((dY() > 0 || hY() > 0) && cprior <= get_prior(416))
-                        {
-                            angZ = 0.0;
-                            set_seq(416);
-                            input->zero_keyhit();
-                            return;
-                        }
-                        else if (cprior <= get_prior(414))
-                        {
-                            angZ = 0.0;
-                            set_seq(414);
-                            input->zero_keyhit();
-                            return;
-                        }
-                    }
-                }
-            }
-        }
+      vtbl->set_seq(LOWORD(pres_comb));
+      input_push_pressed_to_buf((Character *)v1);
+      return;
+    }*/
+    if ( cc || cu )
+    {
+      if ( char_on_ground() && field_4C4 == 0 )
+      {
+        if ( cu && cprior >= 10 && hi_jump_after_move() || border_escape_ground() || hi_jump(cprior, cu) || fw_bk_dash_ground(cprior, cu) )
+          return;
+      }
+      else
+      {
+        if ( border_escape_air() )
+          return;
+        int8_t mx = (weather_id == WEATHER_TEMPEST) + 2;
+        if ( fwd_dash_air(cprior, cu, mx, 2) || bkg_dash_air(cprior, cu, mx, 1) || flying_air(cprior, cu, mx) )
+          return;
+      }
     }
+  }
+  if ( field_84C || !cc )
+    return;
+  if ( !field_524 ) //reversed condition
+  {
+    if ( char_on_ground_flag() == 0 )
+    {
+      if ( (keyDown(INP_BC) && keyDown(INP_BC) < 3 || keyHit(INP_BC) && sub_468660(0) && !field_836 ))
+      {
+        if ( cards_active[0]->id >= 100 || cards_active[0]->id <= 199 ) //reversed condition
+        {
+          if ( cprior <= 50 )
+          {
+            if ( (get_seq() > 299) && (field_190 != 3) && field_190 || get_seq() < 300 )
+            {
+              switch ( cards_active[0]->id )
+              {
+                case 100:
+                  if ( !field_800 )
+                  {
+                    ++field_4C8;
+                    field_800 = 1;
+                  }
+                  sub_4834F0();
+                  sub_488E70();
+                  sub_4873B0(502, cprior);
+                  break;
+                case 101:
+                  if ( !field_801 )
+                  {
+                    ++field_4C8;
+                    field_801 = 1;
+                  }
+                  sub_4834F0();
+                  sub_488E70();
+                  sub_4873B0(522, cprior);
+                  break;
+                case 104:
+                  if ( !field_800 )
+                  {
+                    ++field_4C8;
+                    field_800 = 1;
+                  }
+                  sub_4834F0();
+                  sub_488E70();
+                  sub_4873B0(507, cprior);
+                  break;
+                case 108:
+                  if ( !field_800 )
+                  {
+                    ++field_4C8;
+                    field_800 = 1;
+                  }
+                  sub_4834F0();
+                  sub_488E70();
+                  sub_4873B0(512, cprior);
+                  break;
+                default:
+                  goto LABEL_262;
+              }
+              return;
+            }
+          }
+        }
+LABEL_262:
+        if ( cprior <= 100 && cards_active[0]->id >= 200 && cards_active[0]->id <= 299 && !keyDown(INP_X_AXIS) )
+        {
+          if ( (get_seq() > 299) && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+          {
+            if ( !(cards_active[0]->id - 201) )
+            {
+              sub_487370(651, cprior);
+              return;
+            }
+            if ( (cards_active[0]->id - 201) == 6 )
+            {
+              sub_487370(657, cprior);
+              return;
+            }
+          }
+        }
+      }
+      if ( spell200_seq299_300_field190_0_3() )
+      {
+        if ( pres_comb & 0x40 )
+        {
+          if ( skills_1[8] >= 1 )
+          {
+            if ( cprior <= get_prior(513) || (get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+            {
+              if ( !field_800 )
+              {
+                ++field_4C8;
+                field_800 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(513, cprior);
+              return;
+            }
+          }
+          if ( skills_1[4] >= 1 )
+          {
+            if ( cprior <= get_prior(508) || (get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+            {
+              if ( !field_800 )
+              {
+                ++field_4C8;
+                field_800 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(508, cprior);
+              return;
+            }
+          }
+          if ( cprior <= get_prior(503) || (get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+          {
+            if ( !field_800 )
+            {
+              ++field_4C8;
+              field_800 = 1;
+            }
+            sub_4834F0();
+            sub_4873B0(503, cprior);
+            return;
+          }
+        }
+        if ( pres_comb & 0x20 )
+        {
+          if ( skills_1[8] >= 1 )
+          {
+            if ( cprior <= get_prior(512) || (get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+            {
+              if ( !field_800 )
+              {
+                ++field_4C8;
+                field_800 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(512, cprior);
+              return;
+            }
+          }
+          if ( skills_1[4] >= 1 )
+          {
+            if ( cprior <= get_prior(507) || (get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+            {
+              if ( !field_800 )
+              {
+                ++field_4C8;
+                field_800 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(507, cprior);
+              return;
+            }
+          }
+          if ( cprior <= get_prior(502) || (get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+          {
+            if ( !field_800 )
+            {
+              ++field_4C8;
+              field_800 = 1;
+            }
+            sub_4834F0();
+            sub_4873B0(502, cprior);
+            return;
+          }
+        }
+        if ( pres_comb & 4 )
+        {
+          if ( !skills_1[5] && !skills_1[9] )
+          {
+            if ( cprior <= get_prior(523) || (get_seq() >= 500) && get_seq() <= 599 && !field_801 )
+            {
+              if ( !field_801 )
+              {
+                ++field_4C8;
+                field_801 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(523, cprior);
+              return;
+            }
+          }
+        }
+        if ( pres_comb & 2 )
+        {
+          if ( !skills_1[5] && !skills_1[9] )
+          {
+            if ( cprior <= get_prior(522) || (get_seq() >= 500) && get_seq() <= 599 && !field_801 )
+            {
+              if ( !field_801 )
+              {
+                ++field_4C8;
+                field_801 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(522, cprior);
+              return;
+            }
+          }
+        }
+      }
+    }
+    else
+    {
+      if ( (keyDown(INP_BC) && keyDown(INP_BC) < 3 || keyHit(INP_BC) && sub_468660(0) && !field_836 ))
+      {
+        if ( sub_489F10(cprior) )
+          return;
+        if ( cards_active[0]->id >= 100 && cards_active[0]->id <= 199 && cprior <= 50 )
+        {
+          if ( (get_seq() > 299) && (field_190 != 3) && field_190 || get_seq() < 300 )
+          {
+            switch ( cards_active[0]->id )
+            {
+              case 100:
+                if ( !field_800 )
+                {
+                  ++field_4C8;
+                  field_800 = 1;
+                }
+                sub_4834F0();
+                sub_488E70();
+                sub_4873B0(500, cprior);
+                break;
+              case 101:
+                if ( !field_801 )
+                {
+                  ++field_4C8;
+                  field_801 = 1;
+                }
+                sub_4834F0();
+                sub_488E70();
+                sub_4873B0(520, cprior);
+                break;
+              case 102:
+                if ( !field_802 )
+                {
+                  ++field_4C8;
+                  field_802 = 1;
+                }
+                sub_4834F0();
+                sub_488E70();
+                sub_4873B0(540, cprior);
+                break;
+              case 103:
+                if ( !field_803 )
+                {
+                  ++field_4C8;
+                  field_803 = 1;
+                }
+                sub_4834F0();
+                sub_488E70();
+                sub_4873B0(560, cprior);
+                break;
+              case 104:
+                if ( !field_800 )
+                {
+                  ++field_4C8;
+                  field_800 = 1;
+                }
+                sub_4834F0();
+                sub_488E70();
+                sub_4873B0(505, cprior);
+                break;
+              case 105:
+                if ( !field_801 )
+                {
+                  ++field_4C8;
+                  field_801 = 1;
+                }
+                sub_4834F0();
+                sub_488E70();
+                sub_4873B0(525, cprior);
+                break;
+              case 106:
+                if ( !field_802 )
+                {
+                  ++field_4C8;
+                  field_802 = 1;
+                }
+                sub_4834F0();
+                sub_488E70();
+                sub_4873B0(545, cprior);
+                break;
+              case 107:
+                if ( !field_803 )
+                {
+                  ++field_4C8;
+                  field_803 = 1;
+                }
+                sub_4834F0();
+                sub_488E70();
+                sub_4873B0(565, cprior);
+                break;
+              case 108:
+                if ( !field_800 )
+                {
+                  ++field_4C8;
+                  field_800 = 1;
+                }
+                sub_4834F0();
+                sub_488E70();
+                sub_4873B0(510, cprior);
+                break;
+              default:
+                goto LABEL_68;
+            }
+            return;
+          }
+        }
+LABEL_68:
+        if ( cprior <= 100 && cards_active[0]->id >= 200 && cards_active[0]->id <= 299 && !keyDown(INP_X_AXIS) )
+        {
+          if ( (get_seq() > 299) && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+          {
+            switch ( cards_active[0]->id )
+            {
+              case 200:
+                sub_487370(600, cprior);
+                break;
+              case 201:
+                sub_487370(601, cprior);
+                break;
+              case 202:
+                sub_487370(602, cprior);
+                break;
+              case 203:
+                sub_487370(603, cprior);
+                break;
+              case 204:
+                sub_487370(604, cprior);
+                break;
+              case 205:
+                sub_487370(605, cprior);
+                break;
+              case 206:
+                sub_487370(606, cprior);
+                break;
+              case 207:
+                sub_487370(607, cprior);
+                break;
+              case 208:
+                sub_487370(608, cprior);
+                break;
+              default:
+                goto LABEL_87;
+            }
+            return;
+          }
+        }
+      }
+LABEL_87:
+      if ( spell200_seq299_300_field190_0_3() )
+      {
+        if ( pres_comb & 0x400 )
+        {
+          if ( skills_1[7] >= 1 )
+          {
+            if ( cprior <= get_prior(566) || (get_seq() >= 500) && get_seq() <= 599 && !field_803 )
+            {
+              if ( !field_803 )
+              {
+                ++field_4C8;
+                field_803 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(566, cprior);
+              return;
+            }
+          }
+          if ( cprior <= get_prior(561) || (get_seq() >= 500) && get_seq() <= 599 && !field_803 )
+          {
+            if ( !field_803 )
+            {
+              ++field_4C8;
+              field_803 = 1;
+            }
+            sub_4834F0();
+            sub_4873B0(561, cprior);
+            return;
+          }
+        }
+        if ( pres_comb & 0x200 )
+        {
+          if ( skills_1[7] >= 1 )
+          {
+            if ( cprior <= get_prior(565) || (get_seq() >= 500) && get_seq() <= 599 && !field_803 )
+            {
+              if ( !field_803 )
+              {
+                ++field_4C8;
+                field_803 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(565, cprior);
+              return;
+            }
+          }
+          if ( cprior <= get_prior(560) || (get_seq() >= 500) && get_seq() <= 599 && !field_803 )
+          {
+            if ( !field_803 )
+            {
+              ++field_4C8;
+              field_803 = 1;
+            }
+            sub_4834F0();
+            sub_4873B0(560, cprior);
+            return;
+          }
+        }
+        if ( pres_comb & 0x4000 )
+        {
+          if ( skills_1[6] >= 1 )
+          {
+            if ( cprior <= get_prior(546) || (get_seq() >= 500) && get_seq() <= 599 && !field_802 )
+            {
+              if ( !field_802 )
+              {
+                ++field_4C8;
+                field_802 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(546, cprior);
+              return;
+            }
+          }
+          if ( cprior <= get_prior(541) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_802 )
+          {
+            if ( !field_802 )
+            {
+              ++field_4C8;
+              field_802 = 1;
+            }
+            sub_4834F0();
+            sub_4873B0(541, cprior);
+            return;
+          }
+        }
+        if ( pres_comb & 0x2000 )
+        {
+          if ( skills_1[6] >= 1 )
+          {
+            if ( cprior <= get_prior(545) || (get_seq() >= 500) && get_seq() <= 599 && !field_802 )
+            {
+              if ( !field_802 )
+              {
+                ++field_4C8;
+                field_802 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(545, cprior);
+              return;
+            }
+          }
+          if ( cprior <= get_prior(540) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_802 )
+          {
+            if ( !field_802 )
+            {
+              ++field_4C8;
+              field_802 = 1;
+            }
+            sub_4834F0();
+            sub_4873B0(540, cprior);
+            return;
+          }
+        }
+        if ( pres_comb & 0x40 )
+        {
+          if ( skills_1[8] >= 1 )
+          {
+            if ( cprior <= get_prior(511) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+            {
+              if ( !field_800 )
+              {
+                ++field_4C8;
+                field_800 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(511, cprior);
+              return;
+            }
+          }
+          if ( skills_1[4] >= 1 )
+          {
+            if ( cprior <= get_prior(506) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+            {
+              if ( !field_800 )
+              {
+                ++field_4C8;
+                field_800 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(506, cprior);
+              return;
+            }
+          }
+          if ( cprior <= get_prior(501) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+          {
+            if ( !field_800 )
+            {
+              ++field_4C8;
+              field_800 = 1;
+            }
+            sub_4834F0();
+            sub_4873B0(501, cprior);
+            return;
+          }
+        }
+        if ( pres_comb & 0x20 )
+        {
+          if ( skills_1[8] >= 1 )
+          {
+            if ( cprior <= get_prior(510) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+            {
+              if ( !field_800 )
+              {
+                ++field_4C8;
+                field_800 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(510, cprior);
+              return;
+            }
+          }
+          if ( skills_1[4] >= 1 )
+          {
+            if ( cprior <= get_prior(505) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+            {
+              if ( !field_800 )
+              {
+                ++field_4C8;
+                field_800 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(505, cprior);
+              return;
+            }
+          }
+          if ( cprior <= get_prior(500) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_800 )
+          {
+            if ( !field_800 )
+            {
+              ++field_4C8;
+              field_800 = 1;
+            }
+            sub_4834F0();
+            sub_4873B0(500, cprior);
+            return;
+          }
+        }
+        if ( pres_comb & 4 )
+        {
+          if ( skills_1[5] >= 1 )
+          {
+            if ( cprior <= get_prior(525) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_801 )
+            {
+              if ( !field_801 )
+              {
+                ++field_4C8;
+                field_801 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(525, cprior);
+              return;
+            }
+          }
+          if ( !skills_1[5] && !skills_1[9] )
+          {
+            if ( cprior <= get_prior(521) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_801 )
+            {
+              if ( !field_801 )
+              {
+                ++field_4C8;
+                field_801 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(521, cprior);
+              return;
+            }
+          }
+        }
+        if ( pres_comb & 2 )
+        {
+          if ( skills_1[5] >= 1 )
+          {
+            if ( cprior <= get_prior(525) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_801 )
+            {
+              if ( !field_801 )
+              {
+                ++field_4C8;
+                field_801 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(525, cprior);
+              return;
+            }
+          }
+          if ( !skills_1[5] && !skills_1[9] )
+          {
+            if ( cprior <= get_prior(520) || (get_seq(), get_seq() >= 500) && get_seq() <= 599 && !field_801 )
+            {
+              if ( !field_801 )
+              {
+                ++field_4C8;
+                field_801 = 1;
+              }
+              sub_4834F0();
+              sub_4873B0(520, cprior);
+              return;
+            }
+          }
+        }
+      }
+    }
+  }
+  if ( keyUp(INP_A) && keyUp(INP_A) < 3 || keyDown(INP_A) == 2 || keyHit(INP_A) )
+  {
+    if ( char_on_ground_flag() )
+    {
+      if ( get_seq() == 200 && !dY() )
+      {
+        if ( (dX(dir) > 0 || dX(dir) > 0) && cprior <= get_prior(305) )
+        {
+          angZ = 0.0;
+          set_seq(305);
+          goto LABEL_366;
+        }
+      }
+      if ( get_seq() > 299 && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+      {
+        if ( dY() > 0 || /*keyhit_Y ?*/dY() > 0 )
+        {
+          // || keyhit_X == dX(dir)?
+          if ( (dX(dir) > 0 || dX(dir) > 0) && cprior <= get_prior(304) )
+          {
+            angZ = 0.0;set_seq(304);
+LABEL_377:
+            input->zero_keyhit();
+            return;
+          }
+        }
+        if ( (dY() > 0 || /*keyhit_Y ?*/dY() > 0) && cprior <= get_prior(303) )
+        {
+          angZ = 0.0;
+          set_seq(303);
+          goto LABEL_377;
+        }
+        if ( !dY() )
+        {
+
+          if ( (dX(dir) > 0 || dX(dir) > 0) && cprior <= get_prior(302) )
+          {
+
+            angZ = 0.0;
+            set_seq(302);
+            goto LABEL_377;
+          }
+        }
+      }
+      if ( get_seq() > 299 && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+      {
+        if ( dY() >= 0 )
+        {
+          if ( (dX(dir) < 0 || dX(dir) < 0) && cprior <= get_prior(330) )
+          {
+            angZ = 0.0;
+            set_seq(330);
+            goto LABEL_377;
+          }
+        }
+      }
+      if ( field_190 && field_190 != 3 )
+      {
+        if ( get_seq() == 320 )
+        {
+          angZ = 0.0;
+          set_seq(321);
+          goto LABEL_377;
+        }
+        if ( get_seq() == 300 )
+        {
+          angZ = 0.0;
+          set_seq(320);
+          goto LABEL_377;
+        }
+      }
+      if ( fabs(x - enemy->x) > 180.0 && cprior <= get_prior(301) && ((get_seq() > 299) && (field_190) != 0 && field_190 != 3 || get_seq() < 300) )
+      {
+        angZ = 0.0;
+        set_seq(301);
+      }
+      else
+      {
+        if ( cprior > get_prior(300) )
+          goto LABEL_349;
+        if ( get_seq() <= 299 || (field_190) == 0 || field_190 == 3 )
+        {
+          if ( get_seq() >= 300 )
+            goto LABEL_349;
+        }
+        angZ = 0.0;
+        set_seq(300);
+      }
+    }
+    else
+    {
+      if ( get_seq() <= 299 || (field_190) == 0 || field_190 == 3 )
+      {
+        if ( get_seq() >= 300 )
+          goto LABEL_349;
+      }
+      if ( dY() >= 0 && /*keyhit_Y ?*/dY() >= 0 || keyDown(INP_X_AXIS) || cprior > get_prior(309) )
+      {
+        if ( dY() <= 0 && /*keyhit_Y ?*/dY() <= 0 || cprior > get_prior(308) )
+        {
+          if ( !dY() )
+          {
+            if ( (dX(dir) > 0 || dX(dir) > 0) && cprior <= get_prior(307) )
+            {
+              angZ = 0.0;
+              set_seq(307);
+              input->zero_keyhit();
+              return;
+            }
+          }
+          if ( cprior <= get_prior(306) )
+          {
+            if ( (get_seq() > 299) && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+            {
+              angZ = 0.0;
+              set_seq(306);
+              input->zero_keyhit();
+              return;
+            }
+          }
+          goto LABEL_349;
+        }
+        angZ = 0.0;
+        set_seq(308);
+      }
+      else
+      {
+        angZ = 0.0;
+        set_seq(309);
+      }
+    }
+LABEL_366:
+    input->zero_keyhit();
+    return;
+  }
+LABEL_349:
+  if ( keyUp(INP_B) && keyUp(INP_B) < 3 || keyDown(INP_B) == 2 || keyHit(INP_B) )
+  {
+    if ( char_on_ground_flag() )
+    {
+      if ( get_seq() == 200 && !dY() )
+      {
+        if (dX(dir) > 0 || dX(dir) > 0 )
+        {
+          angZ = 0.0;
+          set_seq(408);
+          input->zero_keyhit();
+          return;
+        }
+      }
+      if ( get_seq() > 299 && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+      {
+        if ( (dY() > 0 || /*keyhit_Y ?*/dY() > 0) && ((dX(dir) > 0) || dX(dir) > 0) && spell_energy >= 200 && cprior <= get_prior(402) || (dY() > 0 || /*keyhit_Y ?*/dY() > 0) && spell_energy >= 200 && cprior <= get_prior(402) )
+        {
+          angZ = 0.0;
+          set_seq(402);
+          input->zero_keyhit();
+          return;
+        }
+        if ( dY() || (dX(dir) <= 0) && dX(dir) <= 0 )
+        {
+LABEL_459:
+          if ( spell_energy >= 200 && cprior <= get_prior(400) )
+          {
+            if ( get_seq() > 299 )
+            {
+              if ( field_190 )
+              {
+                if ( field_190 != 3 )
+                  goto LABEL_465;
+              }
+            }
+            if ( get_seq() < 300 )
+              goto LABEL_465;
+          }
+          goto LABEL_482;
+        }
+        if ( spell_energy >= 200 )
+        {
+          if ( cprior <= get_prior(400) )
+          {
+LABEL_465:
+            angZ = 0.0;
+            set_seq(400);
+            input->zero_keyhit();
+            return;
+          }
+          goto LABEL_459;
+        }
+      }
+    }
+    else if ( get_seq() > 299 && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+    {
+      if ( dY() > 0 || /*keyhit_Y ?*/dY() > 0 )
+      {
+        if ( spell_energy < 200 )
+          goto LABEL_482;
+        if ( cprior <= get_prior(406) )
+        {
+          angZ = 0.0;
+          set_seq(406);
+          input->zero_keyhit();
+          return;
+        }
+      }
+      if ( spell_energy >= 200 && cprior <= get_prior(404) )
+      {
+        if ( (get_seq() > 299) && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+        {
+          angZ = 0.0;
+          set_seq(404);
+          input->zero_keyhit();
+          return;
+        }
+      }
+    }
+  }
+LABEL_482:
+  if ( keyUp(INP_C) && keyUp(INP_C) < 3 || keyDown(INP_C) == 2 || keyHit(INP_C) )
+  {
+    if ( char_on_ground_flag() )
+    {
+      if ( get_seq() == 200 && !dY() )
+      {
+        if (dX(dir) > 0 ||dX(dir) > 0 )
+        {
+          angZ = 0.0;
+          set_seq(418);
+          input->zero_keyhit();
+          return;
+        }
+      }
+      if ( get_seq() > 299 && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+      {
+        if ( (dY() > 0 || /*keyhit_Y ?*/dY() > 0) && ((dX(dir) > 0) || dX(dir) > 0) && spell_energy >= 200 && cprior <= get_prior(412) || (dY() > 0 || /*keyhit_Y ?*/dY() > 0) && spell_energy >= 200 && cprior <= get_prior(412) )
+        {
+          angZ = 0.0;
+          set_seq(412);
+          input->zero_keyhit();
+          return;
+        }
+        if ( !dY() )
+        {
+          if (dX(dir) > 0 ||dX(dir) > 0 )
+          {
+            if ( spell_energy < 200 )
+              return;
+            if ( cprior <= get_prior(411) )
+            {
+              angZ = 0.0;
+              set_seq(411);
+              input->zero_keyhit();
+              return;
+            }
+          }
+        }
+        if ( spell_energy >= 200 && cprior <= get_prior(410) )
+        {
+          if ( (get_seq() > 299) && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+          {
+            angZ = 0.0;
+            set_seq(410);
+            input->zero_keyhit();
+          }
+        }
+      }
+    }
+    else
+    {
+      if ( get_seq() > 299 && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+      {
+        if ( dY() > 0 )
+          goto LABEL_543;
+        if ( (dX(dir) > 0 || dX(dir) > 0) && spell_energy >= 200 && cprior <= get_prior(415) )
+        {
+          angZ = 0.0;
+          set_seq(415);
+          input->zero_keyhit();
+          return;
+        }
+        if ( dY() > 0 )
+        {
+LABEL_543:
+          if ( spell_energy < 200 )
+            return;
+          if ( cprior <= get_prior(416) )
+          {
+            angZ = 0.0;
+            set_seq(416);
+            input->zero_keyhit();
+            return;
+          }
+        }
+      }
+      if ( spell_energy >= 200 && cprior <= get_prior(414) )
+      {
+        if ( (get_seq() > 299) && (field_190) != 0 && field_190 != 3 || get_seq() < 300 )
+        {
+          angZ = 0.0;
+          set_seq(414);
+          input->zero_keyhit();
+        }
+      }
+    }
+  }
 }
 
-/*
-void char_namazu::func24() {
-	if (  )
-}  */
+
+void char_namazu::func24(int a2)
+{
+  /*
+  if ( a2 > 400 )
+  {
+    if ( a2 == 401 )
+LABEL_22:
+      //v11 = get_seq() < 0x2BCu;
+  }*/
+  /*else*/ if ( a2 == 400 )
+  {
+    play_sfx(2);
+    x = 800.0;
+    y = 960.0;
+    set_seq(780);
+    v_inerc = -15.0;
+  }
+  else
+  {
+    switch ( a2 )
+    {
+      case 1:
+        field_7D0 = 640;
+        x = 100.0;
+        field_7D2 = 0;
+        goto LABEL_5;
+      case 2:
+      case 11:
+LABEL_5:
+        //WHATIS?
+        //sub_429040(&camera_transform, ...)
+        //etc..
+        //sub_429040(&camera_transform, 1, 640.0);
+        //sub_429060(&camera_transform, 1, 0.0);
+        //sub_429080(&camera_transform, 1, 1.0);
+        //sub_4290A0(&camera_transform);
+        break;
+      case 3:
+        //sub_429040(&camera_transform, 0, 640.0);
+        //sub_429060(&camera_transform, 0, 0.0);
+        //sub_429080(&camera_transform, 0, 1.0);
+        break;
+      case 4:
+        //sub_429040(&camera_transform, 1, 640.0);
+        //sub_429060(&camera_transform, 1, 0.0);
+        //sub_429080(&camera_transform, 1, 1.0);
+        break;
+      case 5:
+        x = 0.0;
+        y = 0.0;
+        reset_forces();
+        set_seq(0);
+        break;
+      case 6:
+        set_seq(790);
+        set_subseq(2);
+        x = 480.0;
+        y = 800.0;
+        h_inerc = 0.0;
+        v_inerc = 0.0;
+        v_force = 0.25;
+        break;
+      case 7:
+      case 51:
+        //v3 = __SETP__(get_seq(), 0);
+        break;
+      case 8:
+        set_seq(139);
+        float t[3];
+        t[0] = 0.0;
+        t[1] = 0.0;
+        t[2] = 0.0;
+        addbullet(this, NULL,999, x, y, 1, 1, t, 3);
+        break;
+      case 9:
+        set_seq(795);
+        x = 70.0;
+        y = 240.0;
+        reset_forces();
+        h_inerc = 15.0;
+        v_inerc = 0.0;
+        v_force = 0.5;
+        break;
+      case 50:
+        x = 480.0;
+        y = 960.0;
+        v_force = 0.1;
+        set_seq(797);
+        break;
+      case 101:
+        x = 800.0;
+        y = 960.0;
+        v_force = 0.1;
+        set_seq(798);
+        break;
+      case 102:
+      case 106:
+      case 111:
+      case 121:
+        //goto LABEL_22;
+      case 103:
+        weather_setted_change(WEATHER_SNOW);
+        field_80D = 1;
+        field_810 = 0;
+        field_814 = 180;
+        break;
+      case 105:
+        y = 960.0;
+        x = (double)(250 * dir) + x;
+        dir = -dir;
+        set_seq(795);
+        break;
+      case 110:
+        set_seq(796);
+        break;
+      case 113:
+        weather_setted_change(WEATHER_SNOW);
+        break;
+      case 120:
+        set_seq(796);
+        x = 100.0;
+        dir = 1;
+        y = 0.0;
+        h_inerc = 7.0;
+        v_inerc = 15.0;
+        v_force = 0.30000001;
+        break;
+      default:
+        return;
+    }
+  }
+}
 
 
 void char_namazu::set_seq_params()

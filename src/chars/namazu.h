@@ -14,16 +14,12 @@ public:
 	float field_138;
 	int8_t field_8A8;
 
-	// for testing, used from alice.h
-	int16_t field_891[4];
-
-
 	char_namazu(inp_ab *func,uint8_t pal = 0);
 
 	//void sub_5586E0();
 	void func10();
 	void func20();
-	//void func24();
+	void func24(int a2);
 	void init_vars();
 	void set_seq_params();
 	//c_bullet *new_bullet();
