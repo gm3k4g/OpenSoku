@@ -7,8 +7,6 @@
 #include "meiling.h"
 #include <math.h>
 
-#include <iostream>
-
 char_meiling::char_meiling(inp_ab *func,uint8_t pal):
 	char_c::char_c(func)
 {
@@ -7082,7 +7080,6 @@ void char_meiling::func20()
 
 void char_meiling::set_seq_params()
 {
-	std::cout<<"GET_SEQ(): "<<get_seq()<<endl;
   if ( get_seq() <= 214 )
   {
     if ( get_seq() == 214 )

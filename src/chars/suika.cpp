@@ -7,8 +7,6 @@
 #include "suika.h"
 #include <math.h>
 
-#include <iostream>
-
 char_suika::char_suika(inp_ab *func,uint8_t pal):
 	char_c::char_c(func)
 {
@@ -82,8 +80,6 @@ void char_suika::func10()
 
   x_delta = 0;
   y_delta = 80;
-
-  std::cout<<"GET_SEQ(): "<<get_seq()<<endl;
 
   if ( field_890 > 0 )
   {

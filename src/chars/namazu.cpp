@@ -7,8 +7,6 @@
 #include "namazu.h"
 #include <math.h>
 
-#include <iostream>
-
 char_namazu::char_namazu(inp_ab *func,uint8_t pal):
 	char_c::char_c(func)
 {
@@ -82,8 +80,6 @@ void char_namazu::func10()
   double move_val = 0.0;
   double move_vala = 0.0;
   double move_valb = 0.0;
-
-   std::cout<<"GET_SEQ(): "<<sq<<endl;
 
   x_delta = 0;
   y_delta = 90;
