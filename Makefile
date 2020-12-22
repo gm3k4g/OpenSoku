@@ -69,6 +69,7 @@ OBJS = 	src/archive.o\
 			src/chars/sanae.o\
 			src/chars/namazu.o\
 			src/chars/namazu_bullets.o\
+			src/chars/patchouli.o\
 			src/chars/meiling.o\
 			src/chars/meiling_bullets.o\
 		\
