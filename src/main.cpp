@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
     /* Setting the characters */
 
     /* Player 1 */
-    char_c *player1 = new char_pachou(inp_createinput(INP_TYPE_BOTH));
+    char_c *player1 = new char_meiling(inp_createinput(INP_TYPE_BOTH));
 
     /* Set profiles here */
     sprintf(buf,"%s/profile/profile1p.pf",path);
@@ -248,7 +248,7 @@ int main(int argc, char *argv[])
         }
 
         //Debug
-        std::cout<<"GET_SEQ(): "<<player1->get_seq()<<endl;
+        std::cout<<"player1->GET_SEQ(): "<<player1->get_seq()<<endl;
 
         gr_flip();
     }

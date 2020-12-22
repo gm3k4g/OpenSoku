@@ -11,14 +11,12 @@ char_meiling::char_meiling(inp_ab *func,uint8_t pal):
 	char_c::char_c(func)
 {
 	char_id = CHAR_ID_MEILING;
-	//TODO: load_dat with parameter "meiling" gives value "4294967295" for get_seq(). Seems to not work properly (sigsegvs)
-	// How to fix this? (replaced with marisa instead of meiling to allow the program to run)
-	pgp->load_dat("marisa",pal);
-	char_loadsfx("marisa");
-	cards_load_cards(&chr_cards,"marisa");
-	load_face("marisa");
-	load_spells("marisa");
-	stand_gfx->init(this,"marisa");
+  pgp->load_dat("meirin",pal);
+	char_loadsfx("meirin");
+	cards_load_cards(&chr_cards,"meirin");
+	load_face("meirin");
+	load_spells("meirin");
+	stand_gfx->init(this,"meirin");
 }
 
 /*c_bullet *char_meiling::new_bullet() {
@@ -2455,7 +2453,8 @@ LABEL_2480:
               goto LABEL_2447;
             move_val = 1;
 LABEL_152:
-            set_subseq(move_val);
+            //set_subseq(move_val);
+            set_seq(move_val);
 LABEL_153:
             y = getlvl_height();
             reset_forces();
