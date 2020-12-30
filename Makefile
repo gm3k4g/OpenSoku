@@ -48,7 +48,7 @@ OBJS = 	src/archive.o\
 		src/music.o\
 		src/scene.o\
 	 		src/chars/suwako.o\
-	 		src/chars/reisen.o\
+	 		src/chars/udonge.o\
 	 		src/chars/aya.o\
 	 		src/chars/komachi.o\
 	 		src/chars/iku.o\
@@ -120,7 +120,7 @@ MKDIR = mkdir "build" -p
 # chars/sanae_bullets.o\
 # chars/meiling_bullets.o\
 # chars/suwako_bullets.o\
-# chars/reisen_bullets.o\
+# chars/udonge_bullets.o\
 # chars/aya_bullets.o\
 # chars/komachi_bullets.o\
 # chars/iku_bullets.o\

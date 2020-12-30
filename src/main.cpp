@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
     /* Setting the characters */
 
     /* Player 1 */
-    char_c *player1 = new char_remilia(inp_createinput(INP_TYPE_BOTH));
+    char_c *player1 = new char_udonge(inp_createinput(INP_TYPE_BOTH));
 
     /* Set profiles here */
     sprintf(buf,"%s/profile/profile1p.pf",path);
