@@ -21,7 +21,7 @@ enum CHAR_ID
     CHAR_ID_YUYUKO = 7,
     CHAR_ID_YUKARI = 8,
     CHAR_ID_SUIKA  = 9,
-    CHAR_ID_REISEN = 10,
+    CHAR_ID_UDONGE = 10,
     CHAR_ID_AYA    = 11,
     CHAR_ID_KOMACHI= 12,
     CHAR_ID_IKU    = 13,

@@ -19,7 +19,7 @@
 #include "chars/meiling.h"
 #include "chars/utsuho.h"
 #include "chars/suwako.h"
-#include "chars/reisen.h"
+#include "chars/udonge.h"
 #include "chars/aya.h"
 #include "chars/komachi.h"
 #include "chars/iku.h"

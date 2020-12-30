@@ -10,7 +10,7 @@
 char_udonge::char_udonge(inp_ab *func,uint8_t pal):
 	char_c::char_c(func)
 {
-	char_id = CHAR_ID_udonge;
+	char_id = CHAR_ID_UDONGE;
 	pgp->load_dat("udonge",pal);
 	char_loadsfx("udonge");
 	cards_load_cards(&chr_cards,"udonge");
