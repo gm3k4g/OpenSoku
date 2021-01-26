@@ -62,6 +62,7 @@ OBJS = 	src/archive.o\
 			src/chars/utsuho.o\
 			src/chars/suika.o\
 			src/chars/yukari.o\
+			src/chars/yuyuko.o\
 			src/chars/remilia.o\
 			src/chars/youmu.o\
 			src/chars/sakuya.o\

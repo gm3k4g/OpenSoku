@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
     /* Setting the characters */
 
     /* Player 1 */
-    char_c *player1 = new char_yukari(inp_createinput(INP_TYPE_BOTH));
+    char_c *player1 = new char_yuyuko(inp_createinput(INP_TYPE_BOTH));
 
     /* Set profiles here */
     sprintf(buf,"%s/profile/profile1p.pf",path);
@@ -247,8 +247,10 @@ int main(int argc, char *argv[])
             continue;
         }
 
-        //Debug
+        //Debug: Player 1 (current state (sequence))
         std::cout<<"player1->GET_SEQ(): "<<player1->get_seq()<<endl;
+        //Debug: Player 1 (x pos)
+        std::cout<<"player1->x:"<<player1->x<<endl;
 
         gr_flip();
     }
