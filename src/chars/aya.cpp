@@ -1452,7 +1452,7 @@ LABEL_255:
               set_seq(9);
             if ( get_frame() > 2 && get_frame() < 8 )
             {
-              //set_vec_speed((render_class *)&cEffectSprite, -20.0, field_7DC);
+              set_vec_speed(-20.0, field_7DC);
               field_7DC = field_7DC - 1.5;
               if ( field_7DC < 6.0 )
                 field_7EC = 6.0;
@@ -2273,7 +2273,7 @@ LABEL_1083:
               }
               if ( get_frame() > 2 && get_frame() < 9 )
               {
-                //set_vec_speed((render_class *)&cEffectSprite, -20.0, field_7DC);
+                set_vec_speed(-20.0, field_7DC);
                 field_7DC = field_7DC - 1.5;
                 if ( field_7DC < 6.0 )
                   field_7EC = 6.0;
@@ -2829,7 +2829,7 @@ LABEL_1321:
           t[2] = 0.0;
           addbullet(this, NULL, 815, x, y + 45.0, dir, 1, t, 1);
           scene_add_effect(this, 127, x, y, dir, -1);
-          //set_vec_speed((render_class *)&cEffectSprite, 0.0, 25.0);
+          set_vec_speed(0.0, 25.0);
           spell_energy_spend(200, 120);
           add_card_energy(50);
           goto LABEL_1336;
@@ -2874,7 +2874,7 @@ LABEL_1356:
             t[2] = 0.0;
             addbullet(this, NULL, 815, x, y + 45.0, dir, 1, t, 1);
             scene_add_effect(this, 127, x, y, dir, -1);
-            //set_vec_speed((render_class *)&cEffectSprite, -45.0, 25.0);
+            set_vec_speed(-45.0, 25.0);
             spell_energy_spend(200, 120);
             add_card_energy(50);
             play_sfx(5);
@@ -2932,7 +2932,7 @@ LABEL_1385:
             t[1] = 0.0;
             t[2] = 0.0;
             addbullet(this, NULL, 815, x, y + 45.0, dir, 1, t, 1);
-            //set_vec_speed((render_class *)&cEffectSprite, 0.0, 25.0);
+            set_vec_speed(0.0, 25.0);
             spell_energy_spend(200, 120);
             add_card_energy(50);
             play_sfx(5);
@@ -3008,7 +3008,7 @@ LABEL_1424:
               t[1] = 0.0;
               t[2] = 0.0;
               addbullet(this, NULL, 815, x, y + 45.0, dir, 1, t, 1);
-              //set_vec_speed((render_class *)&cEffectSprite, 45.0, 25.0);
+              set_vec_speed(45.0, 25.0);
               spell_energy_spend(200, 120);
               add_card_energy(50);
               play_sfx(5);
@@ -3140,7 +3140,7 @@ LABEL_1531:
             t[2] = 0.0;
             addbullet(this, NULL, 816, x, y + 45.0, dir, 1, t, 3);
             scene_add_effect(this, 127, x, y, dir, -1);
-            //set_vec_speed((render_class *)&cEffectSprite, -45.0, 15.0);
+            set_vec_speed(-45.0, 15.0);
             spell_energy_spend(200, 120);
             add_card_energy(50);
             play_sfx(5);
@@ -3229,7 +3229,7 @@ LABEL_1534:
 LABEL_1493:
             addbullet(this, NULL, 816, x, y + 45.0, dir, 1, t, 3);
             scene_add_effect(this, 127, x, y, dir, -1);
-            //set_vec_speed((render_class *)&cEffectSprite, 0.0, 15.0);
+            set_vec_speed(0.0, 15.0);
             spell_energy_spend(200, 120);
             add_card_energy(50);
             play_sfx(5);
@@ -3381,7 +3381,7 @@ LABEL_1636:
               t[2] = 0.0;
               addbullet(this, NULL, 816, x, y + 45.0, dir, 1, t, 3);
               scene_add_effect(this, 127, x, y, dir, -1);
-              //set_vec_speed((render_class *)&cEffectSprite, 45.0, 15.0);
+              set_vec_speed(45.0, 15.0);
               spell_energy_spend(200, 120);
               add_card_energy(50);
               play_sfx(5);
@@ -3521,7 +3521,7 @@ LABEL_1708:
                 t[1] = 80.0;
                 t[2] = 0.0;
                 set_subseq(1);
-                //set_vec_speed((render_class *)&cEffectSprite, 0.0, 15.0);
+                set_vec_speed(0.0, 15.0);
               }
               if ( field_7D0 == 1 )
               {
@@ -3529,7 +3529,7 @@ LABEL_1708:
                 t[1] = 100.0;
                 t[2] = 0.0;
                 set_subseq(4);
-                //set_vec_speed((render_class *)&cEffectSprite, -45.0, 15.0);
+                set_vec_speed(-45.0, 15.0);
               }
               if ( field_7D0 == 2 )
               {
@@ -3537,7 +3537,7 @@ LABEL_1708:
                 t[1] = 120.0;
                 t[2] = 0.0;
                 set_subseq(10);
-                //set_vec_speed((render_class *)&cEffectSprite, -90.0, 15.0);
+                set_vec_speed(-90.0, 15.0);
               }
               if ( field_7D0 == -1 )
               {
@@ -3545,7 +3545,7 @@ LABEL_1708:
                 t[1] = 100.0;
                 t[2] = 0.0;
                 set_subseq(7);
-                //set_vec_speed((render_class *)&cEffectSprite, 45.0, 15.0);
+                set_vec_speed(45.0, 15.0);
               }
               if ( field_7D0 == -2 )
               {
@@ -3553,7 +3553,7 @@ LABEL_1708:
                 t[1] = 100.0;
                 t[2] = 0.0;
                 set_subseq(13);
-                //set_vec_speed((render_class *)&cEffectSprite, 90.0, 15.0);
+                set_vec_speed(90.0, 15.0);
               }
               addbullet(this, NULL, 816, x, t[2] + y, dir, 1, t, 3);
               if ( char_on_ground_flag() )
@@ -3910,7 +3910,7 @@ LABEL_951:
             spell_energy_spend(200, 120);
             add_card_energy(50);
             play_sfx(15);
-            //set_vec_speed((render_class *)&cEffectSprite, 70.0, 25.0);
+            set_vec_speed(70.0, 25.0);
             t[0] = 70.0;
             t[1] = 0.0;
             t[2] = 2.0;
@@ -3972,7 +3972,7 @@ LABEL_951:
               spell_energy_spend(200, 120);
               add_card_energy(50);
               play_sfx(15);
-              //set_vec_speed((render_class *)&cEffectSprite, 70.0, 25.0);
+              set_vec_speed(70.0, 25.0);
               t[0] = 70.0;
               t[1] = 0.0;
               t[2] = 2.0;
@@ -4401,7 +4401,7 @@ LABEL_1950:
           if ( !get_subseq() && !get_frame_time() && get_frame() == 4 )
           {
             play_sfx(15);
-            //set_vec_speed((render_class *)&cEffectSprite, 70.0, 25.0);
+            set_vec_speed(70.0, 25.0);
             add_card_energy(25);
           }
           if ( get_subseq() == 3 && !get_frame_time() && get_frame() == 4 )
@@ -4420,7 +4420,7 @@ LABEL_1950:
             t[1] = 15.0;
             t[2] = 0.0;
             addbullet(this, NULL, 822, (double)(47 * (char)dir) + x, y + 106.0, dir, 1, t, 3);
-            //set_vec_speed((render_class *)&cEffectSprite, 0.0, 25.0);
+            set_vec_speed(0.0, 25.0);
             spell_energy_spend(200, 120);
             add_card_energy(25);
             play_sfx(19);
@@ -5440,7 +5440,7 @@ LABEL_2637:
             t[2] = 0.0; //(added here by me)
             addbullet(this, NULL, 862, x, y + 45.0, dir, 1, t, 2);
             scene_add_effect(this, 127, x, y, dir, -1);
-            //set_vec_speed((render_class *)&cEffectSprite, 0.0, 40.0);
+            set_vec_speed(0.0, 40.0);
 LABEL_1336:
             play_sfx(5);
 LABEL_1337:
@@ -5646,7 +5646,7 @@ LABEL_2680:
             {
               scene_add_effect(this, 127, x, getlvl_height(), dir, -1);
             }
-            //set_vec_speed((render_class *)&cEffectSprite, 0.0, 40.0);
+            set_vec_speed(0.0, 40.0);
             play_sfx(5);
 LABEL_2697:
             if ( get_subseq() == 1 && get_elaps_frames() > 20 )
@@ -6241,7 +6241,7 @@ LABEL_650:
             case 3:
               v982 = 1.5;
 LABEL_2873:
-              //set_vec_speed((render_class *)&cEffectSprite, field_7DC, v982);
+              set_vec_speed(field_7DC, v982);
               break;
             default:
               break;
@@ -6368,6 +6368,7 @@ LABEL_2901:
     }
   }
 }
+
 
 
 
