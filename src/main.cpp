@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
 
     /* Player 1 */
     // NOTE: issues seem to stem from `next_subseq()`; or is it just me?
-    char_c *player1 = new char_komachi(inp_createinput(INP_TYPE_BOTH));
+    char_c *player1 = new char_reimu(inp_createinput(INP_TYPE_BOTH));
 
     /* Set profiles here */
     sprintf(buf,"%s/profile/profile1p.pf",path);

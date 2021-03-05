@@ -1,9 +1,5 @@
 #Arguments specified below
 #==================================================
-#Required for SFML
-LIBS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
-
-#==================================================
 #LINUX options
 
 #Game
@@ -15,6 +11,8 @@ CXX = g++
 #gcc compiler
 CC = gcc
 
+# SFML libraries
+LIBS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 #==================================================
 # Flags
 CFLAGS = -Wall -Wextra
@@ -29,8 +27,14 @@ CFLAGS = -Wall -Wextra
 #MINGW compiler
 
 #g++ compiler
+#CC_WIN = mingw32-gcc
 
 #gcc compiler
+#CXX_WIN = mingw32-g++
+
+#SFML libraries (windows)
+#LIBS_WIN = -L$(MINGW)/lib/ -lmingw32  -lsfml-system  -lsfml-window -lsfml-graphics -lsfml-audio -mwindows
+
 #==================================================
 
 
@@ -153,16 +157,6 @@ MKDIR = mkdir "build" -p
 
 #-o 		---: Generate object file.
 #==================================================
-#Linux build v0.01
-# Changelog: Initial creation of the linux makefile code!
-#=================
-#Linux build v0.02
-# Changelog:
-#	-Now creating "src/build" to avoid makefile errors
-#=================
-#Linux build v0.03
-# Changelog:
-#	-Release and Debug versions
 #------------
 #Experimental!
 #Build everything
