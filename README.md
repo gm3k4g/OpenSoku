@@ -47,21 +47,27 @@ All the above commands will install the required files for SFML.
 
 ## Windows:
 
-* For Windows 10 (32/64 bit)
+(Tested on Windows 10, 64 bit)
 ###		1. 	Getting SFML
-			Go to the site of SFML, and in the Download section, find "MinGW (DW2) - 32-bit".
+			
+* Go to the site of SFML, and in the Download section, find "MinGW (DW2) - 32-bit".
 			Download the file, move it in the root directory of OpenSoku and extract the **lib**, **bin** and **include** folders. Make sure the **lib** and **include** folders are in the root directory of the project.
-			From the **bin** folder, take all the **.dll** files (ONLY take the files that end in `-2.dll`, i.e. `sfml-audio-2.dll`), and put them all inside the **build** folder.
+
+* From the **bin** folder, take all the **.dll** files (ONLY take the files that end in `-2.dll`, i.e. `sfml-audio-2.dll`), and put them all inside the **build** folder.
 ###		2. Getting mingw-w64 (32 bit) [(Link)](http://mingw-w64.org/doku.php/download)
-			Click the link above. You will see multiple downloads, but look specifically for `MingW-W64-builds`. (It should be located just below `MacPorts` and above `Msys2`.) Click on it, then in the following page click on `Sourceforge`. The file should start downloading automatically. When it's finished, execute it. An installer will pop up.
-			Once the installer pops up, click on `Next>`, and then you should see several settings. The only one you should change is `Threads`; Click on `posix`, and change it to `win32`. Then click `Next>`.
-			It is preferable to change the installation directory to `C:\mingw-w64`, but if you wish, you can install it wherever else you want. For this installation, I will assume you have installed mingw-w64 under the directory `C:\mingw-w64`. After you set the install destination, click `Next>`, and finish off the setup.
-			After this, press the Windows key, and type "edit environment". `Edit environment variables for your account` should show up. Click on that.
-			In the window that appears, look at the top part of the window for `Path`, and double click on it. Another window should pop up. Click on the `New` button on the right side.
-			At this point, I will still assume that you installed mingw-w64 under `C:\mingw-w64`. Therefore, you should copy the following:
-			```C:\mingw-w64\mingw32\bin```
-			And then, after you've clicked the `New` button, paste the line above, and press enter. Click OK, and that should be all.
-			Do note however, if you've installed `mingw-w64` under a different directory, then please make sure that you copy and paste the path where you've installed `mingw-w64` and edit it accordingly so that it points towards `\mingw32\bin`, then paste that in instead.
+* Click the link above. You will see multiple downloads, but look specifically for `MingW-W64-builds`. (It should be located just below `MacPorts` and above `Msys2`.) Click on it, then in the following page click on `Sourceforge`. The file should start downloading automatically. When it's finished, execute it. An installer will pop up.
+* Once the installer pops up, click on `Next>`, and then you should see several settings. The only one you should change is `Threads`; Click on `posix`, and change it to `win32`. Then click `Next>`.
+
+* It is preferable to change the installation directory to `C:\mingw-w64`, but if you wish, you can install it wherever else you want. For this installation, I will assume you have installed mingw-w64 under the directory `C:\mingw-w64`. After you set the install destination, click `Next>`, and finish off the setup.
+* After this, press the Windows key, and type "edit environment". `Edit environment variables for your account` should show up. Click on that.
+* In the window that appears, look at the top part of the window for `Path`, and double click on it. Another window should pop up. Click on the `New` button on the right side.
+
+* At this point, I will still assume that you installed mingw-w64 under `C:\mingw-w64`. Therefore, you should copy the following:
+```
+C:\mingw-w64\mingw32\bin
+```
+* And then, after you've clicked the `New` button, paste the line above, and press enter. Click OK, and that should be all.
+* Do note however, if you've installed `mingw-w64` under a different directory, then please make sure that you copy and paste the path where you've installed `mingw-w64` and edit it accordingly so that it points towards `\mingw32\bin`, then paste that in instead.
 
 ### Compiling
 
