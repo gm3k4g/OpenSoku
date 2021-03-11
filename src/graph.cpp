@@ -327,29 +327,29 @@ void gr_load_shader_from_mem(gr_shader *shd, const char *vertex,const char *pixe
 void gr_shader_set_texture(gr_shader *shd, const char *param, gr_tex *tex)
 {
     if (tex == NULL)
-        shd->setParameter(param,sf::Shader::CurrentTexture);
+        shd->setUniform(param,sf::Shader::CurrentTexture);
     else
-        shd->setParameter(param,*tex);
+        shd->setUniform(param,*tex);
 }
 
 void gr_shader_set(gr_shader *shd, const char *param, float x)
 {
-    shd->setParameter(param,x);
+    shd->setUniform(param,x);
 }
 
 void gr_shader_set(gr_shader *shd, const char *param, float x, float y)
 {
-    shd->setParameter(param,x,y);
+    shd->setUniform(param, sf::Glsl::Vec2(x, y));
 }
 
 void gr_shader_set(gr_shader *shd, const char *param, float x, float y, float z)
 {
-    shd->setParameter(param,x,y,z);
+    shd->setUniform(param,sf::Glsl::Vec3(x,y,z));
 }
 
 void gr_shader_set(gr_shader *shd, const char *param, float x, float y, float z, float w)
 {
-    shd->setParameter(param,x,y,z,w);
+    shd->setUniform(param,sf::Glsl::Vec4(x,y,z,w));
 }
 
 gr_info gr_get_info(gr_sprite *spr)

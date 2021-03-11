@@ -3,6 +3,7 @@
 
 #Ignore build's executable and misc. files
 build/openSoku
+build/openSoku.exe
 build/profile
 build/th105*
 build/th123*
