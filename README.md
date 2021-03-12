@@ -33,8 +33,8 @@ Then, put them inside the **build/profile** folder, and you're set.
 
 ## 	Linux, -nix systems:
 
-* You will need SFML 2.0 (or above).
-###     1. Installing SFML 2.0 (or above)
+* You will need SFML 2.5 (or above).
+###     1. Installing SFML 2.5 (or above)
 * On debian systems, simply open up a terminal and type the following
 ```
 sudo apt-get install libsfml-dev
