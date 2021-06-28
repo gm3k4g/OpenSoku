@@ -8,3 +8,13 @@ build/profile
 build/th105*
 build/th123*
 charFuncs/
+
+#Ignore SFML files
+SFML*
+build/sfml*
+build/openal*
+bin
+doc
+examples
+include
+lib

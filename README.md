@@ -1,6 +1,88 @@
 # OpenSoku
 An -open source- implementation of the fighting game Touhou Hisoutensoku 12.3, developed by Twilight Frontier.
 
+## Current progress:
+
+#### TODOs:
+- Put label code into functions if possible
+- Some characters don't seem to have shadows on the ground
+
+### Characters:
+  
+- Suwako - **Current W.I.P.!**
+ - func10() pending 
+ - bullets pending
+  
+- Udonge 
+ - **func10() DONE** 
+ - bullets pending
+    
+- Aya 
+ - **func10() DONE** (attacks/specials issues, j2A-could be missing a ``set_vec_speed()``?)
+ - bullets pending
+  
+- Komachi
+ - **func10() DONE** (attack/specials issues, 6A)
+ - bullets pending
+  
+- Iku
+ - func10() pending
+ - bullets pending
+  
+- Tenshi
+ - func10() pending
+ - bullets pending
+  
+- **Alice - DONE**(some issues)
+  
+- **Marisa - DONE**
+  
+- **Cirno - DONE**(some func10() issues?)
+  
+- Utsuho
+ - func10() ***unfinished***
+ - bullets pending
+  
+- Suika
+ - **func10() DONE** (attack issue, specifically j5B)
+ - bullets pending
+  
+- Yukari
+ - **func10() DONE** (attacks/specials issues)
+ - bullets pending
+  
+- Yuyuko
+ - **func10() DONE** (attacks/specials issues)
+ - bullets pending
+  
+- Remilia
+ - func10() **RE-DO** pending
+ - bullets pending
+  
+- Youmu
+ - func10() **RE-DO** pending
+ - bullets pending
+  
+- Sakuya
+ - **func10() DONE** (specials issues)
+ - bullets pending
+  
+- Reimu
+ - **func10() DONE** (some issues)
+ - bullets pending
+  
+- Sanae
+ - func10() pending
+ - bullets pending
+  
+- Patchouli 
+ - **func10() DONE**
+ - bullets pending
+  
+- Meiling
+ - func10() **RE-DO** pending
+ - bullets pending
+
 ## Getting started
 
 Follow the instructions below to get a working copy of the still in progress project below.
@@ -28,10 +110,10 @@ profile2.pf
 Then, put them inside the **build/profile** folder, and you're set.
 (This may most likely change later on.)
 
-###			3. Prerequisites
+###     3. Prerequisites
 
 
-## 	Linux, -nix systems:
+##  Linux, -nix systems:
 
 * You will need SFML 2.5 (or above).
 ###     1. Installing SFML 2.5 (or above)
@@ -48,13 +130,13 @@ All the above commands will install the required files for SFML.
 ## Windows:
 
 (Tested on Windows 10, 64 bit)
-###		1. 	Getting SFML
-			
+###   1.  Getting SFML
+      
 * Go to the site of SFML, and in the Download section, find "MinGW (DW2) - 32-bit".
-			Download the file, move it in the root directory of OpenSoku and extract the **lib**, **bin** and **include** folders. Make sure the **lib** and **include** folders are in the root directory of the project.
+      Download the file, move it in the root directory of OpenSoku and extract the **lib**, **bin** and **include** folders. Make sure the **lib** and **include** folders are in the root directory of the project.
 
 * From the **bin** folder, take all the **.dll** files (ONLY take the files that end in `-2.dll`, i.e. `sfml-audio-2.dll`), and put them all inside the **build** folder.
-###		2. Getting mingw-w64 (32 bit) [(Link)](http://mingw-w64.org/doku.php/download)
+###   2. Getting mingw-w64 (32 bit) [(Link)](http://mingw-w64.org/doku.php/download)
 * Click the link above. You will see multiple downloads, but look specifically for `MingW-W64-builds`. (It should be located just below `MacPorts` and above `Msys2`.) Click on it, then in the following page click on `Sourceforge`. The file should start downloading automatically. When it's finished, execute it. An installer will pop up.
 * Once the installer pops up, click on `Next>`, and then you should see several settings. The only one you should change is `Threads`; Click on `posix`, and change it to `win32`. Then click `Next>`.
 
