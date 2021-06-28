@@ -11,28 +11,28 @@ An -open source- implementation of the fighting game Touhou Hisoutensoku 12.3, d
 ### Characters:
   
 - Suwako - **Current W.I.P.!**
- --func10() pending 
- --bullets pending
+  -func10() pending 
+  -bullets pending
   
 - Udonge 
- --**func10() DONE** 
- --bullets pending
+  -**func10() DONE** 
+  -bullets pending
     
 - Aya 
- --**func10() DONE** (attacks/specials issues, j2A-could be missing a ``set_vec_speed()``?)
- --bullets pending
+  -**func10() DONE** (attacks/specials issues, j2A-could be missing a ``set_vec_speed()``?)
+  -bullets pending
   
 - Komachi
- --**func10() DONE** (attack/specials issues, 6A)
- --bullets pending
+  -**func10() DONE** (attack/specials issues, 6A)
+  -bullets pending
   
 - Iku
- --func10() pending
- --bullets pending
+  -func10() pending
+  -bullets pending
   
 - Tenshi
- --func10() pending
- --bullets pending
+  -func10() pending
+  -bullets pending
   
 - **Alice - DONE**(some issues)
   
@@ -41,48 +41,48 @@ An -open source- implementation of the fighting game Touhou Hisoutensoku 12.3, d
 - **Cirno - DONE**(some func10() issues?)
   
 - Utsuho
- --func10() ***unfinished***
- --bullets pending
+  -func10() ***unfinished***
+  -bullets pending
   
 - Suika
- --**func10() DONE** (attack issue, specifically j5B)
- --bullets pending
+  -**func10() DONE** (attack issue, specifically j5B)
+  -bullets pending
   
 - Yukari
- --**func10() DONE** (attacks/specials issues)
- --bullets pending
+  -**func10() DONE** (attacks/specials issues)
+  -bullets pending
   
 - Yuyuko
- --**func10() DONE** (attacks/specials issues)
- --bullets pending
+  -**func10() DONE** (attacks/specials issues)
+  -bullets pending
   
 - Remilia
- --func10() **RE-DO** pending
- --bullets pending
+  -func10() **RE-DO** pending
+  -bullets pending
   
 - Youmu
- --func10() **RE-DO** pending
- --bullets pending
+  -func10() **RE-DO** pending
+  -bullets pending
   
 - Sakuya
- --**func10() DONE** (specials issues)
- --bullets pending
+  -**func10() DONE** (specials issues)
+  -bullets pending
   
 - Reimu
- --**func10() DONE** (some issues)
- --bullets pending
+  -**func10() DONE** (some issues)
+  -bullets pending
   
 - Sanae
- --func10() pending
- --bullets pending
+  -func10() pending
+  -bullets pending
   
 - Patchouli 
- --**func10() DONE**
- --bullets pending
+  -**func10() DONE**
+  -bullets pending
   
 - Meiling
- --func10() **RE-DO** pending
- --bullets pending
+  -func10() **RE-DO** pending
+  -bullets pending
 
 ## Getting started
 
